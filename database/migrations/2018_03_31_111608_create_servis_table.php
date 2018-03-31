@@ -15,14 +15,15 @@ class CreateServisTable extends Migration
     {
         Schema::create('servis', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
+            $table->string('adi')->unique();
             $table->string('plaka'); // plaka numurası
-            $table->string('driver_name'); // şöförün adi
-            $table->string('driver_phone_number'); // şöförün numurası
-            $table->boolean('status'); // active or not 
+            $table->string('sofor_adi'); // şöförün adi
+            $table->string('sofor_numurasi'); // şöförün numurası
+            $table->boolean('durum'); // active or not 
             $table->timestamps();
         });
     }
+
 
     /**
      * Reverse the migrations.

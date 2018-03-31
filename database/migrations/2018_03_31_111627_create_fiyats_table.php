@@ -15,15 +15,11 @@ class CreateFiyatsTable extends Migration
     {
         Schema::create('fiyats', function (Blueprint $table) {
             $table->increments('id');
-            $table->float('saat_price');
-            $table->float('saat_puan');
-            $table->integer('kort_id')->unsigned();
+            $table->float('saat_fiyati');
+            $table->float('saat_puani')->default(5);
             $table->timestamps();
         });
-        Schema::table('fiyats', function ( $table) {
-            $table->foreign('kort_id')->references('id')->on('korts');
-           });
-        
+
     }
 
     /**
@@ -33,10 +29,7 @@ class CreateFiyatsTable extends Migration
      */
     public function down()
     {
-        Schema::table('fiyats', function ( $table) {
-            $table->dropForeign('fiyats_kort_id_foreign');
-        });
-           
+        
         Schema::dropIfExists('fiyats');
     }
 }

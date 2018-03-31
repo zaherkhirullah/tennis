@@ -6,7 +6,6 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Http\Requests\FiyatValidation;
 
-
 use App\Http\Models\Fiyat;
 use App\Http\Models\Kort;
 

@@ -44,12 +44,42 @@
                             @lang('lang.home')
                             </a>
                         </li>
+                        <li class="nav-item ">
+                            <a class="btn btn-cta" href="{{ route('prices') }}"> 
+                            <i class="ion ion-cash" aria-hidden="true"></i> 
+                            @lang('lang.price')
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="btn btn-cta" href="{{ route('terms') }}"> 
+                            <i class="ion ion-code" aria-hidden="true"></i> 
+                            @lang('lang.terms')
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="btn btn-cta" href="{{ route('contacts') }}"> 
+                            <i class="fa fa-phone" aria-hidden="true"></i> 
+                            @lang('lang.contacts')
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="btn btn-cta" href="{{ route('aboutUs') }}"> 
+                            <i class="ion ion-home" aria-hidden="true"></i> 
+                            @lang('lang.aboutus')
+                            </a>
+                        </li>
+                        <li class="nav-item ">
+                            <a class="btn btn-cta" href="{{ route('rezervasyonAl') }}"> 
+                            <i class="ion ion-home" aria-hidden="true"></i> 
+                            @lang('lang.rezervation')
+                            </a>
+                        </li>
                        <!-- Authentication Links -->
                         @include("_includes.partials.guest")
                         
                         <!-- Language Links -->                        
-                        <li class="dropdown nav-item">
-                            <a href="#" class="dropdown-toggle"  data-toggle="dropdown">  
+                        <li class="dropdown nav-item-cta ">
+                            <a href="#" class="btn btn-cta dropdown-toggle"  data-toggle="dropdown">  
                                 <i class="fa fa-language" aria-hidden="true"></i> 
                             </a> 
                             <ul class="dropdown-menu">
@@ -63,6 +93,9 @@
         </nav>
 
         <main class="py-4">
+            {{--   error or success flash ssession messages         --}}
+            @include("_includes.partials.flash_message") 
+
             @yield('content')
         </main>
     </div>

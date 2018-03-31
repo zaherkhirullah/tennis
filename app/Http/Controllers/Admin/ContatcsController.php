@@ -15,15 +15,6 @@ class ContatcsController extends Controller
         //
     }
 
-    public function create()
-    {
-        //
-    }
-    public function store(ContactsValidation $request)
-    {
-        //
-    }
-
     public function show(Contatcs $contatcs)
     {
         //
@@ -39,7 +30,6 @@ class ContatcsController extends Controller
         //
     }
 
- 
     public function destroy(Contatcs $contatcs)
     {
         //

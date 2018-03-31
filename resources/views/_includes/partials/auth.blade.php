@@ -15,7 +15,7 @@
                                 <img src="{{ asset('user/image/Auth::user()->avatar') }}">
                                 @endif  --}}
                             </span>
-                    {{ Auth::user()->username }} <span class="caret"></span>
+                    {{ Auth::user()->adisoyadi }} <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                     <span class="arrow top"></span>

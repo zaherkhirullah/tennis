@@ -9,7 +9,7 @@ use App\Http\Models\Rezervasyon;
 class Kort extends Model
 {
     protected $table = 'korts';
-    protected $fillable = ['name','status','type', ];
+    protected $fillable = ['adi','durum','tip','fiyat_id' ];
     
     public function Rezervasyons()
     {

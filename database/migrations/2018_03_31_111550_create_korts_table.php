@@ -6,29 +6,30 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateKortsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+   
     public function up()
     {
         Schema::create('korts', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('name')->unique();
-            $table->boolean('status'); // active or not 
-            $table->boolean('type'); // tek or cift 
+            $table->string('adi')->unique();
+            $table->boolean('durum'); // active or not 
+            $table->boolean('tip'); // tek or cift 
+            $table->integer('fiyat_id')->unsigned();
             $table->timestamps();
-        });
+            });
+            
+        // Schema::table('korts', function ( $table) {
+        //     $table->foreign('fiyat_id')->references('id')->on('fiyats');
+        //    });
+        
     }
 
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+
     public function down()
     {
+        // Schema::table('korts', function ( $table) {
+        //     $table->dropForeign('korts_fiyat_id_foreign');
+        // });
         Schema::dropIfExists('korts');
     }
 }

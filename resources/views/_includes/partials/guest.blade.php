@@ -13,22 +13,16 @@
         </a>
     </li>
 @else
-    <li class="dropdown">
+    <li class="dropdown  nav-item-cta" >
         @if(Route::is('homepage'))
             <span class="nav-item nav-item-cta last">
                 <a class="btn btn-cta btn-cta-secondary" href="{{ url('user/dashboard') }}"> @lang('lang.my_account')
                 </a>
             </span>
         @else
-            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
-                <span class="thumb-sm avatar pull-left">
-                        {{--  @if(Auth::user()->avatar==null)
-                        <img src="{{ asset('styles/member/images/avatar.jpg') }}">
-                        @else
-                        <img src="{{ asset('user/image/Auth::user()->avatar') }}">
-                        @endif  --}}
-                    </span>
-                {{ Auth::user()->username }} <span class="caret"></span>
+            <a href="#" class="dropdown-toggle btn btn-cta " data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                
+                {{ Auth::user()->adisoyadi }}
             </a>
         @endif
         <ul class="dropdown-menu">

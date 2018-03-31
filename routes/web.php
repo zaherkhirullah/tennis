@@ -83,7 +83,7 @@ Route::prefix('/')->group(function()
   {
     Route::get('/home',         'HomeController@index')->name('home'); // ana sayfa
     Route::get('/rezervasyonAl', 'HomeController@rezervasyonAl')->name('rezervasyonAl'); // randevo alma sayfa 
-    Route::get('/contacts',      'HomeController@contacts')->name('contacts'); // contact sayfa 
+    Route::get('/contacts',      'ContactsController@create')->name('contacts'); // contact sayfa 
     Route::get('/prices',        'HomeController@prices')->name('prices'); // kiralama fiyatlari
     Route::get('/aboutUs',       'HomeController@aboutUs')->name('aboutUs'); // hakkimizde
     Route::get('/terms',         'HomeController@terms')->name('terms'); // Kurallar

@@ -15,8 +15,8 @@ class CreateKiralayansTable extends Migration
     {
         Schema::create('kiralayans', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('phone_number')->unique();
-            $table->string('full_name');
+            $table->string('telefon')->unique();
+            $table->string('adi');
             $table->timestamps();
         });
     }

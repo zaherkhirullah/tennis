@@ -8,6 +8,8 @@ return [
     'sign_up_free'      => ' التسجيل مجانا',    
     'login'             => ' تسجيل الدخول ',
     'logout'            => ' تسجيل الخروج ',
+    'aboutus'             => 'من نحن',       
+    'rezervasyonAl'      => 'موعد ',       
     'home_page'         => ' الصفحة الرئيسية',
     'home'              => ' الرئيسية',
     'dashboard'         => ' الرئيسية',

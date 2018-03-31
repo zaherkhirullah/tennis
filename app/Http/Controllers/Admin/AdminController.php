@@ -12,7 +12,7 @@ class AdminController extends Controller
 
     public function index()
     {
-            // ornek
+     // ornek
         $data['tasks'] = [
             [
                     'name' => 'Design New Dashboard',
@@ -42,6 +42,7 @@ class AdminController extends Controller
     ];
         return view("admin.dashboard")->with($data);
     }
+    
 
     
 }

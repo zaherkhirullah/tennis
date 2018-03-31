@@ -12,8 +12,8 @@ class Rezervasyon extends Model
     protected $table = 'rezervasyons';
     protected $fillable = [
         ' kort_id','kiralayan_id','servis_id',
-        'start_at','end_at','date','servis_address',
-        'servis_time','price','pay_status',
+        'baslangis_saat','bitis_at','tarih','servis_addresi',
+        'servis_saat','odenecek','odenme_durumu',
     ];
     
     public function kiralayan()

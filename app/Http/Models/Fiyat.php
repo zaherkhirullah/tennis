@@ -7,8 +7,8 @@ use App\Http\Models\Kort;
 
 class Fiyat extends Model
 {
-    protected $table = 'roles';
-    protected $fillable = ['name','display_name',];
+    protected $table = 'fiyats';
+    protected $fillable = ['saat_fiyati', 'saat_puani',];
     
     public function Kort()
     {

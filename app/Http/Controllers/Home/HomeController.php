@@ -14,7 +14,7 @@ class HomeController extends Controller
     
     public function rezervasyonAl()
     {
-        return view('home.contacts');
+        return view('home.rezervasyonAl');
     }
 
     public function aboutUs()

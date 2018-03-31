@@ -9,7 +9,7 @@ use App\User;
 class Kiralayan extends Model
 {
     protected $table = 'kiralayans';
-    protected $fillable = ['phone_number','full_name',];
+    protected $fillable = ['telefon','adi',];
     
     public function Rezervasyons()
     {

@@ -6,11 +6,7 @@ use Illuminate\Database\Migrations\Migration;
 
 class CreateRezervasyonsTable extends Migration
 {
-    /**
-     * Run the migrations.
-     *
-     * @return void
-     */
+
     public function up()
     {
         Schema::create('rezervasyons', function (Blueprint $table) {
@@ -18,16 +14,18 @@ class CreateRezervasyonsTable extends Migration
             $table->integer('kort_id')->unsigned();
             $table->integer('kiralayan_id')->unsigned();
             $table->integer('servis_id')->unsigned();
-            $table->time('start_at');   // başlangiş saati 
-            $table->time('end_at');     // bitiş saati 
-            $table->timestamp('date');  // tarih  
-            $table->string('servis_address');  // servis gidecek adresi
+            $table->time('baslangis_saat');   // başlangiş saati 
+            $table->time('bitis_saat');     // bitiş saati 
+            $table->timestamp('tarih');  // tarih  
+            $table->string('servis_addresi');  // servis gidecek adresi
             // servis saati her zaman rezervasyonun saati 30 dakika önce                       
-            $table->time('servis_time');   
-            $table->float('price'); // odenecek miktari 
-            $table->boolean('pay_status'); /// paid or not // odenmiş yada odenmemiş
+            $table->time('servis_saat');   
+            $table->float('odenecek'); // odenecek miktari 
+            $table->boolean('odenme_durumu'); /// paid or not // odenmiş yada odenmemiş
             $table->timestamps();
         });
+
+
     }
 
     /**
