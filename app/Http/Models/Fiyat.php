@@ -16,7 +16,7 @@ class Fiyat extends Model
     }
     public function AllDeletedFiyatlar()
     {
-        return $this->where(['isDeleted',1])->orderBy('updated_at','desc');
+        return $this->where('isDeleted',1)->orderBy('updated_at','desc');
         
     }
     public function kortlar()

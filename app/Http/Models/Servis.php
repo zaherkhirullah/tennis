@@ -17,7 +17,7 @@ class Servis extends Model
     }
     public function AllDeletedServisler()
     {
-        return $this->where(['isDeleted',1])->orderBy('updated_at','desc');
+        return $this->where('isDeleted',1)->orderBy('updated_at','desc');
         
     }
     public function Rezervasyons()

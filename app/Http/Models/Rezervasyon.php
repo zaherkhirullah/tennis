@@ -22,7 +22,7 @@ class Rezervasyon extends Model
     }
     public function AllDeletedRezervasyonlar()
     {
-        return $this->where(['isDeleted',1])->orderBy('updated_at','desc');
+        return $this->where('isDeleted',1)->orderBy('updated_at','desc');
         
     }
 

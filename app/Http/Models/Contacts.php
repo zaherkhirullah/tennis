@@ -15,7 +15,7 @@ class Contacts extends Model
     }
     public function AllDeletedContacts()
     {
-        return $this->where(['isDeleted',1])->orderBy('updated_at','desc');
+        return $this->where('isDeleted',1)->orderBy('updated_at','desc');
         
     }
     

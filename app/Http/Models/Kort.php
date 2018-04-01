@@ -17,7 +17,7 @@ class Kort extends Model
     }
     public function AllDeletedKortlar()
     {
-        return $this->where(['isDeleted',1])->orderBy('updated_at','desc');
+        return $this->where('isDeleted',1)->orderBy('updated_at','desc');
         
     }
 
