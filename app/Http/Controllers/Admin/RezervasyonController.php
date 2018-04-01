@@ -23,7 +23,7 @@ class RezervasyonController extends Controller
     {
         $rezervasyon = new Rezervasyon;
         $rezervasyonlar = $rezervasyon->AllDeletedRezervasyonlar()->get();
-        return view('admin.rezervasyon.silindi',compact('rezervasyonlar'));
+        return view('admin.rezervasyon.index',compact('rezervasyonlar'));
     }
 
   

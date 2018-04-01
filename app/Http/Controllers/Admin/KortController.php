@@ -20,7 +20,7 @@ class KortController extends Controller
     {
         $kort = new Kort;
         $kortlar = $kort->AllDeletedKortlar()->get();
-        return view('admin.kort.silindi',compact('kortlar'));
+        return view('admin.kort.index',compact('kortlar'));
     }
 
   

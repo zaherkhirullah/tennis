@@ -20,12 +20,16 @@ class ContactsController extends Controller
     {
         $contact = new Contacts;
         $contacts = $contact->AllDeletedContacts()->get();
-        return view('admin.contacts.silindi',compact('contacts'));
+        return view('admin.contacts.index',compact('contacts'));
     }
 
     public function show(Contatcs $contatcs)
     {
         //
+    }
+    public function create()
+    {
+        return view('admin.contacts.create');
     }
 
     public function edit(Contatcs $contatcs)

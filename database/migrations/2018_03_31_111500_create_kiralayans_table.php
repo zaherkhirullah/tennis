@@ -17,6 +17,7 @@ class CreateKiralayansTable extends Migration
             $table->increments('id');
             $table->string('telefon')->unique();
             $table->string('adi');
+            $table->boolean('isDeleted')->default(0); // active or not             
             $table->timestamps();
         });
     }

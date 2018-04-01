@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 class Contacts extends Model
 {
     protected $table = 'contacts';
-    protected $fillable = ['adi','email','konu','mesaje',];
+    protected $fillable = ['adi','email','konu','mesaje','isDeleted',];
     
     public function AllContacts()
     {
@@ -15,7 +15,7 @@ class Contacts extends Model
     }
     public function AllDeletedContacts()
     {
-        return $this->orderBy('updated_at','desc');
+        return $this->where(['isDeleted',1])->orderBy('updated_at','desc');
         
     }
     

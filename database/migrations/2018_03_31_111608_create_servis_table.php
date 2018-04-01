@@ -19,7 +19,7 @@ class CreateServisTable extends Migration
             $table->string('plaka'); // plaka numurası
             $table->string('sofor_adi'); // şöförün adi
             $table->string('sofor_numurasi'); // şöförün numurası
-            $table->boolean('durum'); // active or not 
+            $table->boolean('isDeleted')->default(0); // active or not 
             $table->timestamps();
         });
     }

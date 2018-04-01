@@ -22,6 +22,7 @@ class CreateRezervasyonsTable extends Migration
             $table->time('servis_saat');   
             $table->float('odenecek'); // odenecek miktari 
             $table->boolean('odenme_durumu'); /// paid or not // odenmiş yada odenmemiş
+            $table->boolean('isDeleted')->default(0); // active or not             
             $table->timestamps();
         });
 

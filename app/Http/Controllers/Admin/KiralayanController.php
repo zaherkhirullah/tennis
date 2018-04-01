@@ -16,14 +16,14 @@ class KiralayanController extends Controller
     public function index()
     {
         $kiralayan = new Kiralayan;
-        $kiralayanlar = $kiralayan->AllKiralayanlar()->get();
-        return view('admin.kiralayan.index',compact('kiralayanlar'));
+        $Kiralayanlar = $kiralayan->AllKiralayanlar()->get();
+        return view('admin.kiralayan.index',compact('Kiralayanlar'));
     }
     public function silindi()
     {
         $kiralayan = new Kiralayan;
-        $kiralayanlar = $kiralayan->AllDeletedKiralayanlar()->get();
-        return view('admin.kiralayan.silindi',compact('kiralayanlar'));
+        $Kiralayanlar = $kiralayan->AllDeletedKiralayanlar()->get();
+        return view('admin.kiralayan.index',compact('Kiralayanlar'));
     }
 
     

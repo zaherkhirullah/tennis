@@ -13,7 +13,7 @@ class Rezervasyon extends Model
     protected $fillable = [
         ' kort_id','kiralayan_id','servis_id',
         'baslangis_saat','bitis_at','tarih','servis_addresi',
-        'servis_saat','odenecek','odenme_durumu',
+        'servis_saat','odenecek','odenme_durumu','isDeleted',
     ];
 
     public function AllRezervasyonlar()
@@ -22,7 +22,7 @@ class Rezervasyon extends Model
     }
     public function AllDeletedRezervasyonlar()
     {
-        return $this->orderBy('updated_at','desc');
+        return $this->where(['isDeleted',1])->orderBy('updated_at','desc');
         
     }
 

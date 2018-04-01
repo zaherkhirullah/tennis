@@ -49,6 +49,13 @@ Route::prefix('admin')->group(function()
     Route::get( '/rezervasyon/silindi','RezervasyonController@silindi')->name("rezervasyon.silindi");
     Route::get( '/kort/silindi',       'KortController@silindi')->name("kort.silindi");
     Route::get( '/servis/silindi',     'ServisController@silindi')->name("servis.silindi");
+    Route::get( '/Acontacts/silindi',     'ContactsController@silindi')->name("Acontacts.silindi");
+    
+    Route::post( '/kiralayan/delete',  'KiralayanController@delete')->name("kiralayan.delete");
+    Route::post( '/Acontacts/delete',  'ContactsController@delete')->name("Acontacts.delete");    
+    Route::post( '/rezervasyon/delete','RezervasyonController@delete')->name("rezervasyon.delete");
+    Route::post( '/kort/delete',       'KortController@delete')->name("kort.delete");
+    Route::post( '/servis/delete',     'ServisController@delete')->name("servis.delete");
     
     // Admin Resources
     Route::resource( '/rezervasyon','RezervasyonController');

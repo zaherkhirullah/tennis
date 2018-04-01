@@ -16,6 +16,7 @@ class ComposerStaticInit5049a0f9322c8051025a54c03d4851cb
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
         '6124b4c8570aa390c21fafd04a26c69f' => __DIR__ . '/..' . '/myclabs/deep-copy/src/DeepCopy/deep_copy.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
+        'f18cc91337d49233e5754e93f3ed9ec3' => __DIR__ . '/..' . '/laravelcollective/html/src/helpers.php',
         '971df372a1e3b42a42f70cccea858907' => __DIR__ . '/../..' . '/app/Helpers/lang.php',
     );
 
@@ -104,6 +105,7 @@ class ComposerStaticInit5049a0f9322c8051025a54c03d4851cb
         'C' => 
         array (
             'Cron\\' => 5,
+            'Collective\\Html\\' => 16,
             'Carbon\\' => 7,
         ),
         'A' => 
@@ -275,6 +277,10 @@ class ComposerStaticInit5049a0f9322c8051025a54c03d4851cb
         array (
             0 => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron',
         ),
+        'Collective\\Html\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/laravelcollective/html/src',
+        ),
         'Carbon\\' => 
         array (
             0 => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon',
@@ -325,24 +331,25 @@ class ComposerStaticInit5049a0f9322c8051025a54c03d4851cb
     );
 
     public static $classMap = array (
+        'App\\Admin' => __DIR__ . '/../..' . '/app/Admin.php',
         'App\\Console\\Kernel' => __DIR__ . '/../..' . '/app/Console/Kernel.php',
         'App\\Exceptions\\Handler' => __DIR__ . '/../..' . '/app/Exceptions/Handler.php',
         'App\\Http\\Controllers\\Account\\AccountController' => __DIR__ . '/../..' . '/app/Http/Controllers/Account/AccountController.php',
         'App\\Http\\Controllers\\Admin\\AdminController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/AdminController.php',
-        'App\\Http\\Controllers\\Admin\\ContatcsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ContatcsController.php',
+        'App\\Http\\Controllers\\Admin\\ContactsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ContactsController.php',
         'App\\Http\\Controllers\\Admin\\FiyatController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/FiyatController.php',
         'App\\Http\\Controllers\\Admin\\KiralayanController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/KiralayanController.php',
         'App\\Http\\Controllers\\Admin\\KortController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/KortController.php',
         'App\\Http\\Controllers\\Admin\\RezervasyonController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/RezervasyonController.php',
-        'App\\Http\\Controllers\\Admin\\RoleController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/RoleController.php',
         'App\\Http\\Controllers\\Admin\\ServisController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ServisController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
         'App\\Http\\Controllers\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Auth\\ResetPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ResetPasswordController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
-        'App\\Http\\Controllers\\Home\\ContatcsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/ContatcsController.php',
+        'App\\Http\\Controllers\\Home\\ContactsController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/ContactsController.php',
         'App\\Http\\Controllers\\Home\\HomeController' => __DIR__ . '/../..' . '/app/Http/Controllers/Home/HomeController.php',
+        'App\\Http\\Controllers\\IletisimController' => __DIR__ . '/../..' . '/app/Http/Controllers/IletisimController.php',
         'App\\Http\\Controllers\\Settings\\LanguageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Settings/LanguageController.php',
         'App\\Http\\Controllers\\User\\RezervasyonController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/RezervasyonController.php',
         'App\\Http\\Controllers\\User\\UserController' => __DIR__ . '/../..' . '/app/Http/Controllers/User/UserController.php',
@@ -355,13 +362,11 @@ class ComposerStaticInit5049a0f9322c8051025a54c03d4851cb
         'App\\Http\\Middleware\\TrimStrings' => __DIR__ . '/../..' . '/app/Http/Middleware/TrimStrings.php',
         'App\\Http\\Middleware\\TrustProxies' => __DIR__ . '/../..' . '/app/Http/Middleware/TrustProxies.php',
         'App\\Http\\Middleware\\VerifyCsrfToken' => __DIR__ . '/../..' . '/app/Http/Middleware/VerifyCsrfToken.php',
-        'App\\Http\\Models\\Address' => __DIR__ . '/../..' . '/app/Http/Models/Address.php',
-        'App\\Http\\Models\\Contatcs' => __DIR__ . '/../..' . '/app/Http/Models/Contatcs.php',
+        'App\\Http\\Models\\Contacts' => __DIR__ . '/../..' . '/app/Http/Models/Contacts.php',
         'App\\Http\\Models\\Fiyat' => __DIR__ . '/../..' . '/app/Http/Models/Fiyat.php',
         'App\\Http\\Models\\Kiralayan' => __DIR__ . '/../..' . '/app/Http/Models/Kiralayan.php',
         'App\\Http\\Models\\Kort' => __DIR__ . '/../..' . '/app/Http/Models/Kort.php',
         'App\\Http\\Models\\Rezervasyon' => __DIR__ . '/../..' . '/app/Http/Models/Rezervasyon.php',
-        'App\\Http\\Models\\Role' => __DIR__ . '/../..' . '/app/Http/Models/Role.php',
         'App\\Http\\Models\\Servis' => __DIR__ . '/../..' . '/app/Http/Models/Servis.php',
         'App\\Http\\Requests\\ContactsValidation' => __DIR__ . '/../..' . '/app/Http/Requests/ContactsValidation.php',
         'App\\Http\\Requests\\FiyatValidation' => __DIR__ . '/../..' . '/app/Http/Requests/FiyatValidation.php',
@@ -369,7 +374,6 @@ class ComposerStaticInit5049a0f9322c8051025a54c03d4851cb
         'App\\Http\\Requests\\KortValidation' => __DIR__ . '/../..' . '/app/Http/Requests/KortValidation.php',
         'App\\Http\\Requests\\RezervasyonValidation' => __DIR__ . '/../..' . '/app/Http/Requests/RezervasyonValidation.php',
         'App\\Http\\Requests\\ServisValidation' => __DIR__ . '/../..' . '/app/Http/Requests/ServisValidation.php',
-        'App\\Iletisim' => __DIR__ . '/../..' . '/app/Iletisim.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\AuthServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AuthServiceProvider.php',
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
@@ -380,6 +384,13 @@ class ComposerStaticInit5049a0f9322c8051025a54c03d4851cb
         'Carbon\\CarbonInterval' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/CarbonInterval.php',
         'Carbon\\Exceptions\\InvalidDateException' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Exceptions/InvalidDateException.php',
         'Carbon\\Translator' => __DIR__ . '/..' . '/nesbot/carbon/src/Carbon/Translator.php',
+        'Collective\\Html\\Componentable' => __DIR__ . '/..' . '/laravelcollective/html/src/Componentable.php',
+        'Collective\\Html\\Eloquent\\FormAccessible' => __DIR__ . '/..' . '/laravelcollective/html/src/Eloquent/FormAccessible.php',
+        'Collective\\Html\\FormBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/FormBuilder.php',
+        'Collective\\Html\\FormFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/FormFacade.php',
+        'Collective\\Html\\HtmlBuilder' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlBuilder.php',
+        'Collective\\Html\\HtmlFacade' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlFacade.php',
+        'Collective\\Html\\HtmlServiceProvider' => __DIR__ . '/..' . '/laravelcollective/html/src/HtmlServiceProvider.php',
         'Cron\\AbstractField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/AbstractField.php',
         'Cron\\CronExpression' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/CronExpression.php',
         'Cron\\DayOfMonthField' => __DIR__ . '/..' . '/dragonmantank/cron-expression/src/Cron/DayOfMonthField.php',
@@ -2918,7 +2929,6 @@ class ComposerStaticInit5049a0f9322c8051025a54c03d4851cb
         'Ramsey\\Uuid\\UuidFactory' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidFactory.php',
         'Ramsey\\Uuid\\UuidFactoryInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidFactoryInterface.php',
         'Ramsey\\Uuid\\UuidInterface' => __DIR__ . '/..' . '/ramsey/uuid/src/UuidInterface.php',
-        'RolesTableSeeder' => __DIR__ . '/../..' . '/database/seeds/RolesTableSeeder.php',
         'SebastianBergmann\\CodeCoverage\\CodeCoverage' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/CodeCoverage.php',
         'SebastianBergmann\\CodeCoverage\\CoveredCodeNotExecutedException' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Exception/CoveredCodeNotExecutedException.php',
         'SebastianBergmann\\CodeCoverage\\Driver\\Driver' => __DIR__ . '/..' . '/phpunit/php-code-coverage/src/Driver/Driver.php',

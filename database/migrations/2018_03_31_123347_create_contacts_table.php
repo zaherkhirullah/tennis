@@ -14,6 +14,7 @@ class CreateContactsTable extends Migration
             $table->string('email');
             $table->string('konu');
             $table->string('mesaj');
+            $table->boolean('isDeleted')->default(0); // active or not             
             $table->timestamps();
         });
     }

@@ -8,7 +8,7 @@ use App\Http\Models\Kort;
 class Fiyat extends Model
 {
     protected $table = 'fiyats';
-    protected $fillable = ['saat_fiyati', 'saat_puani',];
+    protected $fillable = ['saat_fiyati', 'saat_puani','isDeleted',];
     
     public function AllFiyatlar()
     {
@@ -16,7 +16,7 @@ class Fiyat extends Model
     }
     public function AllDeletedFiyatlar()
     {
-        return $this->orderBy('updated_at','desc');
+        return $this->where(['isDeleted',1])->orderBy('updated_at','desc');
         
     }
     public function kortlar()

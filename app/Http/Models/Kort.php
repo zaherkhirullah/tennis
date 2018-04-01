@@ -9,7 +9,7 @@ use App\Http\Models\Rezervasyon;
 class Kort extends Model
 {
     protected $table = 'korts';
-    protected $fillable = ['adi','durum','tip','fiyat_id' ];
+    protected $fillable = ['adi','tip','fiyat_id','isDeleted' ];
     
     public function AllKortlar()
     {
@@ -17,7 +17,7 @@ class Kort extends Model
     }
     public function AllDeletedKortlar()
     {
-        return $this->orderBy('updated_at','desc');
+        return $this->where(['isDeleted',1])->orderBy('updated_at','desc');
         
     }
 

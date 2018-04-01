@@ -17,6 +17,7 @@ class CreateFiyatsTable extends Migration
             $table->increments('id');
             $table->float('saat_fiyati');
             $table->float('saat_puani')->default(5);
+            $table->boolean('isDeleted')->default(0); // active or not             
             $table->timestamps();
         });
 

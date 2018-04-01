@@ -22,7 +22,7 @@ class FiyatController extends Controller
     {
         $fiyat = new Fiyat;
         $fiyatlar = $fiyat->AllDeletedFiyats()->get();
-        return view('admin.fiyat.silindi',compact('fiyatlar'));
+        return view('admin.fiyat.index',compact('fiyatlar'));
     }
 
  

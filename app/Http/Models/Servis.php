@@ -9,7 +9,7 @@ class Servis extends Model
 {
     protected $table = 'servis';
     protected $fillable = ['adi','plaka','sofor_adi',
-                            'sofor_numurasi','durum',  ];
+                            'sofor_numurasi','isDeleted',  ];
   
     public function AllServisler()
     {
@@ -17,7 +17,7 @@ class Servis extends Model
     }
     public function AllDeletedServisler()
     {
-        return $this->orderBy('updated_at','desc');
+        return $this->where(['isDeleted',1])->orderBy('updated_at','desc');
         
     }
     public function Rezervasyons()

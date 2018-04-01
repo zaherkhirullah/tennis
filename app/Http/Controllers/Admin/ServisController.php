@@ -19,7 +19,7 @@ class ServisController extends Controller
     {
         $servis = new Servis;
         $servisler = $servis->AllDeletedServisler()->get();
-        return view('admin.servis.silindi',compact('servisler'));
+        return view('admin.servis.index',compact('servisler'));
     }
     public function create()
     {
