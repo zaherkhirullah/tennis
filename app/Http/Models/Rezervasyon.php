@@ -15,7 +15,17 @@ class Rezervasyon extends Model
         'baslangis_saat','bitis_at','tarih','servis_addresi',
         'servis_saat','odenecek','odenme_durumu',
     ];
-    
+
+    public function AllRezervasyonlar()
+    {
+        return $this->orderBy('created_at','desc');
+    }
+    public function AllDeletedRezervasyonlar()
+    {
+        return $this->orderBy('updated_at','desc');
+        
+    }
+
     public function kiralayan()
     {
         return $this->belongsTo(Kiralayan::class);
@@ -26,7 +36,6 @@ class Rezervasyon extends Model
     }
     public function servis()
     {
-        return $this->belongsTo(Kort::class);
+        return $this->belongsTo(Servis::class);
     }
-    
 }

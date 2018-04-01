@@ -233,7 +233,7 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="{{asset('/bower_components/admin-lte/dist/img/user2-160x160.jpg')}}" class="user-image" alt="User Image">
-                  <span class="hidden-xs">{{Auth::User()->username}}</span>
+                  <span class="hidden-xs">{{Auth::User()->adisoyadi}}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
@@ -241,7 +241,7 @@
                     <img src="{{asset('/bower_components/admin-lte/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
     
                     <p>
-                       {{ Auth::User()->username}} - {{Auth::User()->role->name}}
+                       {{ Auth::User()->adisoyadi}} 
                       <small>Member since {{Auth::User()->created_at}}</small>
                     </p>
                   </li>
@@ -250,11 +250,11 @@
                     <div class="row">
                       <div class="col-xs-4 text-center">
                         <a href="#">Followers</a>
-                        {{Auth::User()->role->count()}}
+                        14
                       </div>
                       <div class="col-xs-4 text-center">
                         <a href="#">Sales  </a>
-                        {{Auth::User()->role->count()}}
+                       12
                       </div>
                       <div class="col-xs-4 text-center">
                         <a href="#">Friends </a>

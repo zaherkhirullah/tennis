@@ -3,16 +3,24 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
-use App\Contatcs;
+use App\Http\Models\Contacts;
 use Illuminate\Http\Request;
 use App\Http\Requests\ContactsValidation;
 
-class ContatcsController extends Controller
+class ContactsController extends Controller
 {
   
     public function index()
     {
-        //
+        $contact = new Contacts;
+        $contacts = $contact->AllContacts()->get();
+        return view('admin.contacts.index',compact('contacts'));
+    }
+    public function silindi()
+    {
+        $contact = new Contacts;
+        $contacts = $contact->AllDeletedContacts()->get();
+        return view('admin.contacts.silindi',compact('contacts'));
     }
 
     public function show(Contatcs $contatcs)

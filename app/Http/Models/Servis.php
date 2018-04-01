@@ -10,6 +10,16 @@ class Servis extends Model
     protected $table = 'servis';
     protected $fillable = ['adi','plaka','sofor_adi',
                             'sofor_numurasi','durum',  ];
+  
+    public function AllServisler()
+    {
+        return $this->orderBy('created_at','desc');
+    }
+    public function AllDeletedServisler()
+    {
+        return $this->orderBy('updated_at','desc');
+        
+    }
     public function Rezervasyons()
     {
         return $this->hasMany(Rezervasyon::class);

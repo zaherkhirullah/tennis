@@ -9,9 +9,18 @@ use App\Http\Requests\KortValidation;
 
 class KortController extends Controller
 {
+   
     public function index()
     {
-        //
+        $kort = new Kort;
+        $kortlar = $kort->AllKortlar()->get();
+        return view('admin.kort.index',compact('kortlar'));
+    }
+    public function silindi()
+    {
+        $kort = new Kort;
+        $kortlar = $kort->AllDeletedKortlar()->get();
+        return view('admin.kort.silindi',compact('kortlar'));
     }
 
   

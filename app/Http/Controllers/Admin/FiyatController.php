@@ -14,12 +14,15 @@ class FiyatController extends Controller
    
     public function index()
     {
-        //
+        $fiyat = new Fiyat;
+        $fiyatlar = $fiyat->AllFiyats()->get();
+        return view('admin.fiyat.index',compact('fiyatlar'));
     }
- 
-    public function create()
+    public function silindi()
     {
-        //
+        $fiyat = new Fiyat;
+        $fiyatlar = $fiyat->AllDeletedFiyats()->get();
+        return view('admin.fiyat.silindi',compact('fiyatlar'));
     }
 
  

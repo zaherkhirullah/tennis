@@ -12,10 +12,21 @@ use App\Http\Requests\RezervasyonValidation;
 class RezervasyonController extends Controller
 {
     
+
     public function index()
     {
-        //
+        $rezervasyon = new Rezervasyon;
+        $rezervasyonlar = $rezervasyon->AllRezervasyonlar()->get();
+        return view('admin.rezervasyon.index',compact('rezervasyonlar'));
     }
+    public function silindi()
+    {
+        $rezervasyon = new Rezervasyon;
+        $rezervasyonlar = $rezervasyon->AllDeletedRezervasyonlar()->get();
+        return view('admin.rezervasyon.silindi',compact('rezervasyonlar'));
+    }
+
+  
 
  
     public function create()

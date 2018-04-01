@@ -11,9 +11,16 @@ class ServisController extends Controller
 {
     public function index()
     {
-        //
+        $servis = new Servis;
+        $servisler = $servis->AllServisler()->get();
+        return view('admin.servis.index',compact('servisler'));
     }
-
+    public function silindi()
+    {
+        $servis = new Servis;
+        $servisler = $servis->AllDeletedServisler()->get();
+        return view('admin.servis.silindi',compact('servisler'));
+    }
     public function create()
     {
         //

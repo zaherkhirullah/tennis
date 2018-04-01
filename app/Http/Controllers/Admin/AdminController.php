@@ -9,11 +9,14 @@ use Illuminate\Http\Request;
 
 class AdminController extends Controller
 {
-
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
     public function index()
     {
-     // ornek
-        $data['tasks'] = [
+    // ornek
+    $data['tasks'] = [
             [
                     'name' => 'Design New Dashboard',
                     'progress' => '87',
@@ -40,7 +43,7 @@ class AdminController extends Controller
                     'color' => 'success'
             ]
     ];
-        return view("admin.dashboard")->with($data);
+    return view("admin.dashboard")->with($data);
     }
     
 

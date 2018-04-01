@@ -4,11 +4,11 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateContatcsTable extends Migration
+class CreateContactsTable extends Migration
 {
     public function up()
     {
-        Schema::create('contatcs', function (Blueprint $table) {
+        Schema::create('contacts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('adi');
             $table->string('email');
@@ -21,6 +21,6 @@ class CreateContatcsTable extends Migration
   
     public function down()
     {
-        Schema::dropIfExists('contatcs');
+        Schema::dropIfExists('contacts');
     }
 }

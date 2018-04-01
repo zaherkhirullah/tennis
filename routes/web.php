@@ -45,13 +45,18 @@ Route::prefix('admin')->group(function()
   {
      // Admin 
     Route::get( '/', 'AdminController@index')->name("admin");
+    Route::get( '/kiralayan/silindi',  'KiralayanController@silindi')->name("kiralayan.silindi");
+    Route::get( '/rezervasyon/silindi','RezervasyonController@silindi')->name("rezervasyon.silindi");
+    Route::get( '/kort/silindi',       'KortController@silindi')->name("kort.silindi");
+    Route::get( '/servis/silindi',     'ServisController@silindi')->name("servis.silindi");
+    
     // Admin Resources
-    Route::resource( '/users',       'UserController');  
-    Route::resource( '/roles',       'RoleController');
     Route::resource( '/rezervasyon','RezervasyonController');
-    Route::resource( '/Kort',       'KortController');
-    Route::resource( '/Kiralayan',  'KiralayanController');
-    Route::resource( '/Servis',      'ServisController');
+    Route::resource( '/kort',       'KortController');
+    Route::resource( '/kiralayan',  'KiralayanController');
+    Route::resource( '/servis',     'ServisController');
+    Route::resource( '/Acontacts',   'ContactsController');
+    
   });
 
 });
@@ -65,7 +70,7 @@ Route::prefix('user')->group(function()
   Route::group(['namespace' => 'User'], function()
   {
      // User 
-    Route::get( '/', 'UserController@index')->name("admin");
+    Route::get( '/', 'UserController@index')->name("user");
     // User Resources
     Route::resource( '/rezervasyons','RezervasyonController');
 
