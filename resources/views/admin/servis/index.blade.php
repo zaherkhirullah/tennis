@@ -29,11 +29,11 @@
   <div class="row">
     @if(count($servisler))
      @foreach ($servisler as $servis)
-      <div class="col-md-3">
+      <div class="col-md-3 col-sm-4 col-xs-6">
           <div class="ibox">
               <div class="ibox-content product-box">
 
-              <div class="product-imitation" style="background-image:url('{{asset('assets/ServisList.jpg') }} ');max-width:100%;max-height:100%;">
+              <div class="product-imitation" style="background:no-repeat ;background-image:url('{{  asset('assets/ServisList.jpg') }}');max-width:100%;max-height:100%;">
                   </div>
                   <div class="product-desc">
                       @if( $servis->durum == 0)
@@ -49,26 +49,27 @@
                       <a href="#" class="product-name">{{ $servis->isim  }} </a>
                       <div class="small m-t-xs">
                           Plaka numarasi <b class="text-info"> {{ $servis->plaka  }}</b>
+                          <br>
+                          Şöför adi <b class="text-info"> {{ $servis->sofor_adi  }}</b>
+                          <br>
+                          Şöför numarasi <b class="text-info"> {{ $servis->sofor_numarasi  }}</b>
                       </div>
-                      
                       <a href="{{ route('servis.rezervasyonlar',$servis->id) }}" class="m-t btn btn-xs btn-outline btn-primary">
-                          Rezervasyonları Görüntle<i class="fa fa-long-arrow-right"></i> </a>
-                      <div class="form-group" style="margin-bottom:15%">
-                          
+                            Rezervasyonları Görüntle<i class="fa fa-long-arrow-right"></i> 
+                          </a>
+                          <div class="form-group" style="margin-bottom:15%">            
+                        <div class="m-t text-left col-md-4 col-sm-6 col-xs-6">                          
                           @if( $servis->durum == 0)
-                          <div class="m-t text-right col-md-4">
                               <a href="{{ route('servis.tamir',$servis->id) }}" class="btn btn-xs btn-outline btn-danger">
                                 Tamir <i class="fa fa-long-arrow-right"></i> 
                               </a>
-                          </div>
                         @else
-                        <div class="m-t text-right col-md-4">
                             <a href="{{ route('servis.calistir',$servis->id) }}" class="btn btn-xs btn-outline btn-success">
                               Çalisti <i class="fa fa-long-arrow-right"></i> 
                             </a>
-                        </div>
                         @endif
-                          <div class="m-t text-right col-md-5 ">
+                        </div>
+                          <div class="m-t text-right col-md-5 col-xs-6 col-sm-6">
                               <a href="{{ route('servis.edit',$servis->id) }}" class="btn btn-xs btn-outline btn-warning">
                                 Düzenle<i class="fa fa-long-arrow-right"></i>
                                </a>

@@ -22,7 +22,7 @@
         @else
             <a href="#" class="dropdown-toggle btn btn-cta " data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
                 
-                {{ Auth::user()->adisoyadi }}
+                {{ Auth::user()->isim }}
             </a>
         @endif
         <ul class="dropdown-menu">

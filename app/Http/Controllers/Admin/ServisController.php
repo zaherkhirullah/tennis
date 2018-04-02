@@ -21,10 +21,6 @@ class ServisController extends Controller
         $servisler = $servis->AllDeletedServisler()->get();
         return view('admin.servis.index',compact('servisler'));
     }
-    public function create()
-    {
-        //
-    }
     public function tamir(Servis $servis)
     {
         $servis->durum = 1 ;
@@ -42,6 +38,10 @@ class ServisController extends Controller
         
     }
     
+    public function create()
+    {
+        return  view('admin.servis.create');
+    }
 
     public function store(ServisValidation $request)
     {
@@ -50,12 +50,14 @@ class ServisController extends Controller
 
     public function show(Servis $servis)
     {
-        //
+        return  view('admin.servis.show');
+        
     }
 
     public function edit(Servis $servis)
     {
-        //
+        return  view('admin.servis.edit',compact('servis'));
+        
     }
 
     public function update(ServisValidation $request, Servis $servis)

@@ -284,6 +284,7 @@ return [
         // 'add'  => ' oluştur ',
         
         
+        'hidden_rezervasyonlar' =>'gizli rezervasyonlar',
         'kort' =>'kort',
         'kort_type' =>'kort tipi',
         'plaka' =>'plaka',

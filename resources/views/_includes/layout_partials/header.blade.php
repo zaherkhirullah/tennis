@@ -241,7 +241,7 @@
                     <img src="{{asset('/bower_components/admin-lte/dist/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image">
     
                     <p>
-                       {{ Auth::User()->adisoyadi}} 
+                       {{ Auth::User()->isim}} 
                       <small>Member since {{Auth::User()->created_at}}</small>
                     </p>
                   </li>

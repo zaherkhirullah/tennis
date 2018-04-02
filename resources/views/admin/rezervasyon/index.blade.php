@@ -1,5 +1,274 @@
 @extends('layouts.admin')
 @section('content')
+<div class="wrapper wrapper-content animated fadeInRight">
+    <div class="row">
+        <div class="col-lg-12">
+        <div class="ibox float-e-margins">
+            <div class="ibox-title">
+                <h5>Şimdiki Dilim Zamanındaki Kortlar</h5>
+            </div>
+            <div class="ibox-content">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Kort</th>
+                        <th>Rezerv Eden</th>
+                        <th>Rezerv Tel</th>
+                        <th>Rezerv Süresi</th>
+                        <th>Ödenecek</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>1</td>
+                        <td>Tekli Kort</td>
+                        <td>Eyad Almansour</td>
+                        <td>05553797885</td>
+                        <td>2 saat</td>
+                        <td>200</td>
+                    </tr>
+                        <tr>
+                            <td>2</td>
+                            <td>Tekli Kort</td>
+                            <td>Eyad Almansour</td>
+                            <td>05553797885</td>
+                            <td>2 saat</td>
+                            <td>200</td>
+                        </tr>
+                        <tr>
+                            <td>3</td>
+                            <td>Tekli Kort</td>
+                            <td>Eyad Almansour</td>
+                            <td>05553797885</td>
+                            <td>2 saat</td>
+                            <td>200</td>
+                        </tr>
+                        <tr>
+                            <td>4</td>
+                            <td>Tekli Kort</td>
+                            <td>Eyad Almansour</td>
+                            <td>05553797885</td>
+                            <td>2 saat</td>
+                            <td>200</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+            </div>
+        </div>
+    </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Sonraki Dilim Zamanındaki Kortlar</h5>
+                </div>
+                <div class="ibox-content">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Kort</th>
+                                <th>Rezerv Eden</th>
+                                <th>Rezerv Tel</th>
+                                <th>Rezerv Süresi</th>
+                                <th>Ödenecek</th>
+                                <th>Servis Adresi</th>
+                                <th>Servis Plakası</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Tekli Kort</td>
+                                <td>Eyad Almansour</td>
+                                <td>05553797885</td>
+                                <td>2 saat</td>
+                                <td>200</td>
+                                <td>Arifiye/Sakarya</td>
+                                <td>EYD 992</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Tekli Kort</td>
+                                <td>Eyad Almansour</td>
+                                <td>05553797885</td>
+                                <td>2 saat</td>
+                                <td>200</td>
+                                <td>Arifiye/Sakarya</td>
+                                <td>EYD 992</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Tekli Kort</td>
+                                <td>Eyad Almansour</td>
+                                <td>05553797885</td>
+                                <td>2 saat</td>
+                                <td>200</td>
+                                <td>Arifiye/Sakarya</td>
+                                <td>EYD 992</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Tekli Kort</td>
+                                <td>Eyad Almansour</td>
+                                <td>05553797885</td>
+                                <td>2 saat</td>
+                                <td>200</td>
+                                <td>Arifiye/Sakarya</td>
+                                <td>EYD 992</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Tüm Gelecek Rezevasyonlar</h5>
+                </div>
+                <div class="ibox-content">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Kort</th>
+                                <th>Rezerv Eden</th>
+                                <th>Rezerv Tel</th>
+                                <th>Rezerv Süresi</th>
+                                <th>Ödenecek</th>
+                                <th>Servis Adresi</th>
+                                <th>Servis Plakası</th>
+                                <th></th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Tekli Kort</td>
+                                <td>Eyad Almansour</td>
+                                <td>05553797885</td>
+                                <td>2 saat</td>
+                                <td>200</td>
+                                <td>Arifiye/Sakarya</td>
+                                <td>EYD 992</td>
+                                <td><button class="btn btn-warning">İptal</button></td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Tekli Kort</td>
+                                <td>Eyad Almansour</td>
+                                <td>05553797885</td>
+                                <td>2 saat</td>
+                                <td>200</td>
+                                <td>Arifiye/Sakarya</td>
+                                <td>EYD 992</td>
+                                <td><button class="btn btn-warning">İptal</button></td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Tekli Kort</td>
+                                <td>Eyad Almansour</td>
+                                <td>05553797885</td>
+                                <td>2 saat</td>
+                                <td>200</td>
+                                <td>Arifiye/Sakarya</td>
+                                <td>EYD 992</td>
+                                <td><button class="btn btn-warning">İptal</button></td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Tekli Kort</td>
+                                <td>Eyad Almansour</td>
+                                <td>05553797885</td>
+                                <td>2 saat</td>
+                                <td>200</td>
+                                <td>Arifiye/Sakarya</td>
+                                <td>EYD 992</td>
+                                <td><button class="btn btn-warning">İptal</button></td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Tüm geçmiş Rezevasyonlar</h5>
+                </div>
+                <div class="ibox-content">
+                    <table class="table">
+                        <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Kort</th>
+                                <th>Rezerv Eden</th>
+                                <th>Rezerv Tel</th>
+                                <th>Rezerv Süresi</th>
+                                <th>Ödenmiş</th>
+                                <th>Servis Adresi</th>
+                                <th>Servis Plakası</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>1</td>
+                                <td>Tekli Kort</td>
+                                <td>Eyad Almansour</td>
+                                <td>05553797885</td>
+                                <td>2 saat</td>
+                                <td>200</td>
+                                <td>Arifiye/Sakarya</td>
+                                <td>EYD 992</td>
+                            </tr>
+                            <tr>
+                                <td>2</td>
+                                <td>Tekli Kort</td>
+                                <td>Eyad Almansour</td>
+                                <td>05553797885</td>
+                                <td>2 saat</td>
+                                <td>200</td>
+                                <td>Arifiye/Sakarya</td>
+                                <td>EYD 992</td>
+                            </tr>
+                            <tr>
+                                <td>3</td>
+                                <td>Tekli Kort</td>
+                                <td>Eyad Almansour</td>
+                                <td>05553797885</td>
+                                <td>2 saat</td>
+                                <td>200</td>
+                                <td>Arifiye/Sakarya</td>
+                                <td>EYD 992</td>
+                            </tr>
+                            <tr>
+                                <td>4</td>
+                                <td>Tekli Kort</td>
+                                <td>Eyad Almansour</td>
+                                <td>05553797885</td>
+                                <td>2 saat</td>
+                                <td>200</td>
+                                <td>Arifiye/Sakarya</td>
+                                <td>EYD 992</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
   <div class="container">
     <div class="row">
       <div class="col-md-11">

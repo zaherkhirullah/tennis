@@ -30,7 +30,7 @@
                 <li class="nav-header">
                     <div class="dropdown profile-element">
                         <span>
-                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                        <img alt="image" class="img-circle" src="{{asset('assets/img/profile_small.jpg') }} " />
                         </span>
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear">
@@ -44,7 +44,19 @@
                             <li><a href="contacts.html">Contacts</a></li>
                             <li><a href="mailbox.html">Mailbox</a></li>
                             <li class="divider"></li>
-                            <li><a href="login.html">Logout</a></li>
+                            <li>
+                                <a href="{{ route('logout') }}"
+                                    onclick="event.preventDefault();
+                                                document.getElementById('logout-form').submit();">
+                                <b  class="text-danger"> 
+                                        <i class="fa fa-sign-out"> </i> 
+                                    @lang('lang.logout')
+                                </b>
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    @csrf
+                                </form>
+                            </li>
                         </ul>
                     </div>
                     <div class="logo-element">

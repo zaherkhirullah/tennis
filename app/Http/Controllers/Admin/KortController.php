@@ -37,7 +37,7 @@ class KortController extends Controller
   
     public function create()
     {
-        //
+        return  view('admin.kort.create');
     }
 
     
@@ -49,13 +49,13 @@ class KortController extends Controller
 
     public function show(Kort $kort)
     {
-        //
+        return  view('admin.kort.show');
     }
 
   
     public function edit(Kort $kort)
     {
-        //
+        return  view('admin.kort.edit',compact('kort'));
     }
 
   
