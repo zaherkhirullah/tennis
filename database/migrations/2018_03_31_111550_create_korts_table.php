@@ -12,7 +12,7 @@ class CreateKortsTable extends Migration
         Schema::create('korts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('adi')->unique();
-            $table->boolean('durum'); // active or not 
+            $table->boolean('isDeleted')->default(0); // active or not 
             $table->boolean('tip'); // tek or cift 
             $table->integer('fiyat_id')->unsigned();
             $table->timestamps();

@@ -5,10 +5,10 @@
       <div class="col-md-11">
         <div class="panel">
           <h4 class="panel-heading">
-              @if(Route::is('kiralayan.index'))
-            <center>  Kiralayan listesi  </center>
+            @if(Route::is('kiralayan.index'))
+              <center>  Kiralayan listesi  </center>
             @elseif(Route::is('kiralayan.silindi'))
-            <center>  gizli Kiralayan listesi  </center>            
+              <center>  gizli Kiralayan listesi  </center>            
             @endif
           </h4>
           <div class="panel-body">  
@@ -169,7 +169,7 @@
                 <div class="text-clear col-md-12">  </div>
                 <div class="col-md-12 text-center">
                     <a href="{{route('kiralayan.create')}}" class="btn btn-success"> 
-                    <i class="fa fa-plus"></i>  @lang('lang.click_to') @lang('lang.add')  New file
+                    <i class="fa fa-plus"></i>  @lang('lang.click_to') @lang('lang.add')  @lang('lang.new_kiralayan') 
                     </a>
                 </div>
               @endif 

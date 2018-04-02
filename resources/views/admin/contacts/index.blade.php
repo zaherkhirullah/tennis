@@ -5,7 +5,11 @@
       <div class="col-md-11">
         <div class="panel">
           <h4 class="panel-heading">
-            <center>   Contacts listesi</center>
+            @if(Route::is('Acontacts.index'))
+              <center>  Contacts listesi  </center>
+            @elseif(Route::is('Acontacts.silindi'))
+              <center>  gizli Kiralayan listesi  </center>            
+            @endif
           </h4>
           <div class="panel-body">  
             @if(count($contacts))
@@ -167,14 +171,6 @@
                     @endif
                 </center>
               </div>
-              @if(Route::is('Acontacts.index'))
-                <div class="text-clear col-md-12">  </div>
-                <div class="col-md-12 text-center">
-                    <a href="{{route('Acontacts.create')}}" class="btn btn-success"> 
-                    <i class="fa fa-plus"></i>  @lang('lang.click_to') @lang('lang.add')  New file
-                    </a>
-                </div>
-              @endif 
             @endif 
           </div>
         </div>

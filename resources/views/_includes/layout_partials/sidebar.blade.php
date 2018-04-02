@@ -133,6 +133,7 @@
                     All kiralayanlar
                   </a>
                 </li>
+                <li>
                   <a href="{{route('kiralayan.silindi')}}">
                     <i class="fa fa-circle-o" style="color:red;"></i>
                     silindi kiralayanlar
