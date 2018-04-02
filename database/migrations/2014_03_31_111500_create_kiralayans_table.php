@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFiyatsTable extends Migration
+class CreateKiralayansTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,14 @@ class CreateFiyatsTable extends Migration
      */
     public function up()
     {
-        Schema::create('fiyats', function (Blueprint $table) {
+        Schema::create('kiralayans', function (Blueprint $table) {
             $table->increments('id');
-            $table->float('saat_fiyati');
-            $table->float('saat_puani')->default(5);
-            $table->boolean('isDeleted')->default(0); // active or not             
+            $table->string('isim');
+            $table->string('telefon')->unique();
+            $table->boolean('durum')->default(0); // active or not             
             $table->timestamps();
+            
         });
-
     }
 
     /**
@@ -30,7 +30,6 @@ class CreateFiyatsTable extends Migration
      */
     public function down()
     {
-        
-        Schema::dropIfExists('fiyats');
+        Schema::dropIfExists('kiralayans');
     }
 }

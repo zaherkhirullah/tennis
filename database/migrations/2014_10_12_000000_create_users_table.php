@@ -14,26 +14,30 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
-            $table->string('adisoyadi',50);
+            $table->integer('id')->unique()->unsigned();
             $table->string('email',255)->unique();
-            $table->string('telefon',255)->unique();            
             $table->string('password',255);
-            $table->boolean('isDeleted')->default(0);
+            $table->string('cinsiyet',255)->nullable();
+            $table->string('adres',255)->nullable();
+            $table->integer('yas')->nullable();
+            $table->double('puan')->default(0);
+            $table->boolean('durum')->default(0);
             $table->rememberToken();
             $table->timestamps();
-            $table->engine = 'InnoDB';
-
-            // $table->ipAddress('ip')->nullable();    
-            // $table->boolean('confirm_email')->default(0);            
-            
+            $table->engine = 'InnoDB';   
+            $table->primary('id');                
+            $table->foreign('id')->references('id')->on('kiralayans');
+                            
         });
         
-
     }
+
 
     public function down()
     {
+        Schema::table('users', function ( $table) {
+            $table->dropForeign('users_id_foreign');
+        });
         Schema::dropIfExists('users'); 
     }
 }

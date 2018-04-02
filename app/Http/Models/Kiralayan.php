@@ -9,7 +9,7 @@ use App\User;
 class Kiralayan extends Model
 {
     protected $table = 'kiralayans';
-    protected $fillable = ['telefon','adi','isDeleted',];
+    protected $fillable = ['telefon','isim','durum',];
     
     public function AllKiralayanlar()
     {
@@ -17,7 +17,7 @@ class Kiralayan extends Model
     }
     public function AllDeletedKiralayanlar()
     {
-        return $this->where('isDeleted',1)->orderBy('updated_at','desc');
+        return $this->where('durum',1)->orderBy('updated_at','desc');
         
     }
 
@@ -25,4 +25,5 @@ class Kiralayan extends Model
     {
         return $this->hasMany(Rezervasyon::class);
     }
+    
 }

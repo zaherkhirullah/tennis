@@ -284,10 +284,10 @@ return [
         // 'add'  => ' oluştur ',
         
         
-        '' =>'',
-        '' =>'',
-        '' =>'',
-        '' =>'',
-        '' =>'', 
+        'kort' =>'kort',
+        'kort_type' =>'kort tipi',
+        'plaka' =>'plaka',
+        'sofor_adi' =>'şofor adi',
+        'sofor_numarasi' =>'şofor numarasi', 
 
 ];

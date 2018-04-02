@@ -17,7 +17,9 @@
                 <thead>
                   <tr>
                       <th> @lang('lang.name')</th>
-                      <th class="v-middle hidden-xs"> @lang('lang.phone"')</th>
+                      <th class="v-middle hidden-xs"> @lang('lang.plaka')</th>
+                      <th class="v-middle hidden-xs"> @lang('lang.sofor_adi')</th>     
+                      <th class="v-middle hidden-xs"> @lang('lang.sofor_numarasi')</th>
                       <th class="v-middle hidden-xs"> @lang('lang.created_at')</th>     
                       <th> @lang('lang.options')</th>
                   </tr>
@@ -25,7 +27,9 @@
                 <tfoot>
                     <tr>
                         <th> @lang('lang.name')</th>
-                        <th class="v-middle hidden-xs"> @lang('lang.phone')</th>
+                        <th class="v-middle hidden-xs"> @lang('lang.plaka')</th>
+                        <th class="v-middle hidden-xs"> @lang('lang.sofor_adi')</th>     
+                        <th class="v-middle hidden-xs"> @lang('lang.sofor_numarasi')</th>
                           <th class="v-middle hidden-xs"> @lang('lang.created_at')</th>     
                         <th> @lang('lang.options')</th>
                     </tr>
@@ -33,8 +37,10 @@
                 <tbody>
                   @foreach ($servisler as $servis)
                     <tr>
-                      <td>{{$servis->adi }}</td>
-                      <td>{{$servis->telefon }}</td>
+                      <td>{{$servis->isim }}</td>
+                      <td>{{$servis->plaka }}</td>
+                      <td>{{$servis->sofor_adi }}</td>
+                      <td>{{$servis->sofor_numarasi }}</td>
                       <td>{{$servis->created_at }}</td>
                       <td class="text-center">
                         <dt>

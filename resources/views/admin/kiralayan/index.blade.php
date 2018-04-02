@@ -33,7 +33,7 @@
                 <tbody>
                   @foreach ($Kiralayanlar as $Kiralayan)
                     <tr>
-                      <td>{{$Kiralayan->adi }}</td>
+                      <td>{{$Kiralayan->isim }}</td>
                       <td>{{$Kiralayan->telefon }}</td>
                       <td>{{$Kiralayan->created_at }}</td>
                       <td class="text-center">

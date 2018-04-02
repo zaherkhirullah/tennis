@@ -12,9 +12,16 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $user = new \App\User();
-        $user->adisoyadi='Admin';
-        $user->telefon='05511445521';
+        $kiralayan = new \App\Http\Models\Kiralayan;
+        
+        $kiralayan->isim='Admin';
+        $kiralayan->telefon='05511545521';
+        $kiralayan->save();
+        
+        $user->id =  $kiralayan->id;
         $user->email='admin@gmail.com';
+        $user->cinsiyet='syrian';
+        $user->yas=22;
         $user->password=bcrypt('password');
         $user->save();
     }

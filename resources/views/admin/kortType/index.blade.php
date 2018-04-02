@@ -4,20 +4,20 @@
     <div class="row">
       <div class="col-md-11">
         <div class="panel">
-          <h4 class="panel-heisimng">
-            @if(Route::is('kort.index'))
+          <h4 class="panel-heading">
+            @if(Route::is('kortType.index'))
               <center>  kort listesi  </center>
-            @elseif(Route::is('kort.silindi'))
+            @elseif(Route::is('kortType.silindi'))
               <center>  gizli kort listesi  </center>            
             @endif
           </h4>
           <div class="panel-body">  
-            @if(count($kortlar))
+            @if(count($kortTypeler))
               <table id="DataTable" class="mdl-data-table  table-hover" cellspacing="0" width="100%">
                 <thead>
                   <tr>
                       <th> @lang('lang.name')</th>
-                      <th class="v-middle hidden-xs"> @lang('lang.kort_type')</th>
+                      <th class="v-middle hidden-xs"> @lang('lang.phone"')</th>
                       <th class="v-middle hidden-xs"> @lang('lang.created_at')</th>     
                       <th> @lang('lang.options')</th>
                   </tr>
@@ -25,32 +25,32 @@
                 <tfoot>
                     <tr>
                         <th> @lang('lang.name')</th>
-                        <th class="v-middle hidden-xs"> @lang('lang.kort_type')</th>
+                        <th class="v-middle hidden-xs"> @lang('lang.phone')</th>
                           <th class="v-middle hidden-xs"> @lang('lang.created_at')</th>     
                         <th> @lang('lang.options')</th>
                     </tr>
                 </tfoot>
                 <tbody>
-                  @foreach ($kortlar as $kort)
+                  @foreach ($kortTypeler as $kort)
                     <tr>
-                      <td>{{$kort->isim }}</td>
-                      <td>{{$kort->Type->isim }}</td>
+                      <td>{{$kort->adi }}</td>
+                      <td>{{$kort->telefon }}</td>
                       <td>{{$kort->created_at }}</td>
                       <td class="text-center">
                         <dt>
-                          <a href="{{route('kort.edit',$kort->id)}}" title="@lang('lang.edit') " class="text-info" >
+                          <a href="{{route('kortType.edit',$kort->id)}}" title="@lang('lang.edit') " class="text-info" >
                             <span class="text text-md" >
                             <i class="fa fa-edit"></i> 
                             </span>
                           </a>
-                          @if(Route::is('kort.index'))
+                          @if(Route::is('kortType.index'))
                             <a href="#hide-file-{{$kort->id}}" title="@lang('lang.hide') " data-toggle="modal" class=" text-primary" >
                               <span class="text text-md" >
                                 <i class="fa  fa-eye-slash"></i> 
                               </span>	
                             </a>
                             
-                          @elseif(Route::is('kort.silindi'))
+                          @elseif(Route::is('kortType.silindi'))
                               <a href="#restore-file-{{$kort->id}}" title="@lang('lang.restore') " data-toggle="modal" class=" text-warning" >
                               <span class="text text-md" >
                                 <i class="fa  fa-eye"></i> 
@@ -70,7 +70,7 @@
                         <div class="modal-content bg-default">
                           <div class="modal-body">
                             <div class="padder">
-                              {{Form::open(array('route' =>['kort.destroy',$kort->id],
+                              {{Form::open(array('route' =>['kortType.destroy',$kort->id],
                               'method'=>'delete','class'=>'form-delete','id'=>'form-delete' )) }}
             
                                 <div class="text-center">
@@ -92,17 +92,17 @@
                         </div>
                       </div>
                     </div>
-                    @if(Route::is('kort.index'))
+                    @if(Route::is('kortType.index'))
                       <div class="modal fade" id="hide-file-{{$kort->id}}">
                         <div class="modal-dialog modal-shorten">
                           <div class="modal-content bg-default">
                           <div class="modal-body">
                             <div class="padder">
-                              {{Form::open(array('route' =>['kort.delete',$kort->id],
+                              {{Form::open(array('route' =>['kortType.delete',$kort->id],
                               'method'=>'delete','class'=>'form-delete','id'=>'form-delete' )) }}
           
                               <div class="text-center">
-                                <h4 id="msg-shorten "> @lang('lang.hidden_kortlar')</h4>
+                                <h4 id="msg-shorten "> @lang('lang.hidden_kortTypeler')</h4>
                               </div>
                               <p class="text-danger">@lang('lang.are_you_want')   @lang('lang.hide')
                                 <b class="text-success">{{$kort->slug}}</b>  @lang('lang.file') ?</p> 
@@ -120,13 +120,13 @@
                           </div>
                         </div>
                       </div>
-                    @elseif(Route::is('kort.deletedkortlar'))
+                    @elseif(Route::is('kortType.deletedkortTypeler'))
                       <div class="modal fade" id="restore-file-{{$kort->id}}">
                         <div class="modal-dialog modal-shorten">
                           <div class="modal-content bg-default">
                             <div class="modal-body">
                               <div class="padder">
-                                {{Form::open(array('route' =>['kort.restore',$kort->id], 'method'=>'post',
+                                {{Form::open(array('route' =>['kortType.restore',$kort->id], 'method'=>'post',
                                 'class'=>'form-restore','id'=>'form-restore' ))
                                 }}
                                 <div class="text-center">
@@ -158,17 +158,17 @@
             @else
               <div class="col-md-8 col-md-offset-2">
                 <center> 
-                    @if(Route::is('kort.index'))
-                        <h2 class="text-danger alert alert-warning"> @lang('lang.dont_have') @lang('lang.kortlar')</h2>
+                    @if(Route::is('kortType.index'))
+                        <h2 class="text-danger alert alert-warning"> @lang('lang.dont_have') @lang('lang.kortTypeler')</h2>
                     @else
-                        <h2 class="text-danger alert alert-warning"> @lang('lang.dont_have') @lang('lang.hidden_kortlar')</h2>
+                        <h2 class="text-danger alert alert-warning"> @lang('lang.dont_have') @lang('lang.hidden_kortTypeler')</h2>
                     @endif
                 </center>
               </div>
-              @if(Route::is('kort.index'))
+              @if(Route::is('kortType.index'))
                 <div class="text-clear col-md-12">  </div>
                 <div class="col-md-12 text-center">
-                    <a href="{{route('kort.create')}}" class="btn btn-success"> 
+                    <a href="{{route('kortType.create')}}" class="btn btn-success"> 
                     <i class="fa fa-plus"></i>  @lang('lang.click_to') @lang('lang.add')  @lang('lang.new_kort') 
                     </a>
                 </div>

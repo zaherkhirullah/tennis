@@ -8,8 +8,8 @@ use App\Http\Models\Rezervasyon;
 class Servis extends Model
 {
     protected $table = 'servis';
-    protected $fillable = ['adi','plaka','sofor_adi',
-                            'sofor_numurasi','isDeleted',  ];
+    protected $fillable = ['isim','plaka','sofor_adi',
+    'sofor_numarasi','durum',  ];
   
     public function AllServisler()
     {
@@ -17,7 +17,7 @@ class Servis extends Model
     }
     public function AllDeletedServisler()
     {
-        return $this->where('isDeleted',1)->orderBy('updated_at','desc');
+        return $this->where('durum',1)->orderBy('updated_at','desc');
         
     }
     public function Rezervasyons()

@@ -3,13 +3,13 @@
 namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Models\Fiyat;
+use App\Http\Models\KortType;
 use App\Http\Models\Rezervasyon;
 
 class Kort extends Model
 {
     protected $table = 'korts';
-    protected $fillable = ['adi','tip','fiyat_id','isDeleted' ];
+    protected $fillable = ['isim','tip','type_id','durum' ];
     
     public function AllKortlar()
     {
@@ -17,7 +17,7 @@ class Kort extends Model
     }
     public function AllDeletedKortlar()
     {
-        return $this->where('isDeleted',1)->orderBy('updated_at','desc');
+        return $this->where('durum',1)->orderBy('updated_at','desc');
         
     }
 
@@ -27,8 +27,8 @@ class Kort extends Model
         return $this->hasMany(Rezervasyon::class);
     }
 
-    public function fiyat()
+    public function Type()
     {
-        return $this->belongsTo(Fiyat::class);
+        return $this->belongsTo('App\Http\Models\KortType');
     }
 }

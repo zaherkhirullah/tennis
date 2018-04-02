@@ -17,25 +17,29 @@ class CreateRezervasyonsTable extends Migration
             $table->time('baslangis_saat');   // başlangiş saati 
             $table->time('bitis_saat');     // bitiş saati 
             $table->timestamp('tarih');  // tarih  
-            $table->string('servis_addresi');  // servis gidecek adresi
+            $table->string('servis_adresi');  // servis gidecek adresi
             // servis saati her zaman rezervasyonun saati 30 dakika önce                       
             $table->time('servis_saat');   
-            $table->float('odenecek'); // odenecek miktari 
-            $table->boolean('odenme_durumu'); /// paid or not // odenmiş yada odenmemiş
-            $table->boolean('isDeleted')->default(0); // active or not             
+            $table->double('odenecek'); // odenecek miktari 
+            $table->double('odenmis'); /// paid or not // odenmiş yada odenmemiş
+            $table->float('kazanacak_puan'); /// paid or not // odenmiş yada odenmemiş
+            $table->boolean('durum')->default(0); // active or not             
             $table->timestamps();
+           
+            $table->foreign('kort_id')->references('id')->on('korts');
+            $table->foreign('kiralayan_id')->references('id')->on('kiralayans');
+            $table->foreign('servis_id')->references('id')->on('servis');
         });
-
-
+      
     }
-
-    /**
-     * Reverse the migrations.
-     *
-     * @return void
-     */
+    
     public function down()
     {
+        Schema::table('rezervasyons', function ( $table) {
+            $table->dropForeign('rezervasyons_kort_id_foreign');
+            $table->dropForeign('rezervasyons_servis_id_foreign');
+            $table->dropForeign('rezervasyons_kiralayan_id_foreign');
+        });
         Schema::dropIfExists('rezervasyons');
     }
 }

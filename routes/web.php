@@ -63,6 +63,8 @@ Route::prefix('admin')->group(function()
     Route::resource( '/kiralayan',  'KiralayanController');
     Route::resource( '/servis',     'ServisController');
     Route::resource( '/Acontacts',   'ContactsController');
+    Route::resource( '/kortType',   'kortTypeController');
+    
     
   });
 
