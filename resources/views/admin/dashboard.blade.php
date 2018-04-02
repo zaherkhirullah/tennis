@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 
 @section('content')
-    <div class='row'>
+    {{-- <div class='row'>
         <div class='col-md-6'>
             <!-- Box -->
             <div class="box box-primary">
@@ -49,5 +49,5 @@
             </div><!-- /.box -->
         </div><!-- /.col -->
 
-    </div><!-- /.row -->
+    </div><!-- /.row --> --}}
 @endsection

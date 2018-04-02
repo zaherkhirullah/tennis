@@ -38,7 +38,14 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav navbar-right">
+                       
                         <li class="nav-item ">
+                            <a class="btn btn-cta" href="{{ route('admin') }}"> 
+                            <i class="ion ion-home" aria-hidden="true"></i> 
+                            @lang('lang.admin')
+                            </a>
+                        </li>
+                         <li class="nav-item ">
                             <a class="btn btn-cta" href="{{ route('home') }}"> 
                             <i class="ion ion-home" aria-hidden="true"></i> 
                             @lang('lang.home')
