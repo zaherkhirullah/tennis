@@ -12,7 +12,28 @@ use App\Http\Requests\RezervasyonValidation;
 class RezervasyonController extends Controller
 {
     
-
+    
+    
+    
+    public function simdiki()
+    {
+        $rezervasyon = new Rezervasyon;
+        $rezervasyonlar = $rezervasyon->simdikiRezervasyonlar()->get();
+        return view('admin.rezervasyon.index',compact('rezervasyonlar'));
+    }
+    public function sonraki()
+    {
+        $rezervasyon = new Rezervasyon;
+        $rezervasyonlar = $rezervasyon->sonrakiRezervasyonlar()->get();
+        return view('admin.rezervasyon.index',compact('rezervasyonlar'));
+    }
+    public function gecmis()
+    {
+        $rezervasyon = new Rezervasyon;
+        $rezervasyonlar = $rezervasyon->gecmisRezervasyonlar()->get();
+        return view('admin.rezervasyon.index',compact('rezervasyonlar'));
+    }
+    
     public function index()
     {
         $rezervasyon = new Rezervasyon;

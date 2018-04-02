@@ -9,84 +9,96 @@
    <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
  
-    <title>{{ $page_title or "AdminLTE Dashboard" }}</title>
+    <title>{{ $page_title or "TennisClub | Servisler Listesi"  }}</title>
+    
+    <link href="{{ asset('assets/css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/font-awesome/css/font-awesome.css') }}" rel="stylesheet">
 
- <!-- Bootstrap 3.3.7 -->
-  <link href="{{ asset('/bower_components/bootstrap/dist/css/bootstrap.min.css')}}" rel="stylesheet" type="text/css" /> 
-  <!-- Font Awesome -->
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet" type="text/css" />
-  <!-- Ionicons -->
-  <link href="http://code.ionicframework.com/ionicons/2.0.0/css/ionicons.min.css" rel="stylesheet" type="text/css" /> 
-  <!-- Theme style -->
-  <link href="{{ asset('/bower_components/admin-lte/dist/css/AdminLTE.min.css')}}" rel="stylesheet" type="text/css" />
-    <!-- AdminLTE Skins. Choose a skin from the css/skins
-       folder instead of downloading all of them to reduce the load. -->
-    <link href="{{ asset('/bower_components/admin-lte/dist/css/skins/skin-blue.min.css')}}" rel="stylesheet" type="text/css" />
-  <!-- Morris chart -->
-  <link rel="stylesheet" href="{{ asset('/bower_components/morris.js/morris.css')}}">
-  <!-- jvectormap -->
-  <link rel="stylesheet" href="{{ asset('/bower_components/jvectormap/jquery-jvectormap.css')}}">
-  <!-- Date Picker -->
-  <link rel="stylesheet" href="{{ asset('/bower_components/bootstrap-datepicker/dist/css/bootstrap-datepicker.min.css')}}">
-  <!-- Daterange picker -->
-  <link rel="stylesheet" href="{{ asset('/bower_components/bootstrap-daterangepicker/daterangepicker.css')}}">
-  <!-- bootstrap wysihtml5 - text editor -->
-  <link rel="stylesheet" href="{{ asset('/bower_components/admin-lte/plugins/bootstrap-wysihtml5/bootstrap3-wysihtml5.min.css')}}">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css">
-<link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css">
+    <!-- Toastr style -->
+    <link href="{{ asset('assets/css/plugins/toastr/toastr.min.css') }}" rel="stylesheet">
 
-  <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-  <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-  <!--[if lt IE 9]>
-  <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
-  <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
-  <![endif]-->
-
-  <!-- Google Font -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic">
-  {{--  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">  --}}
-
+    <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
 </head>
-<body class="hold-transition skin-blue sidebar-mini">
-<div class="wrapper">
+<body>
 
-    <!-- Header -->
-    @include('_includes.layout_partials.header')
+<div id="wrapper">
 
-    <!-- Sidebar -->
-    @include('_includes.layout_partials.sidebar')
+    <nav class="navbar-default navbar-static-side" role="navigation">
+        <div class="sidebar-collapse">
+            <ul class="nav metismenu" id="side-menu">
+                <li class="nav-header">
+                    <div class="dropdown profile-element">
+                        <span>
+                            <img alt="image" class="img-circle" src="img/profile_small.jpg" />
+                        </span>
+                        <a data-toggle="dropdown" class="dropdown-toggle" href="#">
+                            <span class="clear">
+                                <span class="block m-t-xs">
+                                    <strong class="font-bold">{{ Auth::user()->isim }}</strong>
+                                </span> <span class="text-muted text-xs block">Admin<b class="caret"></b></span>
+                            </span>
+                        </a>
+                        <ul class="dropdown-menu animated fadeInRight m-t-xs">
+                            <li><a href="profile.html">Profile</a></li>
+                            <li><a href="contacts.html">Contacts</a></li>
+                            <li><a href="mailbox.html">Mailbox</a></li>
+                            <li class="divider"></li>
+                            <li><a href="login.html">Logout</a></li>
+                        </ul>
+                    </div>
+                    <div class="logo-element">
+                        IN+
+                    </div>
+                </li>
+                <li>
+                    <a href="{{ route('kort.index') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Kortlar</span></a>
+                </li>
+                <li>
+                    <a href="{{ route('servis.index') }}"><i class="fa fa-bus"></i> <span class="nav-label">Servis Araçları</span></a>
+                </li>
+                <li>
+                    <a href="#"><i class="fa fa-calendar-o"></i> <span class="nav-label">Rezervasyonlar</span><span class="fa arrow"></span></a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="{{ route('rezervasyon.simdiki') }}">Şimdiki Rezervasyonlar</a></li>
+                        <li><a href="{{ route('rezervasyon.sonraki') }}">Sonraki Rezervasyon</a></li>
+                        <li><a href="{{ route('rezervasyon.index') }}">Tüm Rezervasyonlar</a></li>
+                        <li><a href="{{ route('rezervasyon.gecmis') }}">Geçmiş Rezervasyonlar</a></li>
+                    </ul>
+                </li>
+            </ul>
 
-    <!-- Content Wrapper. Contains page content -->
-    <div class="content-wrapper">
-        <!-- Content Header (Page header) -->
-        <section class="content-header">
-            <h1>
-                {{ $page_title or "Page Title" }}
-                <small>{{ $page_description or null }}</small>
-            </h1>
-            <!-- You can dynamically generate breadcrumbs here -->
-            {{--  {{ Breadcrumbs::render('') }}  --}}
-            {{--  {{ Breadcrumbs::render('continent', $continent) }}  --}}
-            <ol class="breadcrumb">
-                <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-                <li class="active">
-                        {{trans('lang.welcome')}}
-                    </li>
-            </ol>
-        </section>
+        </div>
+    </nav>
 
-        <!-- Main content -->
-        <section class="content">
-            @include('_includes.partials.flash_message')
-            <!-- Your Page Content Here -->
-            @yield('content')
-        </section><!-- /.content -->
-    </div><!-- /.content-wrapper -->
-    <!-- Footer -->
-    @include('_includes.layout_partials.footer')
-    @include('_includes.layout_partials.settings')
-
+    <div id="page-wrapper" class="gray-bg">
+        @include('_includes.partials.flash_message')
+        <!-- Your Page Content Here -->
+        @yield('content')
+        
+        <div class="footer">
+  
+            <div>
+                <strong>Copyright</strong> Eyad ALMANSOUR &copy; 2018
+            </div>
+          </div>
+          
+          
+    </div>
 </div>
-    @include('_includes.scripts.admin_footer')
+
+
+
+<!-- Mainly scripts -->
+<script src="{{ asset('assets/js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="{{ asset('assets/js/inspinia.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/pace/pace.min.js') }}"></script>
+
 </body>
+
 </html>

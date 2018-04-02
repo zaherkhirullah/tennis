@@ -1,182 +1,79 @@
 @extends('layouts.admin')
 @section('content')
-  <div class="container">
-    <div class="row">
-      <div class="col-md-11">
-        <div class="panel">
-          <h4 class="panel-heisimng">
-            @if(Route::is('kort.index'))
-              <center>  kort listesi  </center>
-            @elseif(Route::is('kort.silindi'))
-              <center>  gizli kort listesi  </center>            
-            @endif
-          </h4>
-          <div class="panel-body">  
-            @if(count($kortlar))
-              <table id="DataTable" class="mdl-data-table  table-hover" cellspacing="0" width="100%">
-                <thead>
-                  <tr>
-                      <th> @lang('lang.name')</th>
-                      <th class="v-middle hidden-xs"> @lang('lang.kort_type')</th>
-                      <th class="v-middle hidden-xs"> @lang('lang.created_at')</th>     
-                      <th> @lang('lang.options')</th>
-                  </tr>
-                </thead>
-                <tfoot>
-                    <tr>
-                        <th> @lang('lang.name')</th>
-                        <th class="v-middle hidden-xs"> @lang('lang.kort_type')</th>
-                          <th class="v-middle hidden-xs"> @lang('lang.created_at')</th>     
-                        <th> @lang('lang.options')</th>
-                    </tr>
-                </tfoot>
-                <tbody>
-                  @foreach ($kortlar as $kort)
-                    <tr>
-                      <td>{{$kort->isim }}</td>
-                      <td>{{$kort->Type->isim }}</td>
-                      <td>{{$kort->created_at }}</td>
-                      <td class="text-center">
-                        <dt>
-                          <a href="{{route('kort.edit',$kort->id)}}" title="@lang('lang.edit') " class="text-info" >
-                            <span class="text text-md" >
-                            <i class="fa fa-edit"></i> 
-                            </span>
-                          </a>
-                          @if(Route::is('kort.index'))
-                            <a href="#hide-file-{{$kort->id}}" title="@lang('lang.hide') " data-toggle="modal" class=" text-primary" >
-                              <span class="text text-md" >
-                                <i class="fa  fa-eye-slash"></i> 
-                              </span>	
-                            </a>
-                            
-                          @elseif(Route::is('kort.silindi'))
-                              <a href="#restore-file-{{$kort->id}}" title="@lang('lang.restore') " data-toggle="modal" class=" text-warning" >
-                              <span class="text text-md" >
-                                <i class="fa  fa-eye"></i> 
-                              </span>	
-                            </a>
-                          @endif  
-                            <a href="#delete-file-{{$kort->id}}" title="@lang('lang.delete') " data-toggle="modal" class=" text-danger" >
-                              <span class="text text-md" >
-                                <i class="fa  fa-trash"></i> 
-                              </span>	
-                            </a>
-                        </dt>
-                      </td>   
-                    </tr>
-                    <div class="modal fade" id="delete-file-{{$kort->id}}">
-                      <div class="modal-dialog modal-shorten">
-                        <div class="modal-content bg-default">
-                          <div class="modal-body">
-                            <div class="padder">
-                              {{Form::open(array('route' =>['kort.destroy',$kort->id],
-                              'method'=>'delete','class'=>'form-delete','id'=>'form-delete' )) }}
-            
-                                <div class="text-center">
-                                  <h4 id="msg-shorten ">@lang('lang.delete')  @lang('lang.file') </h4>
-                                </div>
-                                <p class="text-danger">@lang('lang.are_you_want')  @lang('lang.delete')
-                                <b class="text-success">{{$kort->slug}}</b> @lang('lang.file') ?</p> 
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-rounded pull-left btn-default" data-dismiss="modal">
-                                      @lang('lang.cancle')
-                                  </button>
-                                  <button id="btn-delete" class="btn btn-rounded  pull-right btn-success" type="submit">
-                                    <i class="fa fa-trash"></i> @lang('lang.delete')
-                                  </button>
-                                </div>
-                                {{Form::close() }}
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                    @if(Route::is('kort.index'))
-                      <div class="modal fade" id="hide-file-{{$kort->id}}">
-                        <div class="modal-dialog modal-shorten">
-                          <div class="modal-content bg-default">
-                          <div class="modal-body">
-                            <div class="padder">
-                              {{Form::open(array('route' =>['kort.delete',$kort->id],
-                              'method'=>'delete','class'=>'form-delete','id'=>'form-delete' )) }}
-          
-                              <div class="text-center">
-                                <h4 id="msg-shorten "> @lang('lang.hidden_kortlar')</h4>
-                              </div>
-                              <p class="text-danger">@lang('lang.are_you_want')   @lang('lang.hide')
-                                <b class="text-success">{{$kort->slug}}</b>  @lang('lang.file') ?</p> 
-                                <div class="modal-footer">
-                                  <button type="button" class="btn btn-rounded pull-left btn-default" data-dismiss="modal">
-                                      @lang('lang.cancle')
-                                  </button>
-                                  <button id="btn-delete" class="btn btn-rounded  pull-right btn-success" type="submit">
-                                    <i class="fa fa-eye-slash"></i>  @lang('lang.hide')
-                                  </button>
-                                </div>
-                                {{Form::close() }}
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    @elseif(Route::is('kort.deletedkortlar'))
-                      <div class="modal fade" id="restore-file-{{$kort->id}}">
-                        <div class="modal-dialog modal-shorten">
-                          <div class="modal-content bg-default">
-                            <div class="modal-body">
-                              <div class="padder">
-                                {{Form::open(array('route' =>['kort.restore',$kort->id], 'method'=>'post',
-                                'class'=>'form-restore','id'=>'form-restore' ))
-                                }}
-                                <div class="text-center">
-                                  <h4 id="msg-shorten "> @lang('lang.restore')  @lang('lang.file')</h4>
-                                </div>
-                                <hr>
-                                <p>@lang('lang.are_you_want')   @lang('lang.restore')
-                                  <b class="text-info">
-                                    {{$kort->slug}} </b> @lang('lang.file') ?
-                                  </p> 
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-rounded pull-left btn-default" data-dismiss="modal">
-                                        @lang('lang.cancle')
-                                    </button>
-                                    <button id="btn-restore" class="btn btn-rounded  pull-right btn-success" type="submit">
-                                      <i class="fa fa-eye"></i> @lang('lang.restore')
-                                    </button>
-                                  </div>
-                                  {{Form::close() }}
-                                </div>
-                              </div>
-                          </div>
-                        </div>
-                      </div>
-                    @endif
-                  @endforeach
-                </tbody>
-              </table>
-            @else
-              <div class="col-md-8 col-md-offset-2">
-                <center> 
-                    @if(Route::is('kort.index'))
-                        <h2 class="text-danger alert alert-warning"> @lang('lang.dont_have') @lang('lang.kortlar')</h2>
-                    @else
-                        <h2 class="text-danger alert alert-warning"> @lang('lang.dont_have') @lang('lang.hidden_kortlar')</h2>
-                    @endif
-                </center>
-              </div>
-              @if(Route::is('kort.index'))
-                <div class="text-clear col-md-12">  </div>
-                <div class="col-md-12 text-center">
-                    <a href="{{route('kort.create')}}" class="btn btn-success"> 
-                    <i class="fa fa-plus"></i>  @lang('lang.click_to') @lang('lang.add')  @lang('lang.new_kort') 
-                    </a>
-                </div>
-              @endif 
-            @endif 
-          </div>
+ 
+    <div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-10">
+            <h2>EKortlar Listesi</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a>Kortlar</a>
+                </li>
+                <li class="active">
+                  @if(Route::is('kort.index'))
+                    <b>  kortlar Listesi  </b>
+                  @elseif(Route::is('kort.silindi'))
+                    <b>  gizli kortlar listesi  </b>            
+                  @endif
+                </li>
+            </ol>
         </div>
+        <div class="col-lg-2">
+            <a href="{{ route('kort.create') }}" class="btn btn-primary" style="margin-top:15%">Yeni Kort Ekle</a>
+        </div>
+    </div>
+    <div class="wrapper wrapper-content animated fadeInRight">
+      <div class="row">
+        @foreach ($kortlar as $kort)
+          <div class="col-md-3">
+            <div class="ibox">
+                <div class="ibox-content product-box">
+                  <div class="product-imitation" style="background-image:url('{{asset('assets/KortList.jpg') }} ');max-width:100%;max-height:100%;">
+                  </div>
+                  <div class="product-desc">
+                      <span class="product-price">
+                          {{  $kort->Type->saat_fiyati}} $
+                      </span>
+                      <small class="text-muted">Kort Durumu
+                       @if($kort->durum==0)
+                        <b class="text-info"> calisir </b>
+                       @else
+                       <b class="text-danger"> tamirde </b>                       
+                       @endif  
+                      </small>
+                    <a href="#" class="product-name">{{  $kort->isim}} </a>
+                      <div class="small m-t-xs">
+                          Kort Tipi <b class="text-success"> {{  $kort->Type->isim}}</b> 
+                      </div>
+                      <div class="m-t text-left">
+                          <a href="{{ route('kort.rezervasyonlar',$kort->id) }}" class="btn btn-xs btn-outline btn-primary">Rezervasyonları Görüntle<i class="fa fa-long-arrow-right"></i> </a>
+                      </div>
+                      <div class="form-group" style="margin-bottom:15%">
+                          @if( $kort->durum == 0)
+                          <div class="m-t text-right col-md-4">
+                              <a href="{{ route('kort.tamir',$kort->id) }}" class="btn btn-xs btn-outline btn-danger">
+                                Tamir <i class="fa fa-long-arrow-right"></i> 
+                              </a>
+                          </div>
+                        @else
+                        <div class="m-t text-right col-md-4">
+                            <a href="{{ route('kort.calistir',$kort->id) }}" class="btn btn-xs btn-outline btn-success">
+                              Çalisti <i class="fa fa-long-arrow-right"></i> 
+                            </a>
+                        </div>
+                        @endif
+                          <div class="m-t col-lg-4">
+                              <a href="{{ route('kort.edit',$kort->id) }}" class="btn btn-xs btn-outline btn-warning">Düzenle<i class="fa fa-long-arrow-right"></i> </a>
+                          </div>
+                      </div>
+                  </div>
+                </div>
+            </div>
+         </div>
+        @endforeach
       </div>
     </div>
-  </div>
+
 @endsection

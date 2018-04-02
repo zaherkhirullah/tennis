@@ -25,6 +25,23 @@ class ServisController extends Controller
     {
         //
     }
+    public function tamir(Servis $servis)
+    {
+        $servis->durum = 1 ;
+        $servis->save();
+        return redirect()->back();
+    }
+    public function calistir(Servis $servis)
+    {
+        $servis->durum = 0 ;
+        $servis->save();
+        return redirect()->back();
+    }
+    public function rezervasyonlar(Servis $servis)
+    {
+        
+    }
+    
 
     public function store(ServisValidation $request)
     {

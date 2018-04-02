@@ -11,7 +11,7 @@ class Contacts extends Model
     
     public function AllContacts()
     {
-        return $this->orderBy('created_at','desc');
+        return $this->where('durum',0)->orderBy('created_at','desc');
     }
     public function AllDeletedContacts()
     {

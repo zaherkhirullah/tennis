@@ -51,11 +51,24 @@ Route::prefix('admin')->group(function()
     Route::get( '/servis/silindi',     'ServisController@silindi')->name("servis.silindi");
     Route::get( '/Acontacts/silindi',     'ContactsController@silindi')->name("Acontacts.silindi");
     
-    Route::post( '/kiralayan/delete',  'KiralayanController@delete')->name("kiralayan.delete");
-    Route::post( '/Acontacts/delete',  'ContactsController@delete')->name("Acontacts.delete");    
-    Route::post( '/rezervasyon/delete','RezervasyonController@delete')->name("rezervasyon.delete");
-    Route::post( '/kort/delete',       'KortController@delete')->name("kort.delete");
-    Route::post( '/servis/delete',     'ServisController@delete')->name("servis.delete");
+    Route::post( '/kiralayan/{kiralayan}/delete',  'KiralayanController@delete')->name("kiralayan.delete");
+    Route::post( '/Acontacts/{Acontacts}/delete',  'ContactsController@delete')->name("Acontacts.delete");    
+    Route::post( '/rezervasyon/{rezervasyon}/delete','RezervasyonController@delete')->name("rezervasyon.delete");
+    Route::post( '/kort/{kort}/delete',       'KortController@delete')->name("kort.delete");
+    Route::post( '/servis/{servis}/delete',     'ServisController@delete')->name("servis.delete");
+   
+    Route::get( '/kort/{kort}/tamir',     'KortController@tamir')->name("kort.tamir");
+    Route::get( '/kort/{kort}/calistir',     'KortController@calistir')->name("kort.calistir");
+    Route::get( '/kort/{kort}/rezervasyonlar',     'KortController@rezervasyonlar')->name("kort.rezervasyonlar");
+   
+    Route::get( '/servis/{servis}/tamir',     'ServisController@tamir')->name("servis.tamir");
+    Route::get( '/servis/{servis}/calistir',     'ServisController@calistir')->name("servis.calistir");
+    Route::get( '/servis/{servis}/rezervasyonlar',     'ServisController@rezervasyonlar')->name("servis.rezervasyonlar");
+   
+    
+    Route::get( '/rezervasyon/simdiki','RezervasyonController@simdiki')->name("rezervasyon.simdiki");
+    Route::get( '/rezervasyon/sonraki','RezervasyonController@sonraki')->name("rezervasyon.sonraki");
+    Route::get( '/rezervasyon/gecmis','RezervasyonController@gecmis')->name("rezervasyon.gecmis");
     
     // Admin Resources
     Route::resource( '/rezervasyon','RezervasyonController');
