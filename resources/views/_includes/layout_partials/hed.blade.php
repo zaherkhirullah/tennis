@@ -107,11 +107,37 @@
                         </li>
                     </ul>
                 </li>       
-                <li>
-                    <a href="login.html">
-                        <i class="fa fa-sign-out"></i> Log out
-                    </a>
-                </li>
+    @auth
+                
+                <li  class="text-center">
+                        <a href="{{ route('logout') }}"
+                             onclick="event.preventDefault();
+                                         document.getElementById('logout-form').submit();">
+                         <b  class="text-danger"> 
+                                 <i class="fa fa-sign-out"> </i> 
+                                 Çıkış
+                         </b>
+                         </a>
+                       
+                         <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                             {{ csrf_field() }}
+                         </form>
+                         
+                     </li>
+                @else
+                     <li class="nav-item">
+                         <a href="{{ route('login') }}"> 
+                         <i class="ion ion-log-in" aria-hidden="true"></i> 
+                         Giriş yap
+                         </a>
+                     </li>
+                     <li class="nav-item nav-item-cta last">
+                         <a class="btn btn-cta btn-cta-secondary" href="{{ route('register') }}">
+                         <i class="ion ion-person-add" aria-hidden="true"></i> 
+                         Kayit ol
+                         </a>
+                     </li>
+                 @endauth
             </ul>
     
         </nav>
