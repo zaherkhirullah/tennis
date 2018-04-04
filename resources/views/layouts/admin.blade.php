@@ -84,6 +84,7 @@
     </nav>
 
     <div id="page-wrapper" class="gray-bg">
+        @include('_includes.layout_partials.hed')
         @include('_includes.partials.flash_message')
         <!-- Your Page Content Here -->
         @yield('content')
@@ -94,8 +95,6 @@
                 <strong>Copyright</strong> Eyad ALMANSOUR &copy; 2018
             </div>
           </div>
-          
-          
     </div>
 </div>
 

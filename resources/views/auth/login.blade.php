@@ -1,13 +1,14 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div style="margin-left:150px;">
+        <div class="col-md-9">
             <div class="card">
-                <div class="card-header">Login</div>
+                <div class="ibox-title">
+                        <h3 class="text-center">Giriş Yap</h3>
+                    </div>
 
-                <div class="card-body">
+                <div class="ibox-content">
                     <form method="POST" action="{{ route('login') }}">
                         @csrf
 

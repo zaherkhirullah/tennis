@@ -4,9 +4,6 @@ namespace App\Http\Controllers\Account;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-// use App\Http\Models\Country;
-use App\Http\Models\Address;
-use App\Http\Models\Profile;
 use App\User;
 use Hash;
 use Auth;
@@ -26,35 +23,7 @@ class AccountController extends Controller
 
   public function showprofile()
   {
-    $profile =profile::where('user_id',Auth::id())->first();
-    // $countries = Country::pluck('name', 'id');
-    $countries = \Countries::all()->pluck('name.common');
-
-    return view('account.profile',compact('countries','profile'));
-  }
-  public function profile (Request $request)
-  { 
-    $user =User::where('id',Auth::id())->first();
-    $user->first_name =$request->first_name;
-    $user->last_name =$request->last_name;
-    $user->save();
-    $profile =profile::where('user_id',Auth::id())->first();
-    $profile->user_id =   Auth::id() ;
-    $profile->avatar = $request->avatar ;
-    $profile->phone_number = $request->phone_number ;
-    $profile->save();
-    $address = address::where('user_id',Auth::id())->first();
-    $address->city = $request->city ;
-    $address->user_id = Auth::id() ;
-    $address->state = $request->state ;
-    $address->Address1 = $request->Address1 ;
-    $address->Address2 = $request->Address2 ;
-    $address->country_id = $request->country ;
-    $address->zip_code = $request->zip_code ;
-    $address->save();
-    // $countries = Country::pluck('name', 'id');
-    Session::flash('success',' Sucessfully Update ' .$profile->user_id . '  Profile informations .');
-    return view('account.profile',compact('countries','profile'));
+    return view('account.profile');
   }
   
   public function showchangePassword()

@@ -104,19 +104,14 @@ Route::prefix('user')->group(function()
 |      --/ Home  Area /--      
 |=============================
 */
-Route::prefix('/')->group(function()
-{
+
   Route::group(['namespace' => 'Home'], function()
   {
     Route::get('/home',         'HomeController@index')->name('home'); // ana sayfa
+    Route::get('/',         'HomeController@index')->name('home'); // ana sayfa
     Route::get('/rezervasyonAl', 'HomeController@rezervasyonAl')->name('rezervasyonAl'); // randevo alma sayfa 
     Route::get('/contacts',      'ContactsController@create')->name('contacts'); // contact sayfa 
     Route::get('/prices',        'HomeController@prices')->name('prices'); // kiralama fiyatlari
     Route::get('/aboutUs',       'HomeController@aboutUs')->name('aboutUs'); // hakkimizde
     Route::get('/terms',         'HomeController@terms')->name('terms'); // Kurallar
   });
-});
-
-Route::get('/', function () {
-  return view('welcome');
-})->name('homepage');
