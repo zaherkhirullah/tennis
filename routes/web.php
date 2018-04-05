@@ -9,14 +9,11 @@
 | routes are loaded by the RouteServiceProvider within a group which
 | contains the "web" middleware group. Now create something great!
 */
-
 Auth::routes();
-
 Route::group(['namespace' => 'Settings'], function()
 {
   Route::get('lang/{lang}', 'LanguageController@index')->name('lang');
 });
-
 /*
 |=============================
 |      --/Account Area /--      
@@ -32,8 +29,6 @@ Route::prefix('account')->group(function()
     Route::post('/change-password',  'AccountController@changePassword')->name('post_changePassword');
   });
 });
-
-
 /*
 |=============================
 |      --/ Admin Area /--      
@@ -64,24 +59,21 @@ Route::prefix('admin')->group(function()
     Route::get( '/servis/{servis}/tamir',     'ServisController@tamir')->name("servis.tamir");
     Route::get( '/servis/{servis}/calistir',     'ServisController@calistir')->name("servis.calistir");
     Route::get( '/servis/{servis}/rezervasyonlar',     'ServisController@rezervasyonlar')->name("servis.rezervasyonlar");
-   
+
     
     Route::get( '/rezervasyon/simdiki','RezervasyonController@simdiki')->name("rezervasyon.simdiki");
     Route::get( '/rezervasyon/sonraki','RezervasyonController@sonraki')->name("rezervasyon.sonraki");
     Route::get( '/rezervasyon/gecmis','RezervasyonController@gecmis')->name("rezervasyon.gecmis");
-    
     // Admin Resources
     Route::resource( '/rezervasyon','RezervasyonController');
     Route::resource( '/kort',       'KortController');
     Route::resource( '/kiralayan',  'KiralayanController');
     Route::resource( '/servis',     'ServisController');
     Route::resource( '/Acontacts',   'ContactsController');
-    Route::resource( '/kortType',   'kortTypeController');
-    
-    
+    Route::resource( '/kortType',   'kortTypeController');    
   });
-
 });
+
 /*
 |=============================
 |      --/ User Area /--      
@@ -111,6 +103,7 @@ Route::prefix('user')->group(function()
     Route::get('/',         'HomeController@index')->name('home'); // ana sayfa
     Route::get('/rezervasyonAl', 'HomeController@rezervasyonAl')->name('rezervasyonAl'); // randevo alma sayfa 
     Route::get('/contacts',      'ContactsController@create')->name('contacts'); // contact sayfa 
+    Route::post('/contacts',      'ContactsController@store')->name('p_contacts'); // contact sayfa 
     Route::get('/prices',        'HomeController@prices')->name('prices'); // kiralama fiyatlari
     Route::get('/aboutUs',       'HomeController@aboutUs')->name('aboutUs'); // hakkimizde
     Route::get('/terms',         'HomeController@terms')->name('terms'); // Kurallar
