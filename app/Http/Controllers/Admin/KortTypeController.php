@@ -11,8 +11,8 @@ class KortTypeController extends Controller
     public function index()
     {
        $kortType = new KortType;
-       $kortTypeler =$kortType->AllKortTypes()->get();
-        return view('admin.kortType.index',compact('kortTypeler'));
+       $kortTypeler =$kortType->AllKortTypes();
+       return view('admin.kortType.index',compact('kortTypeler'));
     }
     public function silindi()
     {

@@ -59,10 +59,23 @@ Route::prefix('admin')->group(function()
     Route::get( '/kort/{kort}/calistir',     'KortController@calistir')->name("kort.calistir");
     Route::get( '/kort/{kort}/rezervasyonlar',     'KortController@rezervasyonlar')->name("kort.rezervasyonlar");
    
+<<<<<<< HEAD
     Route::get( '/servis/{servi}/tamir',     'ServisController@tamir')->name("servis.tamir");
     Route::get( '/servis/{servi}/calistir',     'ServisController@calistir')->name("servis.calistir");
     Route::get( '/servis/{servi}/rezervasyonlar',     'ServisController@rezervasyonlar')->name("servis.rezervasyonlar");
+=======
+<<<<<<< HEAD
+    Route::get( '/servis/{servi}/tamir',     'ServisController@tamir')->name("servis.tamir");
+    Route::get( '/servis/{servi}/calistir',     'ServisController@calistir')->name("servis.calistir");
+    Route::get( '/servis/{servi}/rezervasyonlar',     'ServisController@rezervasyonlar')->name("servis.rezervasyonlar");
+   
+=======
+    Route::get( '/servis/{servis}/tamir',     'ServisController@tamir')->name("servis.tamir");
+    Route::get( '/servis/{servis}/calistir',     'ServisController@calistir')->name("servis.calistir");
+    Route::get( '/servis/{servis}/rezervasyonlar',     'ServisController@rezervasyonlar')->name("servis.rezervasyonlar");
+>>>>>>> c61fc11cdba3e0225b10e697effcfa55a9d9fe6b
 
+>>>>>>> 137ebf6942c7119eaaf5a3713eb25beaabddda4d
     
     Route::get( '/rezervasyon/simdiki','RezervasyonController@simdiki')->name("rezervasyon.simdiki");
     Route::get( '/rezervasyon/sonraki','RezervasyonController@sonraki')->name("rezervasyon.sonraki");
@@ -111,3 +124,39 @@ Route::prefix('user')->group(function()
     Route::get('/aboutUs',       'HomeController@aboutUs')->name('aboutUs'); // hakkimizde
     Route::get('/terms',         'HomeController@terms')->name('terms'); // Kurallar
   });
+<<<<<<< HEAD
+});
+
+Route::get('/', function () {
+  return view('welcome');
+})->name('homepage');
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+///////// edit /////
+/// edit servis
+//Route::get('/admin/servis/edit/{id}',[
+//    'uses' => 'ServisController@edit',
+//    'as' => 'servis.edit',
+//    'namespace' => 'Admin'
+//]);
+
+
+
+//Route::get('admin/servis/create',[
+//    'uses' => 'ServisController@create',
+//    'as' => 'servis.create'
+//]);
+=======
+>>>>>>> 137ebf6942c7119eaaf5a3713eb25beaabddda4d

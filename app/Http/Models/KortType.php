@@ -12,7 +12,7 @@ class KortType extends Model
     
     public function AllKortTypes()
     {
-        return $this->where('durum',0)->orderBy('created_at','desc');
+        return $this->where('durum',0)->orderBy('created_at','desc')->get();
     }
     public function AllDeletedKortTypes()
     {

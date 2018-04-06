@@ -8,8 +8,13 @@ use App\Http\Models\Rezervasyon;
 class Servis extends Model
 {
     protected $table = 'servis';
-    protected $fillable = ['isim','plaka','sofor_adi',
-    'sofor_numarasi','durum',  ];
+    protected $fillable = [
+        'isim',
+        'plaka',
+        'sofor_adi',
+        'sofor_numarasi',
+        'durum',
+    ];
   
     public function AllServisler()
     {
