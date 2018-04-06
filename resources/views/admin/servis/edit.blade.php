@@ -8,7 +8,6 @@
                     
                     <div class="ibox-content">
                         <form action="{{ route("servis.update",['servi'=> $servi->id]) }}" method="post" class="form-horizontal">
-                            {{--{{ csrf_field() }}--}}
                             @csrf
                             {{ method_field('put') }}
                             <div class="form-group {{ $errors->has('sofor_adi') ? ' has-error' : '' }}">

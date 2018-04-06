@@ -8,7 +8,14 @@ use App\Http\Models\Rezervasyon;
 class Kort extends Model
 {
     protected $table = 'korts';
-    protected $fillable = ['isim','tip','type_id','durum' ];
+    protected $fillable = 
+    [
+    'isim',
+    'saat_puani',
+    'saat_ucreti',
+    'type',
+    'durum'
+];
     
     public function AllKortlar()
     {

@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Models\Kort;
 use Illuminate\Http\Request;
 use App\Http\Requests\KortValidation;
-
+use Session;
 class KortController extends Controller
 {   
     public function __construct()
