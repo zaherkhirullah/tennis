@@ -24,7 +24,9 @@ class ServisValidation extends FormRequest
     public function rules()
     {
         return [
-            //
+            'sofor_adi' => 'string|required',
+            'sofor_numarasi' => 'string|required',
+            'plaka' => 'string|required',
         ];
     }
 }

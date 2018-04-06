@@ -7,28 +7,58 @@
                 <div class="ibox float-e-margins">
                     
                     <div class="ibox-content">
-                        <form method="get" class="form-horizontal">
-                            <div class="form-group"><label class="col-sm-2 control-label">Şöför Adı</label>
-                                <div class="col-sm-10"><input type="text" class="form-control"></div>
+                        <form action="{{ route("servis.update",['servi'=> $servi->id]) }}" method="post" class="form-horizontal">
+                            {{--{{ csrf_field() }}--}}
+                            @csrf
+                            {{ method_field('put') }}
+                            <div class="form-group {{ $errors->has('sofor_adi') ? ' has-error' : '' }}">
+                                <label class="col-sm-2 control-label">Şöför Adı</label>
+                                <div class="col-sm-10 ">
+                                    <input type="text" class="form-control" name="sofor_adi" value="{{ $servi->sofor_adi }}">
+                                    @if ($errors->has('sofor_adi'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('sofor_adi') }}</strong>
+                                    </span>
+                                    @endif
+                                </div>
+
+
                             </div>
                             <div class="hr-line-dashed"></div>
-                            <div class="form-group">
+                            <div class="form-group {{ $errors->has('sofor_numarasi') ? ' has-error' : '' }}">
                                 <label class="col-sm-2 control-label">Şöför Numarası</label>
-                                <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="sofor_numarasi" value="{{ $servi->sofor_numarasi }}">
+
+                                    @if ($errors->has('sofor_numarasi'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('sofor_numarasi') }}</strong>
+                                        </span>
+                                    @endif
+
+
+                                </div>
                             </div>
                             <div class="hr-line-dashed"></div>
-                            <div class="form-group">
+                            <div class="form-group  {{ $errors->has('plaka') ? ' has-error' : '' }}">
                                 <label class="col-sm-2 control-label">Servis Plakası</label>
-                                <div class="col-sm-10"><input type="text" class="form-control"></div>
+                                <div class="col-sm-10">
+                                    <input type="text" name="plaka" class="form-control" value="{{ $servi->plaka }}">
+                                    @if ($errors->has('plaka'))
+                                        <span class="invalid-feedback">
+                                        <strong>{{ $errors->first('plaka') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Servis Durumu</label>
                                 <div class="col-sm-10">
-                                    <select class="form-control m-b" name="account">
-                                        <option>Seç</option>
-                                        <option>Çalışıyor</option>
-                                        <option>Tamirde</option>
+                                    <select class="form-control m-b" name="durum">
+                                        <option value="0" @if($servi->durum == 0) selected @endif>Çalışıyor</option>
+                                        <option value="1" @if($servi->durum == 1) selected @endif >Tamirde</option>
+                                        <option value="2" @if($servi->durum == 2) selected @endif>Arzali</option>
                                     </select>
                                 </div>
                             </div>

@@ -21,13 +21,13 @@ class ServisController extends Controller
         $servisler = $servis->AllDeletedServisler()->get();
         return view('admin.servis.index',compact('servisler'));
     }
-    public function tamir(Servis $servis)
+    public function tamir(Servis $servi)
     {
         $servis->durum = 1 ;
         $servis->save();
         return redirect()->back();
     }
-    public function calistir(Servis $servis)
+    public function calistir(Servis $servi)
     {
         $servis->durum = 0 ;
         $servis->save();
@@ -37,15 +37,16 @@ class ServisController extends Controller
     {
         
     }
-    
+
     public function create()
     {
+//        return 'sdf';
         return  view('admin.servis.create');
     }
 
     public function store(ServisValidation $request)
     {
-        //
+        return $request;
     }
 
     public function show(Servis $servis)
@@ -54,15 +55,19 @@ class ServisController extends Controller
         
     }
 
-    public function edit(Servis $servis)
+    public function edit(Servis $servi)
     {
-        return  view('admin.servis.edit',compact('servis'));
-        
+       // $servis = Servis::find($servi);
+       // return $servi;
+        return  view('admin.servis.edit',compact('servi'));
     }
 
-    public function update(ServisValidation $request, Servis $servis)
+    public function update(ServisValidation $request, Servis $servi)
     {
-        //
+//        return $servi;
+        //return $request->all();
+        $servi->update($request->all());
+        return back();
     }
 
     public function destroy(Servis $servis)
