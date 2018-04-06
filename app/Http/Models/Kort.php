@@ -23,7 +23,7 @@ class Kort extends Model
     {
         return $this->orderBy('created_at','desc')->get();
     }
-    public function Deleted()
+    public function AllDeletedKortlar()
     {
         return $this->where('durum',1)->orderBy('updated_at','desc')->get();
         
