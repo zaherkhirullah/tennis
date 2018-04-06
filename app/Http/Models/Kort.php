@@ -9,26 +9,19 @@ use App\Http\Models\Rezervasyon;
 class Kort extends Model
 {
     protected $table = 'korts';
-    protected $fillable = ['isim','tip','type_id','durum' ];
+    protected $fillable = ['isim','type','durum','saat_ucreti','saat_puani' ];
     
     public function AllKortlar()
     {
-        return $this->orderBy('created_at','desc');
+        return $this->orderBy('created_at','desc')->get();
     }
-    public function AllDeletedKortlar()
+    public function Deleted()
     {
-        return $this->where('durum',1)->orderBy('updated_at','desc');
+        return $this->where('durum',1)->orderBy('updated_at','desc')->get();
         
     }
-
-
     public function Rezervasyons()
     {
         return $this->hasMany(Rezervasyon::class);
-    }
-
-    public function Type()
-    {
-        return $this->belongsTo('App\Http\Models\KortType');
     }
 }

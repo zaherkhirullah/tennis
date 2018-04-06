@@ -56,17 +56,17 @@ Route::prefix('admin')->group(function()
     Route::get( '/kort/{kort}/calistir',     'KortController@calistir')->name("kort.calistir");
     Route::get( '/kort/{kort}/rezervasyonlar',     'KortController@rezervasyonlar')->name("kort.rezervasyonlar");
    
-<<<<<<< HEAD
+
     Route::get( '/servis/{servi}/tamir',     'ServisController@tamir')->name("servis.tamir");
     Route::get( '/servis/{servi}/calistir',     'ServisController@calistir')->name("servis.calistir");
     Route::get( '/servis/{servi}/rezervasyonlar',     'ServisController@rezervasyonlar')->name("servis.rezervasyonlar");
    
-=======
+//=======
     Route::get( '/servis/{servis}/tamir',     'ServisController@tamir')->name("servis.tamir");
     Route::get( '/servis/{servis}/calistir',     'ServisController@calistir')->name("servis.calistir");
     Route::get( '/servis/{servis}/rezervasyonlar',     'ServisController@rezervasyonlar')->name("servis.rezervasyonlar");
 
->>>>>>> 137ebf6942c7119eaaf5a3713eb25beaabddda4d
+//>>>>>>> 137ebf6942c7119eaaf5a3713eb25beaabddda4d
     
     Route::get( '/rezervasyon/simdiki','RezervasyonController@simdiki')->name("rezervasyon.simdiki");
     Route::get( '/rezervasyon/sonraki','RezervasyonController@sonraki')->name("rezervasyon.sonraki");
@@ -105,35 +105,22 @@ Route::prefix('user')->group(function()
 */
 
   Route::group(['namespace' => 'Home'], function()
-  {
-    Route::get('/home',         'HomeController@index')->name('home'); // ana sayfa
-    Route::get('/',         'HomeController@index')->name('home'); // ana sayfa
-    Route::get('/rezervasyonAl', 'HomeController@rezervasyonAl')->name('rezervasyonAl'); // randevo alma sayfa 
-    Route::get('/contacts',      'ContactsController@create')->name('contacts'); // contact sayfa 
-    Route::post('/contacts',      'ContactsController@store')->name('p_contacts'); // contact sayfa 
-    Route::get('/prices',        'HomeController@prices')->name('prices'); // kiralama fiyatlari
-    Route::get('/aboutUs',       'HomeController@aboutUs')->name('aboutUs'); // hakkimizde
-    Route::get('/terms',         'HomeController@terms')->name('terms'); // Kurallar
-  });
-<<<<<<< HEAD
-});
+      {
+        Route::get('/home',         'HomeController@index')->name('home'); // ana sayfa
+        Route::get('/',         'HomeController@index')->name('home'); // ana sayfa
+        Route::get('/rezervasyonAl', 'HomeController@rezervasyonAl')->name('rezervasyonAl'); // randevo alma sayfa
+        Route::get('/contacts',      'ContactsController@create')->name('contacts'); // contact sayfa
+        Route::post('/contacts',      'ContactsController@store')->name('p_contacts'); // contact sayfa
+        Route::get('/prices',        'HomeController@prices')->name('prices'); // kiralama fiyatlari
+        Route::get('/aboutUs',       'HomeController@aboutUs')->name('aboutUs'); // hakkimizde
+        Route::get('/terms',         'HomeController@terms')->name('terms'); // Kurallar
+      }
+  );
+
 
 Route::get('/', function () {
   return view('welcome');
 })->name('homepage');
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 ///////// edit /////
 /// edit servis
@@ -149,5 +136,5 @@ Route::get('/', function () {
 //    'uses' => 'ServisController@create',
 //    'as' => 'servis.create'
 //]);
-=======
->>>>>>> 137ebf6942c7119eaaf5a3713eb25beaabddda4d
+//=======
+//>>>>>>> 137ebf6942c7119eaaf5a3713eb25beaabddda4d
