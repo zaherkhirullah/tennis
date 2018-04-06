@@ -12,7 +12,10 @@ use App\User;
 
 class KiralayanController extends Controller
 {
-    
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
     public function index()
     {
         $kiralayan = new Kiralayan;

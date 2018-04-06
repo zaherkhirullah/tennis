@@ -36,16 +36,20 @@
               <div class="product-imitation" style="background:no-repeat ;background-image:url('{{  asset('assets/ServisList.jpg') }}');max-width:100%;max-height:100%;">
                   </div>
                   <div class="product-desc">
-                      @if( $servis->durum == 0)
-                      <small class="text-muted">Servis Durumu 
-                        <b class="text-success">Çalisir</b>
+                    @if( $servis->durum == 0)
+                        <small class="text-muted">Servis Durumu 
+                            <b class="text-success">Çalisir</b>
+                        </small>
+                    @elseif( $servis->durum == 1)
+                      <small class="text-muted">Servis Durumu
+                          <b class="text-info">Meşgül</b>
                       </small>
                     @else
-                      <small class="text-muted">Servis Durumu
-                          <b class="text-danger">Arzali</b>
-                      </small>
-                    @endif
-                     
+                    <small class="text-muted">Servis Durumu
+                        <b class="text-danger">Arzali</b>
+                    </small>
+                  @endif
+                   
                       <a href="#" class="product-name">{{ $servis->isim  }} </a>
                       <div class="small m-t-xs">
                           Plaka numarasi <b class="text-info"> {{ $servis->plaka  }}</b>
@@ -54,27 +58,41 @@
                           <br>
                           Şöför numarasi <b class="text-info"> {{ $servis->sofor_numarasi  }}</b>
                       </div>
-                      <a href="{{ route('servis.rezervasyonlar',$servis->id) }}" class="m-t btn btn-xs btn-outline btn-primary">
-                            Rezervasyonları Görüntle<i class="fa fa-long-arrow-right"></i> 
-                          </a>
-                          <div class="form-group" style="margin-bottom:15%">            
-                        <div class="m-t text-left col-md-4 col-sm-6 col-xs-6">                          
-                          @if( $servis->durum == 0)
-                              <a href="{{ route('servis.tamir',$servis->id) }}" class="btn btn-xs btn-outline btn-danger">
-                                Tamir <i class="fa fa-long-arrow-right"></i> 
-                              </a>
-                        @else
-                            <a href="{{ route('servis.calistir',$servis->id) }}" class="btn btn-xs btn-outline btn-success">
-                              Çalisti <i class="fa fa-long-arrow-right"></i> 
-                            </a>
-                        @endif
+                      <div class="m-t text-left">
+                            <a href="{{ route('servis.rezervasyonlar',$servis->id) }}" class="btn btn-xs btn-outline btn-primary">
+                              Rezervasyonları 
+                              <span class="hidden-sm hidden-xs"> Görüntle</span>
+                              <i class="fa fa-long-arrow-right"></i>
+                           </a>
                         </div>
-                          <div class="m-t text-right col-md-5 col-xs-6 col-sm-6">
-                              <a href="{{ route('servis.edit',$servis->id) }}" class="btn btn-xs btn-outline btn-warning">
-                                Düzenle<i class="fa fa-long-arrow-right"></i>
-                               </a>
+                        <div class="form-group" style="margin-bottom:15%">
+                          @if( $servis->durum == 0)
+                          <div class="m-t  col-md-4 col-sm-4 col-xs-4">                                                   
+                              <a href="{{ route('servis.tamir',$servis->id) }}" class="btn btn-xs btn-outline btn-danger">
+                                  <span class="hidden-sm hidden-xs">Tamir</span>
+                                   <i class="fa fa-long-arrow-right"></i> 
+                              </a>
                           </div>
-                      </div>
+                          <div class="m-t col-md-4 col-sm-4 col-xs-4">
+                              <a href="{{ route('servis.mesgul',$servis->id) }}" class="btn btn-xs btn-outline btn-info">
+                                      <span class="hidden-sm hidden-xs">  Meşgul</span>
+                                       <i class="fa fa-long-arrow-right"></i> 
+                              </a>
+                          </div>
+                          @else
+                          <div class="m-t col-md-4 col-sm-4 col-xs-4">                        
+                              <a href="{{ route('servis.calistir',$servis->id) }}" class="btn btn-xs btn-outline btn-success">
+                                      <span class="hidden-sm hidden-xs">Çalistir </span>
+                                       <i class="fa fa-long-arrow-right"></i> 
+                              </a>
+                          </div>
+                         @endif
+                         <div class="m-t text-right col-md-4 col-sm-4 col-xs-4">
+                              <a href="{{ route('servis.edit',$servis->id) }}" class="btn btn-xs btn-outline btn-warning">
+                                  <span class="hidden-sm hidden-xs"> Düzenle </span>
+                                  <i class="fa fa-edit"></i> </a>
+                          </div>
+                        </div>
                   </div>
               </div>
           </div>

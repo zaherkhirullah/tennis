@@ -3,7 +3,6 @@
 namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Models\KortType;
 use App\Http\Models\Rezervasyon;
 
 class Kort extends Model

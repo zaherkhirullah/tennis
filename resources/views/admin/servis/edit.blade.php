@@ -57,7 +57,7 @@
                                 <div class="col-sm-10">
                                     <select class="form-control m-b" name="durum">
                                         <option value="0" @if($servi->durum == 0) selected @endif>Çalışıyor</option>
-                                        <option value="1" @if($servi->durum == 1) selected @endif >Tamirde</option>
+                                        <option value="1" @if($servi->durum == 1) selected @endif >Meşgul</option>
                                         <option value="2" @if($servi->durum == 2) selected @endif>Arzali</option>
                                     </select>
                                 </div>

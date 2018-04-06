@@ -27,11 +27,57 @@
                     
                     <div class="ibox-content">
                         <form method="get" class="form-horizontal">
-                            <div class="form-group"><label class="col-sm-2 control-label">Kort Adı</label>
-                                <div class="col-sm-10"><input type="text" class="form-control"></div>
+                            <div class="form-group">
+                                <label for="isim" class="col-sm-2 control-label">Kort Adı</label>
+                                <div class="col-sm-10">
+                                        <input type="text"  id="isim" name="isim"  class="form-control {{ $errors->has('isim') ? ' is-invalid' : '' }}"  value="{{ old('isim') }}" required autofocus>
+                                        @if ($errors->has('isim'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('isim') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
                             </div>
+                            
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
+                                <label for="saat_ucreti" class="col-sm-2 control-label">Saat ucreti</label>
+                                <div class="col-sm-10">
+                                        <input type="text"  id="saat_ucreti" name="saat_ucreti"  class="form-control {{ $errors->has('saat_ucreti') ? ' is-invalid' : '' }}"  value="{{ old('saat_ucreti') }}" required autofocus>
+                                        @if ($errors->has('saat_ucreti'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('saat_ucreti') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                <label for="saat_puani" class="col-sm-2 control-label">saat Puani</label>
+                                <div class="col-sm-10">
+                                        <input type="text"  id="saat_puani" name="saat_puani"  class="form-control {{ $errors->has('saat_puani') ? ' is-invalid' : '' }}"  value="{{ old('saat_puani') }}" required autofocus>
+                                        @if ($errors->has('saat_puani'))
+                                        <span class="invalid-feedback">
+                                            <strong>{{ $errors->first('saat_puani') }}</strong>
+                                        </span>
+                                    @endif
+                                </div>
+                            </div>
+                            
+                            <div class="hr-line-dashed"></div>
+                            <div class="form-group">
+                                    <label for="plaka" class="col-sm-2 control-label">Servis Plakası</label>
+                                    <div class="col-sm-10">
+                                            <input type="text"  id="plaka" name="plaka"  class="form-control {{ $errors->has('plaka') ? ' is-invalid' : '' }}"  value="{{ old('plaka') }}" required autofocus>
+                                            @if ($errors->has('plaka'))
+                                            <span class="invalid-feedback">
+                                                <strong>{{ $errors->first('plaka') }}</strong>
+                                            </span>
+                                        @endif
+                                    </div>
+                                </div>
+                            {{-- <div class="form-group">
                                 <label class="col-sm-2 control-label">Kort Tipi</label>
                                 <div class="col-sm-10">
                                     <select class="form-control m-b" name="account">
@@ -40,7 +86,7 @@
                                         <option>Çift</option>
                                     </select>
                                 </div>
-                            </div>
+                            </div> --}}
                             <div class="hr-line-dashed"></div>
                             <div class="form-group">
                                 <label class="col-sm-2 control-label">Saat Fiyati</label>

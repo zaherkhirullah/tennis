@@ -9,7 +9,10 @@ use App\Http\Requests\ContactsValidation;
 
 class ContactsController extends Controller
 {
-  
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
     public function index(Contacts $contacts)
     {
         $contact = new Contacts;
