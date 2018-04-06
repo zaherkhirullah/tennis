@@ -46,7 +46,7 @@
                           
                        @endif  
                       </small>
-                    <a href="#" class="product-name">{{  $kort->isim}} </a>
+                      <a href="#" class="product-name">{{  $kort->isim}} </a>
                       <div class="small m-t-xs">
                           Kort Tipi
                           <b class="text-success">
