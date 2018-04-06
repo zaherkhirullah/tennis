@@ -27,14 +27,14 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="sifre" class="col-md-4 col-form-label text-md-right">sifre</label>
+                            <label for="password" class="col-md-4 col-form-label text-md-right">password</label>
 
                             <div class="col-md-6">
-                                <input id="sifre" type="password" class="form-control{{ $errors->has('sifre') ? ' is-invalid' : '' }}" name="sifre" required>
+                                <input id="password" type="password" class="form-control{{ $errors->has('password') ? ' is-invalid' : '' }}" name="password" required>
 
-                                @if ($errors->has('sifre'))
+                                @if ($errors->has('password'))
                                     <span class="invalid-feedback">
-                                        <strong>{{ $errors->first('sifre') }}</strong>
+                                        <strong>{{ $errors->first('password') }}</strong>
                                     </span>
                                 @endif
                             </div>
@@ -56,7 +56,7 @@
                                     Login
                                 </button>
                                 <a class="btn btn-link" href="{{ route('password.request') }}">
-                                    Forgot Your sifre?
+                                    Forgot Your password?
                                 </a>
                             </div>
                         </div>

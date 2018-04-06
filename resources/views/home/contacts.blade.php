@@ -7,7 +7,6 @@
                 <div class="ibox-title">
                         <h3 class="text-center">Iletişim formu</h3>
                     </div>
-
                 <div class="ibox-content">
                     <form method="POST" action="{{ route('p_contacts') }}">
                         @csrf
