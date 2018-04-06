@@ -34,38 +34,64 @@
                   </div>
                   <div class="product-desc">
                       <span class="product-price">
-                          {{  $kort->Type->saat_fiyati}} $
+                          {{  $kort->saat_ucreti}} $
                       </span>
                       <small class="text-muted">Kort Durumu
                        @if($kort->durum==0)
                         <b class="text-info"> müsait </b>
-                       @else
+                       @elseif($kort->durum==1)
+                       <b class="text-warning"> meşgül </b>    
+                       @else                
                        <b class="text-danger"> tamirde </b>                       
+                          
                        @endif  
                       </small>
                     <a href="#" class="product-name">{{  $kort->isim}} </a>
                       <div class="small m-t-xs">
-                          Kort Tipi <b class="text-success"> {{  $kort->Type->isim}}</b> 
+                          Kort Tipi
+                          <b class="text-success">
+                          @if($kort->type==0)
+                          Tek                         
+                          @else
+                          Çift
+                          @endif
+                        </b> 
+                          
                       </div>
                       <div class="m-t text-left">
-                          <a href="{{ route('kort.rezervasyonlar',$kort->id) }}" class="btn btn-xs btn-outline btn-primary">Rezervasyonları Görüntle<i class="fa fa-long-arrow-right"></i> </a>
+                          <a href="{{ route('kort.rezervasyonlar',$kort->id) }}" class="btn btn-xs btn-outline btn-primary">
+                            Rezervasyonları 
+                            <span class="hidden-sm hidden-xs"> Görüntle</span>
+                            <i class="fa fa-long-arrow-right"></i>
+                         </a>
                       </div>
                       <div class="form-group" style="margin-bottom:15%">
-                            <div class="m-t text-right col-md-4 col-sm-6 col-xs-6">                        
                         @if( $kort->durum == 0)
-                              <a href="{{ route('kort.tamir',$kort->id) }}" class="btn btn-xs btn-outline btn-danger">
-                                Tamir <i class="fa fa-long-arrow-right"></i> 
-                              </a>
-                        @else
-                            <a href="{{ route('kort.calistir',$kort->id) }}" class="btn btn-xs btn-outline btn-success">
-                              Çalistir <i class="fa fa-long-arrow-right"></i> 
+                        <div class="m-t  col-md-4 col-sm-4 col-xs-4">                                                   
+                            <a href="{{ route('kort.tamir',$kort->id) }}" class="btn btn-xs btn-outline btn-danger">
+                                <span class="hidden-sm hidden-xs">Tamir</span>
+                                 <i class="fa fa-long-arrow-right"></i> 
                             </a>
-                        @endif
-                    </div>
-
-                        <div class="m-t col-md-4 col-sm-6 col-xs-6">
-                              <a href="{{ route('kort.edit',$kort->id) }}" class="btn btn-xs btn-outline btn-warning">Düzenle<i class="fa fa-long-arrow-right"></i> </a>
-                          </div>
+                        </div>
+                        <div class="m-t col-md-4 col-sm-4 col-xs-4">
+                            <a href="{{ route('kort.mesgul',$kort->id) }}" class="btn btn-xs btn-outline btn-info">
+                                    <span class="hidden-sm hidden-xs">  Meşgul</span>
+                                     <i class="fa fa-long-arrow-right"></i> 
+                            </a>
+                        </div>
+                        @else
+                        <div class="m-t col-md-4 col-sm-4 col-xs-4">                        
+                            <a href="{{ route('kort.calistir',$kort->id) }}" class="btn btn-xs btn-outline btn-success">
+                                    <span class="hidden-sm hidden-xs">Çalistir </span>
+                                     <i class="fa fa-long-arrow-right"></i> 
+                            </a>
+                        </div>
+                       @endif
+                       <div class="m-t text-right col-md-4 col-sm-4 col-xs-4">
+                            <a href="{{ route('kort.edit',$kort->id) }}" class="btn btn-xs btn-outline btn-warning">
+                                <span class="hidden-sm hidden-xs"> Düzenle </span>
+                                <i class="fa fa-edit"></i> </a>
+                        </div>
                       </div>
                   </div>
                 </div>

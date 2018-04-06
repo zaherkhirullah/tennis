@@ -9,6 +9,10 @@ use App\Http\Requests\ServisValidation;
 use Session;
 class ServisController extends Controller
 {
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
     public function index()
     {
         $servis = new Servis;

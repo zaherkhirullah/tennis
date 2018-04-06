@@ -3,7 +3,6 @@
 namespace App\Http\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use App\Http\Models\KortType;
 use App\Http\Models\Rezervasyon;
 
 class Kort extends Model
@@ -20,15 +19,8 @@ class Kort extends Model
         return $this->where('durum',1)->orderBy('updated_at','desc');
         
     }
-
-
     public function Rezervasyons()
     {
         return $this->hasMany(Rezervasyon::class);
-    }
-
-    public function Type()
-    {
-        return $this->belongsTo('App\Http\Models\KortType');
     }
 }

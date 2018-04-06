@@ -8,7 +8,11 @@ use Illuminate\Http\Request;
 use App\Http\Requests\KortValidation;
 
 class KortController extends Controller
-{
+{   
+    public function __construct()
+    {
+      $this->middleware('auth');
+    }
    
     public function index()
     {
@@ -24,15 +28,21 @@ class KortController extends Controller
     }
     public function tamir(Kort $kort)
     {
+        $kort->durum = 2 ;
+        $kort->save();
+        return back();
+    }
+    public function mesgul(Kort $kort)
+    {
         $kort->durum = 1 ;
         $kort->save();
-        return redirect()->back();
+        return back();
     }
     public function calistir(Kort $kort)
     {
         $kort->durum = 0 ;
         $kort->save();
-        return redirect()->back();
+        return back();
     }
   
     public function create()
@@ -43,7 +53,10 @@ class KortController extends Controller
     
     public function store(KortValidation $request)
     {
-        //
+        $kort = new Kort;
+        $kort->fill($request->all());
+        $kort->save();
+        return redirect()->route('kort.index');
     }
 
 
@@ -61,12 +74,17 @@ class KortController extends Controller
   
     public function update(KortValidation $request, Kort $kort)
     {
-        //
+        $kort->update($request->all());
+        Session::flash('success','işlem başarile gerçekleştirilmiştir');
+        return redirect()->route('kort.index');
     }
 
    
     public function destroy(Kort $kort)
     {
-        //
+        $kort->delete($kort->id);
+        Session::flash('success','işlem başarile gerçekleştirilmiştir');
+        return redirect()->route('kort.index');
+        
     }
 }

@@ -54,7 +54,7 @@ Route::prefix('admin')->group(function()
     Route::get( '/rezervasyon/silindi','RezervasyonController@silindi')->name("rezervasyon.silindi");
    
     Route::get( '/kort/{kort}/tamir',         'KortController@tamir')->name("kort.tamir");
-    Route::get( '/kort/{kort}/mesgul',        'KortController@tamir')->name("kort.tamir");
+    Route::get( '/kort/{kort}/mesgul',        'KortController@mesgul')->name("kort.mesgul");
     Route::get( '/kort/{kort}/calistir',      'KortController@calistir')->name("kort.calistir");
     Route::get( '/kort/{kort}/rezervasyonlar','KortController@rezervasyonlar')->name("kort.rezervasyonlar");
     Route::post( '/kort/{kort}/delete',       'KortController@delete')->name("kort.delete");
@@ -79,7 +79,6 @@ Route::prefix('admin')->group(function()
     Route::resource( '/kiralayan',  'KiralayanController');
     Route::resource( '/servis',     'ServisController');
     Route::resource( '/Acontacts',   'ContactsController');
-    Route::resource( '/kortType',   'kortTypeController');    
   });
 });
 
