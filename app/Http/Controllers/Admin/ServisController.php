@@ -6,7 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Http\Models\Servis;
 use Illuminate\Http\Request;
 use App\Http\Requests\ServisValidation;
-
+use Session;
 class ServisController extends Controller
 {
     public function index()
@@ -23,17 +23,23 @@ class ServisController extends Controller
     }
     public function tamir(Servis $servi)
     {
-        $servis->durum = 1 ;
-        $servis->save();
+        $servi->durum = 2 ;
+        $servi->save();
+        return redirect()->back();
+    }
+    public function mesgul(Servis $servi)
+    {
+        $servi->durum = 1 ;
+        $servi->save();
         return redirect()->back();
     }
     public function calistir(Servis $servi)
     {
-        $servis->durum = 0 ;
-        $servis->save();
+        $servi->durum = 0 ;
+        $servi->save();
         return redirect()->back();
     }
-    public function rezervasyonlar(Servis $servis)
+    public function rezervasyonlar(Servis $servi)
     {
         
     }
@@ -46,10 +52,15 @@ class ServisController extends Controller
 
     public function store(ServisValidation $request)
     {
-        return $request;
+        $servi = new Servis;
+        $servi->isim ='Servis ' . str_random(2); 
+        $servi->fill($request->all());
+        $servi->save();        
+        Session::flash('success','yeni servis basarile oluşturuldu');
+        return redirect()->route('servis.index');
     }
 
-    public function show(Servis $servis)
+    public function show(Servis $servi)
     {
         return  view('admin.servis.show');
         
@@ -67,10 +78,11 @@ class ServisController extends Controller
 //        return $servi;
         //return $request->all();
         $servi->update($request->all());
+        Session::flash('success',$servi->isim.' servis belgileri basarile güncellendi');        
         return back();
     }
 
-    public function destroy(Servis $servis)
+    public function destroy(Servis $servi)
     {
         //
     }
