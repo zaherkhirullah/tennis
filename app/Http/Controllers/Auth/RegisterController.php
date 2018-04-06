@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Auth;
 
 use App\User;
+use App\Http\Models\Kiralayan;
 use App\Http\Models\Profile;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Hash;
@@ -50,11 +51,13 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'first_name' => 'required|string|max:255',
-            'last_name' => 'required|string|max:255',
+            'isim' => 'required|string|max:255',
+            'telefon' => 'required|string|max:255|unique:kiralayans',
+            'cinsiyet'  =>'string|max:50',
+            'adres' =>'string|max:250',
+            'yas'   =>'integer|max:50',
             'email' => 'required|string|email|max:255|unique:users',
-            'username' => 'required|string|max:255|unique:users',
-            'password' => 'required|string|min:6|confirmed',
+            'sifre' => 'required|string|min:6|confirmed',
         ]);
     }
 
@@ -66,14 +69,20 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'email' => $data['email'],
-            'username' => $data['username'],            
-            'password' => Hash::make($data['password']),
-            'first_name' => $data['first_name'],
-            'last_name' => $data['last_name'],
-            'email' => $data['email'],
-            'password' => bcrypt($data['password']),
+        $kiralayan  =  Kiralayan::create([
+            'isim'       =>  $data['isim'],
+            'telefon'    =>  $data['telefon'],
+        ]);
+        $user = User::create([ 
+            'id'         => $kiralayan->id,          
+            'cinsiyet'   =>  $data['cinsiyet'],
+            'adres'      =>  $data['adres'],
+            'yas'        =>  $data['yas'],
+            'email'      =>  $data['email'],
+            'sifre'      => bcrypt($data['sifre']),
         ]);    
+        if($user->count()==0)
+            $kiralayan->delete($kiralayan->id);
+        return $user;
     }
 }

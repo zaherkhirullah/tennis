@@ -4,15 +4,21 @@ namespace App;
 
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use App\Http\Models\Kiralayan;
 
 class User extends Authenticatable
 {
     use Notifiable;
 
     protected $table = 'users';
-    protected $fillable = ['email','password','cinsiyet'
-      ,'yas', 'adres', 'puan','durum',
+    protected $fillable = [
+    'id',
+    'email',
+    'sifre',
+    'cinsiyet',
+    'adres',
+    'yas',
+    'puan',
+    'durum'
      ];
      protected $hidden = [
         'password', 'remember_token',
@@ -34,8 +40,8 @@ class User extends Authenticatable
       return $this->where(['durum','1'])->orderBy('updated_at','desc');
      }
  
-    public function Kiralayan()
-    {
-        return $this->belongsTo(Kiralayan::class);
-    }  
+     public function Kiralayan()
+     {
+         return $this->belongsTo('App\Http\Models\Kiralayan');
+     }  
 }

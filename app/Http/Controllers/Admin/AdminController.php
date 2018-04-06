@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Http\Models\Rezervasyon;
+use App\Http\Models\Kiralayan;
+use App\Http\Models\Servis;
+use App\Http\Models\Kort;
 
 use Illuminate\Http\Request;
 
@@ -15,37 +19,17 @@ class AdminController extends Controller
     }
     public function index()
     {
-    // ornek
-    $data['tasks'] = [
-            [
-                    'name' => 'Design New Dashboard',
-                    'progress' => '87',
-                    'color' => 'danger'
-            ],
-            [
-                    'name' => 'Create Home Page',
-                    'progress' => '76',
-                    'color' => 'warning'
-            ],
-            [
-                    'name' => 'Some Other Task',
-                    'progress' => '32',
-                    'color' => 'success'
-            ],
-            [
-                    'name' => 'Start Building Website',
-                    'progress' => '56',
-                    'color' => 'info'
-            ],
-            [
-                    'name' => 'Develop an Awesome Algorithm',
-                    'progress' => '10',
-                    'color' => 'success'
-            ]
-    ];
-    return view("admin.dashboard")->with($data);
+            $servisler =        Servis::take(5)->get();
+            $rezervasyonlar =   Rezervasyon::take(5)->get();
+            $kiralayanlar =     Kiralayan::skip(1)->take(5)->get();
+            $kortlar =          Kort::take(5)->get();
+        
+            $data =[
+                'servisler' =>$servisler,
+                'rezervasyonlar' =>$rezervasyonlar,
+                'kiralayanlar' =>$kiralayanlar,
+                'kortlar' =>$kortlar,
+            ] ;
+        return view("admin.dashboard")->with($data);
     }
-    
-
-    
 }

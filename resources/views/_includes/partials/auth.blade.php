@@ -15,51 +15,52 @@
                                 <img src="{{ asset('user/image/Auth::user()->avatar') }}">
                                 @endif  --}}
                             </span>
-                    {{ Auth::user()->isim }} <span class="caret"></span>
+                    {{ Auth::user()->email }} <span class="caret"></span>
                 </a>
                 <ul class="dropdown-menu">
                     <span class="arrow top"></span>
                     <li>
-                        <a href="{{route('account.profile')}}">
+                        <a href="{{route('profile')}}">
                                 <i class="fa fa-user"> </i>
                                 @lang('lang.profile')
                         </a>
                     </li>
                     <li>
-                        <a href="{{route('account.changePassword')}}">
+                        <a href="{{route('changePassword')}}">
                                 <i class="fa fa-lock"> </i>
                                 @lang('lang.change') @lang('lang.password')
                         </a>
                     </li>
-                    <li  class="text-center">
-                       <a href="{{ route('logout') }}"
-                            onclick="event.preventDefault();
-                                        document.getElementById('logout-form').submit();">
-                        <b  class="text-danger"> 
-                                <i class="fa fa-sign-out"> </i> 
-                          @lang('lang.logout')
-                        </b>
-                        </a>
-                      
-                        <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                            {{ csrf_field() }}
-                        </form>
-                        
-                    </li>
+
                 </ul>
             </li>
-        @endif
+            <li  class="text-center">
+                    <a href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                                     document.getElementById('logout-form').submit();">
+                     <b  class="text-danger"> 
+                             <i class="fa fa-sign-out"> </i> 
+                             Çıkış
+                     </b>
+                     </a>
+                   
+                     <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                         {{ csrf_field() }}
+                     </form>
+                     
+                 </li>
+            @endif
 @else
         <li class="nav-item">
             <a href="{{ route('login') }}"> 
             <i class="ion ion-log-in" aria-hidden="true"></i> 
-            @lang('lang.login')
+            Giriş yap
             </a>
         </li>
         <li class="nav-item nav-item-cta last">
             <a class="btn btn-cta btn-cta-secondary" href="{{ route('register') }}">
             <i class="ion ion-person-add" aria-hidden="true"></i> 
-            @lang('lang.sign_up_free')
+            Kayit ol
             </a>
         </li>
     @endauth

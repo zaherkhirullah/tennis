@@ -1,7 +1,72 @@
 @extends('layouts.admin')
 
 @section('content')
-    {{-- <div class='row'>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="ibox-title"> Rezervasyounlar</div>
+        <div class="ibox-content">
+            @if(count($rezervasyonlar))       
+                @foreach($rezervasyonlar as $rez)
+                    <div>
+                        <ul>
+                            <li>{{ $rez->created_at }}</li>
+                        </ul>
+                    </div>
+                @endforeach
+            @else
+            <div class="text-danger"> her hangi bir sonuc bulunmadi</div>
+            @endif
+        </div>
+    </div>
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="ibox-title"> Kortlar</div>
+        <div class="ibox-content">
+           @if(count($kortlar)) 
+                @foreach($kortlar as $kort)
+                    <div>
+                        <ul>
+                            <li>{{ $kort->isim }}</li>
+                        </ul>
+                    </div>
+                @endforeach
+            @else
+            <div class="text-danger"> her hangi bir sonuc bulunmadi</div>
+            @endif
+        </div>
+    </div>
+    
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="ibox-title">Servisler</div>
+        <div class="ibox-content">
+        @if(count($servisler))                
+            @foreach($servisler as $servis)
+                <div>
+                    <ul>
+                        <li>{{ $servis->isim }}</li>
+                    </ul>
+                </div>
+            @endforeach
+        @else
+        <div class="text-danger"> her hangi bir sonuc bulunmadi</div>
+        @endif
+        </div>
+    </div>   
+    <div class="col-md-6 col-sm-6 col-xs-12">
+        <div class="ibox-title">Kirayanlar</div>
+        <div class="ibox-content">
+       @if(count($kiralayanlar))
+            @foreach($kiralayanlar as $kiralayan)
+                <div>
+                    <ul>
+                        <li>{{ $kiralayan->isim }}</li>
+                    </ul>
+                </div>
+            @endforeach
+        @else
+        <div class="text-danger"> her hangi bir sonuc bulunmadi</div>
+        @endif
+        </div>
+    </div>           
+{{-- <div class='row'>
         <div class='col-md-6'>
             <!-- Box -->
             <div class="box box-primary">

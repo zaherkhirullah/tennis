@@ -19,6 +19,10 @@
 
     <link href="{{ asset('assets/css/animate.css') }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-lite/1.1.0/material.min.css"  type="text/css">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.16/css/dataTables.material.min.css" type="text/css">
+
 </head>
 <body>
 
@@ -78,12 +82,37 @@
                         <li><a href="{{ route('rezervasyon.gecmis') }}">Geçmiş Rezervasyonlar</a></li>
                     </ul>
                 </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-calendar-o"></i>
+                         <span class="nav-label">Kiralayanlar</span>
+                         <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level collapse">
+                        <li><a href="{{ route('kiralayan.index') }}">  yeni Kiralayanlar</a></li>
+                        <li><a href="{{ route('kiralayan.silindi') }}">activ olmayan Kiralayanlar</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a href="#">
+                        <i class="fa fa-calendar-o"></i>
+                        <span class="nav-label">Iletişim Mesajları</span>
+                        <span class="fa arrow"></span>
+                    </a>
+                    <ul class="nav nav-second-level collapse">
+                        <li>
+                            <a href="{{ route('Acontacts.index') }}">Yeni Mesajlari</a>
+                        </li>
+                        <li>
+                            <a href="{{ route('Acontacts.silindi') }}">Cevabı verilmiş Mesajlari</a>
+                        </li>
+                    </ul>
+                </li>
             </ul>
-
         </div>
     </nav>
-
     <div id="page-wrapper" class="gray-bg">
+        @include('_includes.layout_partials.hed')
         @include('_includes.partials.flash_message')
         <!-- Your Page Content Here -->
         @yield('content')
@@ -94,8 +123,6 @@
                 <strong>Copyright</strong> Eyad ALMANSOUR &copy; 2018
             </div>
           </div>
-          
-          
     </div>
 </div>
 
@@ -110,7 +137,6 @@
 <!-- Custom and plugin javascript -->
 <script src="{{ asset('assets/js/inspinia.js') }}"></script>
 <script src="{{ asset('assets/js/plugins/pace/pace.min.js') }}"></script>
-
+@include('_includes.scripts.admin_footer')
 </body>
-
 </html>

@@ -1,4 +1,4 @@
-
+{{-- 
 
 <!-- ./wrapper -->
 
@@ -40,7 +40,7 @@
 <script src="{{ asset('/bower_components/admin-ltedist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('/bower_components/admin-ltedist/js/demo.js')}}"></script>
-
+ --}}
 
 
 <!-- Data Table --> 

@@ -25,5 +25,8 @@ class Kiralayan extends Model
     {
         return $this->hasMany(Rezervasyon::class);
     }
-    
+    public function User()
+    {
+        return $this->hasOne('App\User');
+    }  
 }

@@ -37,7 +37,7 @@
                 <tbody>
                   @foreach ($contacts as $contact)
                     <tr>
-                      <td>{{$contact->adi }}</td>
+                      <td>{{$contact->isim }}</td>
                       <td>{{$contact->email }}</td>
                       <td>{{$contact->konu }}</td>
                       <td>{{$contact->mesaj }}</td>

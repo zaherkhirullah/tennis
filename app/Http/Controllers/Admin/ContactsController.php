@@ -10,7 +10,7 @@ use App\Http\Requests\ContactsValidation;
 class ContactsController extends Controller
 {
   
-    public function index()
+    public function index(Contacts $contacts)
     {
         $contact = new Contacts;
         $contacts = $contact->AllContacts()->get();
@@ -23,28 +23,28 @@ class ContactsController extends Controller
         return view('admin.contacts.index',compact('contacts'));
     }
 
-    public function show(Contatcs $contatcs)
+    public function show(Contacts $contacts)
     {
-        //
+        
     }
     public function create()
     {
         return view('admin.contacts.create');
     }
 
-    public function edit(Contatcs $contatcs)
+    public function edit(Contacts $contacts)
     {
-        //
+        
     }
 
-    public function update(ContactsValidation $request, Contatcs $contatcs)
+    public function update(ContactsValidation $request, Contacts $contacts)
     {
-        //
+        
     }
 
-    public function destroy(Contatcs $contatcs)
+    public function destroy(Contacts $contacts)
     {
-        //
+        
     }
 
    
