@@ -22,7 +22,7 @@ class UsersTableSeeder extends Seeder
         $user->email='admin@gmail.com';
         $user->cinsiyet='syrian';
         $user->yas=22;
-        $user->sifre=bcrypt('sifre');
+        $user->password=bcrypt('password');
         $user->save();
     }
 }
