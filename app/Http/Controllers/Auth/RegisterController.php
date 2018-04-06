@@ -57,10 +57,9 @@ class RegisterController extends Controller
             'adres' =>'string|max:250',
             'yas'   =>'integer|max:50',
             'email' => 'required|string|email|max:255|unique:users',
-            'sifre' => 'required|string|min:6|confirmed',
+            'password' => 'required|string|min:6|confirmed',
         ]);
     }
-
     /**
      * Create a new user instance after a valid registration.
      *
@@ -79,7 +78,7 @@ class RegisterController extends Controller
             'adres'      =>  $data['adres'],
             'yas'        =>  $data['yas'],
             'email'      =>  $data['email'],
-            'sifre'      => bcrypt($data['sifre']),
+            'password'      => bcrypt($data['password']),
         ]);    
         if($user->count()==0)
             $kiralayan->delete($kiralayan->id);
