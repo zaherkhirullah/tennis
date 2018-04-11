@@ -17,7 +17,7 @@ class Servis extends Model
     ];
     public static function all_list()
     {
-        return Servis::where('durum',0)->orderBy('created_at','desc')->get();
+        return Servis::orderBy('created_at','desc')->get();
     }
     public static function all_deleted()
     {

@@ -57,7 +57,12 @@
               <div class="ibox-content product-box">
 
               <div class="product-imitation" style="background:no-repeat ;background-image:url('{{  asset('assets/ServisList.jpg') }}');max-width:100%;max-height:100%;">
-                  </div>
+                <span class="left-ust white-bg pad5" id="de_trash"> 
+                    <a href="{{ route('servis.delete',$servis->id) }}" class="">
+                        <i class="fa fa-trash"></i>
+                        </a>
+                  </span>      
+            </div>
                   <div class="product-desc">
                     @if( $servis->durum == 0)
                         <small class="text-muted">Servis Durumu 

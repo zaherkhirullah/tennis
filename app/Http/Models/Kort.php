@@ -20,7 +20,7 @@ class Kort extends Model
 
     public static function all_list()
     {
-        return Kort::where('durum',0)->orderBy('created_at','desc')->get();
+        return Kort::orderBy('created_at','desc')->get();
     }
     public static function all_deleted()
     {

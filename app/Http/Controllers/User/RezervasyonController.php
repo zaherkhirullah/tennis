@@ -22,7 +22,7 @@ class RezervasyonController extends Controller
     public function create()
     {
         $rezervasyonlar = Rezervasyon::all();
-        $kortlar = Kort::AllKortlar();
+        $kortlar = Kort::all();
         return view('admin.rezervasyon.create',compact([
             'rezervasyonlar',
             'kortlar',
