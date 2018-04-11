@@ -19,9 +19,9 @@ class Kort extends Model
 ];
 
 
-    public function AllKortlar()
+    public static function AllKortlar()
     {
-        return $this->orderBy('created_at','desc')->get();
+        return Kort::all();
     }
     public function AllDeletedKortlar()
     {

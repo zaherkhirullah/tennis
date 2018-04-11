@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\User;
 use App\Http\Controllers\Controller;
 
+use App\Http\Models\Kort;
 use App\Http\Models\Rezervasyon;
 
 use Illuminate\Http\Request;
@@ -20,7 +21,13 @@ class RezervasyonController extends Controller
  
     public function create()
     {
-        //
+        $rezervasyonlar = Rezervasyon::all();
+        $kortlar = Kort::AllKortlar();
+        return view('admin.rezervasyon.create',compact([
+            'rezervasyonlar',
+            'kortlar',
+
+        ]));
     }
 
     public function store(RezervasyonValidation $request)

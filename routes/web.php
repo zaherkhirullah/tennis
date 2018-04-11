@@ -107,7 +107,7 @@ Route::prefix('user')->group(function()
      // User 
     Route::get( '/', 'UserController@index')->name("user");
     // User Resources
-    Route::resource( '/rezervasyons','RezervasyonController');
+    Route::resource( '/rezervasyon','RezervasyonController');
 
   });
 });

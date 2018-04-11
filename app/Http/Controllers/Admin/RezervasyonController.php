@@ -55,7 +55,7 @@ class RezervasyonController extends Controller
  
     public function create()
     {
-        //
+
     }
 
     public function store(RezervasyonValidation $request)

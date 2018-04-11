@@ -76,7 +76,7 @@
                             </a>
                         </li>
                         <li class="nav-item ">
-                            <a class="btn btn-cta" href="{{ route('rezervasyonAl') }}"> 
+                            <a class="btn btn-cta" href="{{ route('rezervasyon.create') }}">
                             <i class="ion ion-home" aria-hidden="true"></i> 
                             @lang('lang.rezervation')
                             </a>
