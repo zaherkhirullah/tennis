@@ -7,7 +7,7 @@ use App\Http\Models\Rezervasyon;
 
 use Illuminate\Http\Request;
 use App\Http\Requests\RezervasyonValidation;
-
+use Session;
 
 class RezervasyonController extends Controller
 {
@@ -16,64 +16,61 @@ class RezervasyonController extends Controller
     {
       $this->middleware(['auth','admin']);
     }
-
+    public function index()
+    {
+        $rezervasyonlar = Rezervasyon::all_list();
+        return view('admin.rezervasyon.index',compact('rezervasyonlar'));
+    }
+    
+    public function all_deleted()
+    {
+        $rezervasyonlar =  Rezervasyon::all_deleted();
+        return view('admin.rezervasyon.index',compact('rezervasyonlar'));
+    }
     public function simdiki()
     {
-        $rezervasyon = new Rezervasyon;
-        $rezervasyonlar = $rezervasyon->simdikiRezervasyonlar();
+        $rezervasyonlar = Rezervasyon::simdiki();
         return view('admin.rezervasyon.index',compact('rezervasyonlar'));
     }
     public function sonraki()
     {
-        $rezervasyon = new Rezervasyon;
-        $rezervasyonlar = $rezervasyon->sonrakiRezervasyonlar();
+        $rezervasyonlar = Rezervasyon::sonraki();
         return view('admin.rezervasyon.index',compact('rezervasyonlar'));
     }
     public function gecmis()
     {
-        $rezervasyon = new Rezervasyon;
-        $rezervasyonlar = $rezervasyon->gecmisRezervasyonlar();
+        $rezervasyonlar = Rezervasyon::gecmis();
         return view('admin.rezervasyon.index',compact('rezervasyonlar'));
     }
     
-    public function index()
-    {
-        $rezervasyon = new Rezervasyon;
-        $rezervasyonlar = $rezervasyon->AllRezervasyonlar();
-        return view('admin.rezervasyon.index',compact('rezervasyonlar'));
-    }
-    public function silindi()
-    {
-        $rezervasyon = new Rezervasyon;
-        $rezervasyonlar = $rezervasyon->AllDeletedRezervasyonlar();
-        return view('admin.rezervasyon.index',compact('rezervasyonlar'));
-    }
     public function create()
     {
+        
     }
     public function store(RezervasyonValidation $request)
     {
-        //
     }
 
    
     public function show(Rezervasyon $rezervasyon)
     {
-        //
     }
 
     
     public function edit(Rezervasyon $rezervasyon)
     {
-        //
+
     }
 
     public function update(RezervasyonValidation $request, Rezervasyon $rezervasyon)
     {
-        //
+
     }
     public function destroy(Rezervasyon $rezervasyon)
     {
-        //
+        $isim=$rezervasyon->isim;
+        $rezervasyon->delete($rezervasyon);
+        Session::flash('success',$isim.' servis belgileri basarile silinmiş');        
+        return back();
     }
 }

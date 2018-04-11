@@ -11,26 +11,38 @@ class Rezervasyon extends Model
 {
     protected $table = 'rezervasyons';
     protected $fillable = [
-        ' kort_id','kiralayan_id','servis_id',
-        'baslangis_saat','bitis_saat','tarih','servis_adresi',
-        'servis_saat','odenecek','odenmis','kazanacak_puan','durum',
+        'kort_id',
+        'kiralayan_id',
+        'servis_id',
+        'baslangis_saat',
+        'bitis_saat',
+        'tarih',
+        'servis_adresi',
+        'servis_saat',
+        'odenecek',
+        'odenmis',
+        'kazanacak_puan',
+        'durum',
     ];
-
-    public function AllRezervasyonlar()
+    public static function all_list()
     {
-        return $this->where('durum',0)->orderBy('created_at','desc')->get();
+        return Rezervasyon::where('durum',0)->orderBy('created_at','desc')->get();
     }
-    public function simdikiRezervasyonlar()
+    public static function all_deleted()
     {
-        return $this->where('tarih','>',Today())->orderBy('created_at','desc')->get();
+        return Rezervasyon::where('durum',9)->orderBy('updated_at','desc')->get();
     }
-    public function sonrakiRezervasyonlar()
+    public static function simdiki()
     {
-        return $this->where('tarih',Today())->orderBy('created_at','desc')->get();
+        return Rezervasyon::where('tarih','>',Today())->orderBy('created_at','desc')->get();
     }
-    public function gecmisRezervasyonlar()
+    public static function sonraki()
     {
-        return $this->where('tarih','<',Today())->orderBy('created_at','desc')->get();
+        return Rezervasyon::where('tarih',Today())->orderBy('created_at','desc')->get();
+    }
+    public static function gecmis()
+    {
+        return Rezervasyon::where('tarih','<',Today())->orderBy('created_at','desc')->get();
     }
 
 

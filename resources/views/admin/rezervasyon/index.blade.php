@@ -276,7 +276,7 @@
           <h4 class="panel-heading">
             @if(Route::is('rezervasyon.index'))
               <center>  rezervasyon listesi  </center>
-            @elseif(Route::is('rezervasyon.silindi'))
+            @elseif(Route::is('rezervasyon.all_deleted'))
               <center>  gizli rezervasyon listesi  </center>            
             @endif
           </h4>
@@ -319,7 +319,7 @@
                               </span>	
                             </a>
                             
-                          @elseif(Route::is('rezervasyon.silindi'))
+                          @elseif(Route::is('rezervasyon.all_deleted'))
                               <a href="#restore-file-{{$rezervasyon->id}}" title="@lang('lang.restore') " data-toggle="modal" class=" text-warning" >
                               <span class="text text-md" >
                                 <i class="fa  fa-eye"></i> 

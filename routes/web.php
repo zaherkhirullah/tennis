@@ -43,16 +43,17 @@ Route::prefix('admin')->group(function()
   {
      // Admin 
     Route::get( '/', 'AdminController@index')->name("admin");
-    
-    Route::post( '/kiralayan/{kiralayan}/delete',  'KiralayanController@delete')->name("kiralayan.delete");    
+   
+    // list all_deleted kiralayanlar    
     Route::get( '/kiralayan/dlist',  'KiralayanController@all_deleted')->name("kiralayan.all_deleted");
+    Route::get( '/kiralayan/{kiralayan}/delete',  'KiralayanController@delete')->name("kiralayan.delete");    
     
-    Route::post( '/Acontacts/{Acontacts}/delete',  'ContactsController@delete')->name("Acontacts.delete");    
+    Route::get( '/Acontacts/{Acontacts}/delete',  'ContactsController@delete')->name("Acontacts.delete");    
     Route::get( '/Acontacts/dlist',  'ContactsController@all_deleted')->name("Acontacts.all_deleted");
     
     // list all_deleted rezervasyonlar
     Route::get( '/rezervasyon/dlist','RezervasyonController@all_deleted')->name("rezervasyon.all_deleted");
-    Route::post( '/rezervasyon/{rezervasyon}/delete','RezervasyonController@delete')->name("rezervasyon.delete");
+    Route::get( '/rezervasyon/{rezervasyon}/delete','RezervasyonController@delete')->name("rezervasyon.delete");
     
     Route::get( '/kort/{kort}/tamir',         'KortController@tamir')->name("kort.tamir");
     Route::get( '/kort/{kort}/mesgul',        'KortController@mesgul')->name("kort.mesgul");
@@ -60,7 +61,7 @@ Route::prefix('admin')->group(function()
     Route::get( '/kort/{kort}/rezervasyonlar','KortController@rezervasyonlar')->name("kort.rezervasyonlar");
     // list all_deleted Kortlar
     Route::get( '/kort/dlist',       'KortController@all_deleted')->name("kort.all_deleted");
-    Route::post( '/kort/{kort}/delete',       'KortController@delete')->name("kort.delete");
+    Route::get( '/kort/{kort}/delete',       'KortController@delete')->name("kort.delete");
    
     Route::get( '/servis/{servi}/tamir',         'ServisController@tamir')->name("servis.tamir");
     Route::get( '/servis/{servi}/mesgul',        'ServisController@mesgul')->name("servis.mesgul");

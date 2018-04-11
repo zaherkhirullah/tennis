@@ -23,7 +23,6 @@ class AdminController extends Controller
             $rezervasyonlar = Rezervasyon::take(5)->get();
             $kiralayanlar   = Kiralayan::skip(1)->take(5)->get();
             $kortlar        = Kort::take(5)->get();
-            
             $data =[
                 'servisler' =>$servisler,
                 'rezervasyonlar' =>$rezervasyonlar,

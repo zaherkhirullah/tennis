@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
 
-<div class="row wrapper border-bottom white-bg page-heading">
+{{-- <div class="row wrapper border-bottom white-bg page-heading">
   <div class="col-lg-10">
       <h2>Servisler Listesi</h2>
       <ol class="breadcrumb">
@@ -14,7 +14,7 @@
           <li class="active">
               @if(Route::is('servis.index'))
               <strong>  Servisler listesi  </strong>
-            @elseif(Route::is('servis.silindi'))
+            @elseif(Route::is('servis.all_deleted'))
               <strong>  gizli Servisler listesi  </strong>            
             @endif 
           </li>
@@ -23,8 +23,31 @@
   <div class="col-lg-2">
       <a href="{{ route('servis.create') }}" class="btn btn-primary" style="margin-top:15%">Yeni Servis Ekle</a>
   </div>
-</div>
-
+</div> --}}
+<div class="row wrapper border-bottom white-bg page-heading">
+        <div class="col-lg-8">
+            <h2>servisler Listesi</h2>
+            <ol class="breadcrumb">
+                <li>
+                    <a href="index.html">Home</a>
+                </li>
+                <li>
+                    <a>servisler</a>
+                </li>
+                <li class="active">
+                  @if(Route::is('servis.index'))
+                    <b>  servisler Listesi  </b>
+                  @elseif(Route::is('servis.all_deleted'))
+                    <b>  gizli servisler listesi  </b>            
+                  @endif
+                </li>
+            </ol>
+        </div>
+        <div class="col-lg-4" style="margin-top:3%">
+            <a href="{{ route('servis.create') }}" class="btn btn-primary" ><i class="fa fa-plus"></i> Ekle</a>
+            <a href="{{ route('servis.all_deleted') }}" class="btn btn-danger" ><i class="fa fa-trash"></i> Silinen göster </a>
+        </div>
+    </div>
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
     @if(count($servisler))

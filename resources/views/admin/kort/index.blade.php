@@ -1,8 +1,25 @@
 @extends('layouts.admin')
 @section('content')
- 
+ <style>
+ .left-ust{
+     margin-top:-90px;
+     left:0;
+     float:right;
+ }
+ .pad5{
+     padding :5px;
+ }
+ #de_trash{
+     display: none;
+     transition: all .3s;
+ }
+ .product-imitation:hover #de_trash{
+     display: block;
+     transition: all .3s;
+ }
+ </style>
     <div class="row wrapper border-bottom white-bg page-heading">
-        <div class="col-lg-10">
+        <div class="col-lg-8">
             <h2>Kortlar Listesi</h2>
             <ol class="breadcrumb">
                 <li>
@@ -14,16 +31,16 @@
                 <li class="active">
                   @if(Route::is('kort.index'))
                     <b>  kortlar Listesi  </b>
-                  @elseif(Route::is('kort.silindi'))
+                  @elseif(Route::is('kort.all_deleted'))
                     <b>  gizli kortlar listesi  </b>            
                   @endif
                 </li>
             </ol>
         </div>
-        <div class="col-lg-2">
-            <a href="{{ route('kort.create') }}" class="btn btn-primary" style="margin-top:15%">Yeni Kort Ekle</a>
-            <a href="{{ route('kort.silindi') }}" class="btn btn-primary" style="margin-top:15%">Silinen Kortlar Goster</a>
-        </div>
+        <div class="col-lg-4" style="margin-top:3%">
+                <a href="{{ route('kort.create') }}" class="btn btn-primary" ><i class="fa fa-plus"></i> Ekle</a>
+                <a href="{{ route('kort.all_deleted') }}" class="btn btn-danger" ><i class="fa fa-trash"></i> Silinen göster </a>
+            </div>
     </div>
     <div class="wrapper wrapper-content animated fadeInRight">
       <div class="row">
@@ -32,16 +49,18 @@
             <div class="ibox">
                 <div class="ibox-content product-box">
                   <div class="product-imitation" style="background-image:url('{{asset('assets/KortList.jpg') }} ');max-width:100%;max-height:100%;">
-                  </div>
+                    <span class="left-ust white-bg pad5" id="de_trash"> 
+                        <a href="{{ route('kort.delete',$kort->id) }}" class="">
+                            <i class="fa fa-trash"></i>
+                            </a>
+                      </span>  
+                </div>
                   <div class="product-desc">
 
                       <span class="product-price">
-                           <a href="{{ route('kort.delete',$kort->id) }}" class="">
-                                  <i class="fa fa-trash"></i>
-                           </a>
                           {{  $kort->saat_ucreti}} $
-
                       </span>
+                    
                       <small class="text-muted">Kort Durumu
 
                        @if($kort->durum==0)
@@ -87,11 +106,6 @@
                             </a>
                         </div>
 
-                              <div class="m-t col-md-4 col-sm-4 col-xs-4">
-                                  <a href="{{ route('kort.destroy',$kort->id) }}" class="btn btn-xs btn-outline btn-danger">
-                                      <i class="fa fa-trash"></i>
-                                  </a>
-                              </div>
                         @else
                         <div class="m-t col-md-4 col-sm-4 col-xs-4">                        
                             <a href="{{ route('kort.calistir',$kort->id) }}" class="btn btn-xs btn-outline btn-success">
