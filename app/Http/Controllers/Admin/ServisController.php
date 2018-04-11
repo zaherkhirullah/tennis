@@ -11,7 +11,7 @@ class ServisController extends Controller
 {
     public function __construct()
     {
-      $this->middleware('admin');
+      $this->middleware(['auth','admin']);
     }
     public function index()
     {
@@ -19,10 +19,9 @@ class ServisController extends Controller
         $servisler = $servis->AllServisler();
         return view('admin.servis.index',compact('servisler'));
     }
-    public function silindi()
+    public function all_deleted()
     {
-        $servis = new Servis;
-        $servisler = $servis->AllDeletedServisler();
+        $servisler =  Servis::all_deleted();
         return view('admin.servis.index',compact('servisler'));
     }
     public function tamir(Servis $servi)

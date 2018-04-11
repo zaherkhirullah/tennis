@@ -53,9 +53,9 @@
                   </a>
                   </li>
                 <li>
-                  <a href="{{route('rezervasyon.silindi')}}">
+                  <a href="{{route('rezervasyon.all_deleted')}}">
                     <i class="fa fa-circle-o" style="color:red;"></i>
-                    silindi rezervasyonlar
+                    all_deleted rezervasyonlar
                   </a>
                 </li>
               </ul>
@@ -82,9 +82,9 @@
                   </a>
                   </li>
                 <li>
-                  <a href="{{route('kort.silindi')}}">
+                  <a href="{{route('kort.all_deleted')}}">
                     <i class="fa fa-circle-o" style="color:red;"></i>
-                    silindi kortlar
+                    all_deleted kortlar
                   </a>
                 </li>
               </ul>
@@ -111,9 +111,9 @@
                   </a>
                   </li>
                 <li>
-                  <a href="{{route('servis.silindi')}}">
+                  <a href="{{route('servis.all_deleted')}}">
                     <i class="fa fa-circle-o" style="color:red;"></i>
-                    silindi servisler
+                    all_deleted servisler
                   </a>
                 </li>
               </ul>
@@ -134,9 +134,9 @@
                   </a>
                 </li>
                 <li>
-                  <a href="{{route('kiralayan.silindi')}}">
+                  <a href="{{route('kiralayan.all_deleted')}}">
                     <i class="fa fa-circle-o" style="color:red;"></i>
-                    silindi kiralayanlar
+                    all_deleted kiralayanlar
                   </a>
                 </li>
               </ul>

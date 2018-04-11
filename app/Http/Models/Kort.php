@@ -19,18 +19,15 @@ class Kort extends Model
 ];
 
 
-    public static function AllKortlar()
+    public static function all_deleted()
     {
-        return Kort::all();
+        return Kort::where('durum',9)
+        ->orderBy('updated_at','desc')->get();
     }
-   
+
+
     public function Rezervasyons()
     {
         return $this->hasMany(Rezervasyon::class);
-    }
-
-
-    public static function all_deleted(){
-        return Kort::where('durum',1)->orderBy('updated_at','desc')->get();
     }
 }

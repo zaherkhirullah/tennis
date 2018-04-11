@@ -15,11 +15,7 @@ class Kiralayan extends Model
     {
         return $this->where('durum',0)->orderBy('created_at','desc')->get();
     }
-    public function AllDeletedKiralayanlar()
-    {
-        return $this->where('durum',1)->orderBy('updated_at','desc')->get();
-        
-    }
+
 
     public function Rezervasyons()
     {

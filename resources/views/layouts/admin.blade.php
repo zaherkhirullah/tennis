@@ -90,7 +90,7 @@
                     </a>
                     <ul class="nav nav-second-level collapse">
                         <li><a href="{{ route('kiralayan.index') }}">  yeni Kiralayanlar</a></li>
-                        <li><a href="{{ route('kiralayan.silindi') }}">activ olmayan Kiralayanlar</a></li>
+                        <li><a href="{{ route('kiralayan.all_deleted') }}">activ olmayan Kiralayanlar</a></li>
                     </ul>
                 </li>
                 <li>
@@ -104,7 +104,7 @@
                             <a href="{{ route('Acontacts.index') }}">Yeni Mesajlari</a>
                         </li>
                         <li>
-                            <a href="{{ route('Acontacts.silindi') }}">Cevabı verilmiş Mesajlari</a>
+                            <a href="{{ route('Acontacts.all_deleted') }}">Cevabı verilmiş Mesajlari</a>
                         </li>
                     </ul>
                 </li>
@@ -120,7 +120,7 @@
         <div class="footer">
   
             <div>
-                <strong>Copyright</strong> Eyad ALMANSOUR &copy; 2018
+                <strong>Copyright</strong> Scorpion Team &copy; 2018
             </div>
           </div>
     </div>

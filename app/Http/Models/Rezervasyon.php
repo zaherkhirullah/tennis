@@ -32,12 +32,7 @@ class Rezervasyon extends Model
     {
         return $this->where('tarih','<',Today())->orderBy('created_at','desc')->get();
     }
-    
-    public function AllDeletedRezervasyonlar()
-    {
-        return $this->where('durum',1)->orderBy('updated_at','desc')->get();
-        
-    }
+
 
     public function kiralayan()
     {

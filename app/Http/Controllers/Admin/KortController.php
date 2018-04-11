@@ -11,18 +11,16 @@ class KortController extends Controller
 {   
     public function __construct()
     {
-      $this->middleware('admin');
+      $this->middleware(['auth','admin']);
     }
    
     public function index()
     {
-        $kort = new Kort;
-        $kortlar = $kort->AllKortlar();
+        $kortlar = Kort::all();
         return view('admin.kort.index',compact('kortlar'));
     }
-    public function silindi()
+    public function all_deleted()
     {
-
         $kortlar = Kort::all_deleted();
         return view('admin.kort.index',compact('kortlar'));
     }

@@ -14,7 +14,7 @@ class RezervasyonController extends Controller
     
     public function __construct()
     {
-      $this->middleware('admin');
+      $this->middleware(['auth','admin']);
     }
 
     public function simdiki()
