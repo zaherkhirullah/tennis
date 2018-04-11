@@ -8,8 +8,6 @@
                 <div class="card-header">rezervasyon Al</div>
 
                 <div class="card-body">
-                  
-
                     You are logged in!
                 </div>
             </div>

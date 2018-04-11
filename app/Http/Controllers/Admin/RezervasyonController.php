@@ -16,8 +16,7 @@ class RezervasyonController extends Controller
     {
       $this->middleware('admin');
     }
-    
-    
+
     public function simdiki()
     {
         $rezervasyon = new Rezervasyon;
@@ -49,15 +48,9 @@ class RezervasyonController extends Controller
         $rezervasyonlar = $rezervasyon->AllDeletedRezervasyonlar()->get();
         return view('admin.rezervasyon.index',compact('rezervasyonlar'));
     }
-
-  
-
- 
     public function create()
     {
-
     }
-
     public function store(RezervasyonValidation $request)
     {
         //
