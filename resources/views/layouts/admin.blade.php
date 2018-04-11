@@ -118,10 +118,10 @@
                     </a>
                     <ul class="nav nav-second-level collapse">
                         <li>
-                            <a href="{{ route('Acontacts.index') }}">Yeni Mesajlari</a>
+                            <a href="{{ route('contacts.index') }}">Yeni Mesajlari</a>
                         </li>
                         <li>
-                            <a href="{{ route('Acontacts.all_deleted') }}">Cevabı verilmiş Mesajlari</a>
+                            <a href="{{ route('contacts.all_deleted') }}">Cevabı verilmiş Mesajlari</a>
                         </li>
                     </ul>
                 </li>

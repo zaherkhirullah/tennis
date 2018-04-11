@@ -10,6 +10,7 @@ use Session;
 class ContactsController extends Controller
 {
     
+    // contacts page
     public function create()
     {
         return view('home.contacts');

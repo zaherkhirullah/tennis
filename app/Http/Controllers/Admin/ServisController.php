@@ -79,7 +79,10 @@ class ServisController extends Controller
 		Session::flash('success',$servi->isim.' servis belgileri basarile güncellendi');        
 		return back();
 	}
-
+	public function delete(Servis $servi)
+    {
+        return view('admin.servis.delete',compact('servi'));
+    }
 	public function destroy(Servis $servi)
 	{   $isim=$servi->isim;
 		$servi->delete($servi);

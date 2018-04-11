@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Model;
 use App\Http\Models\Kiralayan;
 use App\Http\Models\Kort;
 use App\Http\Models\Servis;
+use Carbon\Carbon;
 
 class Rezervasyon extends Model
 {
@@ -14,9 +15,8 @@ class Rezervasyon extends Model
         'kort_id',
         'kiralayan_id',
         'servis_id',
-        'baslangis_saat',
-        'bitis_saat',
-        'tarih',
+        'baslangis',
+        'bitis',
         'servis_adresi',
         'servis_saat',
         'odenecek',
@@ -24,6 +24,7 @@ class Rezervasyon extends Model
         'kazanacak_puan',
         'durum',
     ];
+
     public static function all_list()
     {
         return Rezervasyon::where('durum',0)->orderBy('created_at','desc')->get();
@@ -34,15 +35,15 @@ class Rezervasyon extends Model
     }
     public static function simdiki()
     {
-        return Rezervasyon::where('tarih','>',Today())->orderBy('created_at','desc')->get();
+        return Rezervasyon::where('baslangis',Carbon::now())->orderBy('created_at','desc')->get();
     }
     public static function sonraki()
     {
-        return Rezervasyon::where('tarih',Today())->orderBy('created_at','desc')->get();
+        return Rezervasyon::where('baslangis','>',Carbon::now())->orderBy('created_at','desc')->get();
     }
     public static function gecmis()
     {
-        return Rezervasyon::where('tarih','<',Today())->orderBy('created_at','desc')->get();
+        return Rezervasyon::where('baslangis','<',Carbon::now())->orderBy('created_at','desc')->get();
     }
 
 
