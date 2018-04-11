@@ -25,7 +25,10 @@ class Kort extends Model
         ->orderBy('updated_at','desc')->get();
     }
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 158afb0cdb3476aaf818c20c42b5305113b5b368
     public function Rezervasyons()
     {
         return $this->hasMany(Rezervasyon::class);

@@ -3,7 +3,7 @@
  
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-10">
-            <h2>EKortlar Listesi</h2>
+            <h2>Kortlar Listesi</h2>
             <ol class="breadcrumb">
                 <li>
                     <a href="index.html">Home</a>
@@ -22,6 +22,7 @@
         </div>
         <div class="col-lg-2">
             <a href="{{ route('kort.create') }}" class="btn btn-primary" style="margin-top:15%">Yeni Kort Ekle</a>
+            <a href="{{ route('kort.silindi') }}" class="btn btn-primary" style="margin-top:15%">Silinen Kortlar Goster</a>
         </div>
     </div>
     <div class="wrapper wrapper-content animated fadeInRight">
@@ -33,10 +34,16 @@
                   <div class="product-imitation" style="background-image:url('{{asset('assets/KortList.jpg') }} ');max-width:100%;max-height:100%;">
                   </div>
                   <div class="product-desc">
+
                       <span class="product-price">
+                           <a href="{{ route('kort.delete',$kort->id) }}" class="">
+                                  <i class="fa fa-trash"></i>
+                           </a>
                           {{  $kort->saat_ucreti}} $
+
                       </span>
                       <small class="text-muted">Kort Durumu
+
                        @if($kort->durum==0)
                         <b class="text-info"> müsait </b>
                        @elseif($kort->durum==1)
@@ -79,6 +86,12 @@
                                      <i class="fa fa-long-arrow-right"></i> 
                             </a>
                         </div>
+
+                              <div class="m-t col-md-4 col-sm-4 col-xs-4">
+                                  <a href="{{ route('kort.destroy',$kort->id) }}" class="btn btn-xs btn-outline btn-danger">
+                                      <i class="fa fa-trash"></i>
+                                  </a>
+                              </div>
                         @else
                         <div class="m-t col-md-4 col-sm-4 col-xs-4">                        
                             <a href="{{ route('kort.calistir',$kort->id) }}" class="btn btn-xs btn-outline btn-success">
