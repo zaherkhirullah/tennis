@@ -11,23 +11,21 @@ class ServisController extends Controller
 {
     public function __construct()
     {
-      $this->middleware('admin');
+      $this->middleware(['auth','admin']);
     }
     public function index()
     {
-        $servis = new Servis;
-        $servisler = $servis->AllServisler();
+        $servisler = Servis::all_list();
         return view('admin.servis.index',compact('servisler'));
     }
-    public function silindi()
+    public function all_deleted()
     {
-        $servis = new Servis;
-        $servisler = $servis->AllDeletedServisler();
+        $servisler =  Servis::all_deleted();
         return view('admin.servis.index',compact('servisler'));
     }
     public function tamir(Servis $servi)
     {
-        $servi->durum = 2 ;
+        $servi->durum = $durum ;
         $servi->save();
         return redirect()->back();
     }
@@ -43,6 +41,8 @@ class ServisController extends Controller
         $servi->save();
         return redirect()->back();
     }
+    
+
     public function rezervasyonlar(Servis $servi)
     {
         
@@ -50,7 +50,6 @@ class ServisController extends Controller
 
     public function create()
     {
-//        return 'sdf';
         return  view('admin.servis.create');
     }
 
@@ -66,28 +65,26 @@ class ServisController extends Controller
 
     public function show(Servis $servi)
     {
-        return  view('admin.servis.show');
+        return  view('admin.servis.show',compact('servi'));
         
     }
 
     public function edit(Servis $servi)
     {
-       // $servis = Servis::find($servi);
-       // return $servi;
         return  view('admin.servis.edit',compact('servi'));
     }
 
     public function update(ServisValidation $request, Servis $servi)
     {
-//        return $servi;
-        //return $request->all();
         $servi->update($request->all());
         Session::flash('success',$servi->isim.' servis belgileri basarile güncellendi');        
         return back();
     }
 
     public function destroy(Servis $servi)
-    {
-        //
+    {   $isim=$servi->isim;
+        $servi->delete($servi);
+        Session::flash('success',$isim.' servis belgileri basarile silinmiş');        
+        return back();
     }
 }

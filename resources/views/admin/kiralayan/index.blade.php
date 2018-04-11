@@ -7,7 +7,7 @@
           <h4 class="panel-heading">
             @if(Route::is('kiralayan.index'))
               <center>  Kiralayan listesi  </center>
-            @elseif(Route::is('kiralayan.silindi'))
+            @elseif(Route::is('kiralayan.all_deleted'))
               <center>  gizli Kiralayan listesi  </center>            
             @endif
           </h4>
@@ -50,7 +50,7 @@
                               </span>	
                             </a>
                             
-                          @elseif(Route::is('kiralayan.silindi'))
+                          @elseif(Route::is('kiralayan.all_deleted'))
                               <a href="#restore-file-{{$Kiralayan->id}}" title="@lang('lang.restore') " data-toggle="modal" class=" text-warning" >
                               <span class="text text-md" >
                                 <i class="fa  fa-eye"></i> 

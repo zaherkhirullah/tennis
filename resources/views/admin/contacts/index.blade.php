@@ -7,7 +7,7 @@
           <h4 class="panel-heading">
             @if(Route::is('Acontacts.index'))
               <center>  Contacts listesi  </center>
-            @elseif(Route::is('Acontacts.silindi'))
+            @elseif(Route::is('Acontacts.all_deleted'))
               <center>  gizli Kiralayan listesi  </center>            
             @endif
           </h4>
@@ -56,7 +56,7 @@
                               </span>	
                             </a>
                             
-                          @elseif(Route::is('Acontacts.silindi'))
+                          @elseif(Route::is('Acontacts.all_deleted'))
                               <a href="#restore-file-{{$contact->id}}" title="@lang('lang.restore') " data-toggle="modal" class=" text-warning" >
                               <span class="text text-md" >
                                 <i class="fa  fa-eye"></i> 

@@ -11,18 +11,16 @@ class KortController extends Controller
 {   
     public function __construct()
     {
-      $this->middleware('admin');
+      $this->middleware(['auth','admin']);
     }
    
     public function index()
     {
-        $kort = new Kort;
-        $kortlar = $kort->AllKortlar();
+        $kortlar = Kort::all_list();
         return view('admin.kort.index',compact('kortlar'));
     }
-    public function silindi()
+    public function all_deleted()
     {
-
         $kortlar = Kort::all_deleted();
         return view('admin.kort.index',compact('kortlar'));
     }
@@ -64,8 +62,7 @@ class KortController extends Controller
     {
         return  view('admin.kort.show');
     }
-
-  
+    
     public function edit(Kort $kort)
     {
         return  view('admin.kort.edit',compact('kort'));
@@ -79,20 +76,16 @@ class KortController extends Controller
         return redirect()->route('kort.index');
     }
 
-   
+    public function delete(Kort $kort)
+    {
+        return view('admin.kort.delete',compact('kort'));
+    }
     public function destroy(Kort $kort)
     {
-        if(Kort::find($kort->id)){
-            $kort->delete($kort);
-        }
-        Session::flash('success','işlem başarile gerçekleştirilmiştir');
-        return redirect()->route('kort.index');
+        $isim=$kort->isim;
+        $kort->delete($kort);
+        Session::flash('success',$isim.' kort belgileri basarile silinmiş');        
+        return back();
     }
-
-
-    public function delete(Kort $kort){
-        return view('admin.kort.delete',compact([
-            'kort'
-        ]));
-    }
+    
 }

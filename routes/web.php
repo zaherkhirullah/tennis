@@ -43,34 +43,34 @@ Route::prefix('admin')->group(function()
   {
      // Admin 
     Route::get( '/', 'AdminController@index')->name("admin");
-    
-    Route::post( '/kiralayan/{kiralayan}/delete',  'KiralayanController@delete')->name("kiralayan.delete");    
-    Route::get( '/kiralayan/silindi',  'KiralayanController@silindi')->name("kiralayan.silindi");
-    
-    Route::post( '/Acontacts/{Acontacts}/delete',  'ContactsController@delete')->name("Acontacts.delete");    
-    Route::get( '/Acontacts/silindi',  'ContactsController@silindi')->name("Acontacts.silindi");
-
-    Route::post( '/rezervasyon/{rezervasyon}/delete','RezervasyonController@delete')->name("rezervasyon.delete");
-
-
-    Route::get( '/rezervasyon/silindi','RezervasyonController@silindi')->name("rezervasyon.silindi");
    
+    // list all_deleted kiralayanlar    
+    Route::get( '/kiralayan/dlist',  'KiralayanController@all_deleted')->name("kiralayan.all_deleted");
+    Route::get( '/kiralayan/{kiralayan}/delete',  'KiralayanController@delete')->name("kiralayan.delete");    
+    
+    Route::get( '/Acontacts/{Acontacts}/delete',  'ContactsController@delete')->name("Acontacts.delete");    
+    Route::get( '/Acontacts/dlist',  'ContactsController@all_deleted')->name("Acontacts.all_deleted");
+    
+    // list all_deleted rezervasyonlar
+    Route::get( '/rezervasyon/dlist','RezervasyonController@all_deleted')->name("rezervasyon.all_deleted");
+    Route::get( '/rezervasyon/{rezervasyon}/delete','RezervasyonController@delete')->name("rezervasyon.delete");
+    
     Route::get( '/kort/{kort}/tamir',         'KortController@tamir')->name("kort.tamir");
     Route::get( '/kort/{kort}/mesgul',        'KortController@mesgul')->name("kort.mesgul");
     Route::get( '/kort/{kort}/calistir',      'KortController@calistir')->name("kort.calistir");
     Route::get( '/kort/{kort}/rezervasyonlar','KortController@rezervasyonlar')->name("kort.rezervasyonlar");
+    // list all_deleted Kortlar
+    Route::get( '/kort/dlist',       'KortController@all_deleted')->name("kort.all_deleted");
     Route::get( '/kort/{kort}/delete',       'KortController@delete')->name("kort.delete");
-// list silindi Kortlar
-    Route::get( '/kort/silindi',       'KortController@silindi')->name("kort.silindi");
-    
-
+   
     Route::get( '/servis/{servi}/tamir',         'ServisController@tamir')->name("servis.tamir");
     Route::get( '/servis/{servi}/mesgul',        'ServisController@mesgul')->name("servis.mesgul");
     Route::get( '/servis/{servi}/calistir',      'ServisController@calistir')->name("servis.calistir");
     Route::get( '/servis/{servi}/rezervasyonlar','ServisController@rezervasyonlar')->name("servis.rezervasyonlar");
+
+    // list all_deleted servisler
+    Route::get( '/servis/dlist',     'ServisController@all_deleted')->name("servis.all_deleted");
     Route::get('/servis/{servi}/delete',       'ServisController@delete')->name("servis.delete");
-// list silindi servisler
-    Route::get( '/servis/silindi',     'ServisController@silindi')->name("servis.silindi");
 
     Route::get( '/rezervasyon/simdiki','RezervasyonController@simdiki')->name("rezervasyon.simdiki");
     Route::get( '/rezervasyon/sonraki','RezervasyonController@sonraki')->name("rezervasyon.sonraki");

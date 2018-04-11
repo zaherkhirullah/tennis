@@ -19,11 +19,10 @@ class AdminController extends Controller
     }
     public function index()
     {
-            $servisler =        Servis::take(5)->get();
-            $rezervasyonlar =   Rezervasyon::take(5)->get();
-            $kiralayanlar =     Kiralayan::skip(1)->take(5)->get();
-            $kortlar =          Kort::take(5)->get();
-        
+            $servisler      = Servis::take(5)->get();
+            $rezervasyonlar = Rezervasyon::take(5)->get();
+            $kiralayanlar   = Kiralayan::skip(1)->take(5)->get();
+            $kortlar        = Kort::take(5)->get();
             $data =[
                 'servisler' =>$servisler,
                 'rezervasyonlar' =>$rezervasyonlar,

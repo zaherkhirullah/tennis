@@ -2,13 +2,29 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fb6e3f9-4362-4b85-81a2-d9f0b299785e" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/95e8464a-baae-453c-9260-9824d0662b95.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/95e8464a-baae-453c-9260-9824d0662b95.xml" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/95e8464a-baae-453c-9260-9824d0662b95/storage_v2/_src_/schema/tennis.2xi1yw.zip" afterPath="$PROJECT_DIR$/.idea/dataSources/95e8464a-baae-453c-9260-9824d0662b95/storage_v2/_src_/schema/tennis.2xi1yw.zip" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change beforePath="$PROJECT_DIR$/.env" afterPath="$PROJECT_DIR$/.env" />
+      <change beforePath="$PROJECT_DIR$/.env.example" afterPath="$PROJECT_DIR$/.env.example" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContactsController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ContactsController.php" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/KiralayanController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/KiralayanController.php" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/KortController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/KortController.php" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/RezervasyonController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/RezervasyonController.php" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Admin/ServisController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Admin/ServisController.php" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Models/Contacts.php" afterPath="$PROJECT_DIR$/app/Http/Models/Contacts.php" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Models/Kiralayan.php" afterPath="$PROJECT_DIR$/app/Http/Models/Kiralayan.php" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Models/Kort.php" afterPath="$PROJECT_DIR$/app/Http/Models/Kort.php" />
       <change beforePath="$PROJECT_DIR$/app/Http/Models/Rezervasyon.php" afterPath="$PROJECT_DIR$/app/Http/Models/Rezervasyon.php" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Models/Servis.php" afterPath="$PROJECT_DIR$/app/Http/Models/Servis.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/_includes/layout_partials/sidebar.blade.php" afterPath="$PROJECT_DIR$/resources/views/_includes/layout_partials/sidebar.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/contacts/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/contacts/index.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/kiralayan/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/kiralayan/index.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/kort/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/kort/index.blade.php" />
       <change beforePath="$PROJECT_DIR$/resources/views/admin/rezervasyon/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/rezervasyon/create.blade.php" />
-      <change beforePath="$PROJECT_DIR$/resources/views/admin/servis/create.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/servis/create.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/rezervasyon/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/rezervasyon/index.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/admin/servis/index.blade.php" afterPath="$PROJECT_DIR$/resources/views/admin/servis/index.blade.php" />
+      <change beforePath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" afterPath="$PROJECT_DIR$/resources/views/layouts/admin.blade.php" />
       <change beforePath="$PROJECT_DIR$/routes/web.php" afterPath="$PROJECT_DIR$/routes/web.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -67,14 +83,6 @@
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="tennis: schema" type="c314c289:MysqlImplModel$Schema" />
         <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="korts: table" type="98d5ac3d:MysqlImplModel$Table" />
-      </path>
-      <path>
-        <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
-        <item name="tennis@localhost" type="feb32156:DbDataSourceImpl" />
-        <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
-        <item name="tennis: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="rezervasyons: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
       <path>
@@ -82,7 +90,8 @@
         <item name="tennis@localhost" type="feb32156:DbDataSourceImpl" />
         <item name="schemas" type="d4e8921:DatabaseStructure$FamilyGroup" />
         <item name="tennis: schema" type="c314c289:MysqlImplModel$Schema" />
-        <item name="routines" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="tables" type="d4e8921:DatabaseStructure$FamilyGroup" />
+        <item name="users: table" type="98d5ac3d:MysqlImplModel$Table" />
       </path>
       <path>
         <item name="Database" type="3277223f:DatabaseStructure$DbRootGroup" />
@@ -97,60 +106,7 @@
     <select />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="create.blade.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/resources/views/admin/rezervasyon/create.blade.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="870">
-              <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
-              <folding>
-                <marker date="1523456304440" expanded="true" signature="9:24" ph="..." />
-                <marker date="1523456304440" expanded="true" signature="36:45" ph="..." />
-                <marker date="1523456304440" expanded="true" signature="277:305" ph="..." />
-                <marker date="1523456304440" expanded="true" signature="398:408" ph="..." />
-                <marker date="1523456304440" expanded="true" signature="398:410" ph="..." />
-                <marker date="1523456304440" expanded="true" signature="1461:1472" ph="..." />
-                <marker date="1523456304440" expanded="true" signature="1461:1478" ph="..." />
-                <marker date="1523456304440" expanded="true" signature="1533:1544" ph="..." />
-                <marker date="1523456304440" expanded="true" signature="1550:1563" ph="..." />
-                <marker date="1523456304440" expanded="true" signature="2054:2075" ph="..." />
-                <marker date="1523456304440" expanded="true" signature="2138:2151" ph="..." />
-                <marker date="1523456304440" expanded="true" signature="2157:2172" ph="..." />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="RezervasyonController.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1131">
-              <caret line="49" column="23" lean-forward="false" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="console_1.sql" pinned="false" current-in-tab="false">
-        <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/95e8464a-baae-453c-9260-9824d0662b95/console_1.sql">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="49" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="rezervasyons" pinned="false" current-in-tab="true">
-        <entry file="das://table:/416e0880/95e8464a-baae-453c-9260-9824d0662b95/tennis.rezervasyons">
-          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-            <state>
-              <filtering enabled="true" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
@@ -172,7 +128,6 @@
         <option value="$PROJECT_DIR$/app/Http/Requests/ServisValidation.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/ServisController.php" />
         <option value="$PROJECT_DIR$/../../projects/twci/twci/routes/web.php" />
-        <option value="$PROJECT_DIR$/.env" />
         <option value="$PROJECT_DIR$/resources/views/layouts/home.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/_includes/layout_partials/header.blade.php" />
         <option value="$PROJECT_DIR$/resources/views/_includes/partials/auth.blade.php" />
@@ -186,13 +141,17 @@
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/KortController.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/servis/create.blade.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/resources/views/admin/rezervasyon/create.blade.php" />
-        <option value="$PROJECT_DIR$/app/Http/Models/Rezervasyon.php" />
         <option value="/416e0880/95e8464a-baae-453c-9260-9824d0662b95/schema/tennis/routine/Add_rezevasyon@(int(10),int(10),timestamp,timestamp,varchar(255),timestamp,timestamp).sql" />
         <option value="$PROJECT_DIR$/vendor/laravel/framework/src/Illuminate/Support/Facades/DB.php" />
         <option value="/416e0880/95e8464a-baae-453c-9260-9824d0662b95/schema/tennis/routine/Add_rezevasyon@(int(10),int(10),timestamp,timestamp,varchar(255)).sql" />
         <option value="/416e0880/95e8464a-baae-453c-9260-9824d0662b95/schema/tennis/routine/Add_rezervasyon@(int(10),int(10),timestamp,timestamp,varchar(255)).sql" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/95e8464a-baae-453c-9260-9824d0662b95/console_1.sql" />
+        <option value="$PROJECT_DIR$/../../projects/twci/twci/resources/views/create/customer.blade.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/KiralayanController.php" />
+        <option value="$PROJECT_DIR$/.env" />
+        <option value="$PROJECT_DIR$/app/Http/Models/Rezervasyon.php" />
+        <option value="$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php" />
+        <option value="$PROJECT_DIR$/resources/views/admin/rezervasyon/create.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php" />
       </list>
     </option>
@@ -340,14 +299,56 @@
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="User" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Admin" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="tennis" type="b2602c69:ProjectViewProjectNode" />
               <item name="tennis" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="Models" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Auth" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="tennis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tennis" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="app" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Http" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="Controllers" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="User" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="tennis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tennis" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="tennis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tennis" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="tennis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tennis" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="tennis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tennis" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="admin" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="rezervasyon" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="tennis" type="b2602c69:ProjectViewProjectNode" />
+              <item name="tennis" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="resources" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="views" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="users" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="tennis" type="b2602c69:ProjectViewProjectNode" />
@@ -418,7 +419,7 @@
       <workItem from="1523179656085" duration="589000" />
       <workItem from="1523199395504" duration="940000" />
       <workItem from="1523446427155" duration="11704000" />
-      <workItem from="1523468043245" duration="207000" />
+      <workItem from="1523468043245" duration="3554000" />
     </task>
     <task id="LOCAL-00001" summary="kort change 1">
       <created>1523001567497</created>
@@ -431,7 +432,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="30486000" />
+    <option name="totallyTimeSpent" value="33833000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -444,9 +445,8 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="22" width="1382" height="754" extended-state="6" />
-    <editor active="true" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.1860817" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.29500756" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32847896" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Docker" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
@@ -485,62 +485,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/resources/views/auth/login.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="174">
-          <caret line="6" column="30" lean-forward="false" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/servis/edit.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="29">
-          <caret line="42" column="81" lean-forward="false" selection-start-line="42" selection-start-column="81" selection-end-line="42" selection-end-column="81" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/servis/index.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-464">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Requests/ServisValidation.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="783">
-          <caret line="27" column="0" lean-forward="false" selection-start-line="27" selection-start-column="0" selection-end-line="28" selection-end-column="41" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ServisController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1276">
-          <caret line="48" column="24" lean-forward="false" selection-start-line="48" selection-start-column="24" selection-end-line="48" selection-end-column="24" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../projects/twci/twci/routes/web.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="377">
-          <caret line="400" column="40" lean-forward="false" selection-start-line="400" selection-start-column="40" selection-end-line="400" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/users/hesbim.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home/contacts.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-261">
-          <caret line="16" column="0" lean-forward="true" selection-start-line="16" selection-start-column="0" selection-end-line="16" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/resources/views/welcome.blade.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -700,38 +644,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RezervasyonController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="187">
-          <caret line="49" column="5" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="100">
-          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/.env.example">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="das://table:/416e0880/95e8464a-baae-453c-9260-9824d0662b95/tennis.korts">
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Models/Kort.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
         </state>
       </provider>
     </entry>
@@ -756,31 +672,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/KortController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="251">
-          <caret line="86" column="9" lean-forward="false" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/storage/logs/laravel.log">
       <provider selected="true" editor-type-id="LogFileEditorProvider">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/home/rezervasyonAl.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="290">
-          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
         </state>
       </provider>
     </entry>
@@ -795,13 +690,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="197">
           <caret line="219" column="20" lean-forward="false" selection-start-line="219" selection-start-column="20" selection-end-line="219" selection-end-column="20" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Models/Kiralayan.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="338">
-          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -816,6 +705,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="174">
           <caret line="8" column="21" lean-forward="true" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -833,45 +723,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/416e0880/95e8464a-baae-453c-9260-9824d0662b95/tennis.kiralayans">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Models/Rezervasyon.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="232">
-          <caret line="11" column="30" lean-forward="false" selection-start-line="11" selection-start-column="30" selection-end-line="11" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="dbSrc:///416e0880/95e8464a-baae-453c-9260-9824d0662b95/schema/tennis/routine/Add_rezervasyon@(int(10),int(10),timestamp,timestamp,varchar(255)).sql">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="29">
           <caret line="1" column="0" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/admin/rezervasyon/create.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="870">
-          <caret line="30" column="62" lean-forward="false" selection-start-line="30" selection-start-column="62" selection-end-line="30" selection-end-column="62" />
-          <folding>
-            <marker date="1523456304440" expanded="true" signature="9:24" ph="..." />
-            <marker date="1523456304440" expanded="true" signature="36:45" ph="..." />
-            <marker date="1523456304440" expanded="true" signature="277:305" ph="..." />
-            <marker date="1523456304440" expanded="true" signature="398:408" ph="..." />
-            <marker date="1523456304440" expanded="true" signature="398:410" ph="..." />
-            <marker date="1523456304440" expanded="true" signature="1461:1472" ph="..." />
-            <marker date="1523456304440" expanded="true" signature="1461:1478" ph="..." />
-            <marker date="1523456304440" expanded="true" signature="1533:1544" ph="..." />
-            <marker date="1523456304440" expanded="true" signature="1550:1563" ph="..." />
-            <marker date="1523456304440" expanded="true" signature="2054:2075" ph="..." />
-            <marker date="1523456304440" expanded="true" signature="2138:2151" ph="..." />
-            <marker date="1523456304440" expanded="true" signature="2157:2172" ph="..." />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -883,11 +738,195 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php">
+    <entry file="file://$PROJECT_DIR$/app/Http/Models/Servis.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1131">
-          <caret line="49" column="23" lean-forward="false" selection-start-line="49" selection-start-column="23" selection-end-line="49" selection-end-column="23" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Models/Kort.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="696">
+          <caret line="25" column="0" lean-forward="false" selection-start-line="25" selection-start-column="0" selection-end-line="25" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Models/Kiralayan.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="29">
+          <caret line="13" column="36" lean-forward="false" selection-start-line="13" selection-start-column="36" selection-end-line="13" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Models/Contacts.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="16" column="28" lean-forward="false" selection-start-line="16" selection-start-column="28" selection-end-line="16" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../projects/twci/twci/resources/views/create/customer.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="425">
+          <caret line="35" column="26" lean-forward="true" selection-start-line="35" selection-start-column="26" selection-end-line="35" selection-end-column="26" />
+          <folding>
+            <marker date="1523468864259" expanded="true" signature="9:33" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="45:51" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="111:120" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="369:384" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="924:947" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="1040:1065" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="1158:1183" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="1244:1258" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="1411:1459" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="1800:1819" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="1893:1919" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="2050:2080" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="2408:2455" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="2793:2811" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="2884:2909" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="3040:3069" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="3397:3440" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="4003:4017" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="4175:4196" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="4327:4352" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="4681:4726" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="5058:5074" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="5145:5168" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="5299:5326" ph="..." />
+            <marker date="1523468864259" expanded="true" signature="6218:6227" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../projects/twci/twci/app/Http/Controllers/EventController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="44" column="31" lean-forward="true" selection-start-line="44" selection-start-column="31" selection-end-line="44" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/KiralayanController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="53" column="5" lean-forward="true" selection-start-line="53" selection-start-column="5" selection-end-line="53" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/ContactsController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="174">
+          <caret line="46" column="0" lean-forward="true" selection-start-line="46" selection-start-column="0" selection-end-line="51" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="319">
+          <caret line="17" column="31" lean-forward="false" selection-start-line="17" selection-start-column="31" selection-end-line="17" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/KortController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2349">
+          <caret line="86" column="9" lean-forward="false" selection-start-line="86" selection-start-column="9" selection-end-line="86" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RezervasyonController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="773">
+          <caret line="49" column="5" lean-forward="false" selection-start-line="49" selection-start-column="5" selection-end-line="49" selection-end-column="5" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env.example">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-145">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.env">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="41" column="0" lean-forward="true" selection-start-line="41" selection-start-column="0" selection-end-line="41" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbSrc:///416e0880/95e8464a-baae-453c-9260-9824d0662b95/schema/tennis/routine/all_kiralayans@().sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="58">
+          <caret line="2" column="35" lean-forward="true" selection-start-line="2" selection-start-column="35" selection-end-line="2" selection-end-column="35" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Models/Rezervasyon.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="483">
+          <caret line="65" column="28" lean-forward="false" selection-start-line="65" selection-start-column="28" selection-end-line="65" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/416e0880/95e8464a-baae-453c-9260-9824d0662b95/tennis.kiralayans">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Auth/RegisterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="87" column="0" lean-forward="true" selection-start-line="79" selection-start-column="44" selection-end-line="87" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/home/rezervasyonAl.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="290">
+          <caret line="10" column="20" lean-forward="true" selection-start-line="10" selection-start-column="20" selection-end-line="10" selection-end-column="38" />
+          <folding>
+            <marker date="1523447161913" expanded="true" signature="9:22" ph="..." />
+            <marker date="1523447161913" expanded="true" signature="34:43" ph="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/resources/views/admin/rezervasyon/create.blade.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="274">
+          <caret line="16" column="30" lean-forward="true" selection-start-line="16" selection-start-column="30" selection-end-line="16" selection-end-column="30" />
+          <folding>
+            <marker date="1523470520146" expanded="true" signature="9:24" ph="..." />
+            <marker date="1523470520146" expanded="true" signature="36:45" ph="..." />
+            <marker date="1523470520146" expanded="true" signature="277:305" ph="..." />
+            <marker date="1523470520146" expanded="true" signature="400:3198" ph="..." />
+            <marker date="1523470520146" expanded="true" signature="1453:1464" ph="..." />
+            <marker date="1523470520146" expanded="true" signature="1453:1470" ph="..." />
+            <marker date="1523470520146" expanded="true" signature="1525:1536" ph="..." />
+            <marker date="1523470520146" expanded="true" signature="1542:1555" ph="..." />
+            <marker date="1523470520146" expanded="true" signature="2046:2067" ph="..." />
+            <marker date="1523470520146" expanded="true" signature="2130:2143" ph="..." />
+            <marker date="1523470520146" expanded="true" signature="2149:2164" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -895,6 +934,16 @@
       <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
         <state>
           <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="30" column="28" lean-forward="true" selection-start-line="30" selection-start-column="28" selection-end-line="30" selection-end-column="28" />
+          <folding>
+            <element signature="e#44#80#0#PHP" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>

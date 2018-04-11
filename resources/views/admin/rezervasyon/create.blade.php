@@ -8,7 +8,7 @@
                 <div class="card-header">create rezervasyon</div>
                 <form action="{{ route('rezervasyon.store') }}" method="post" class="form-horizontal">
                     @csrf
-                    @if(Auth::user())
+                    @guest
                         <div class="form-group">
                             <label for="isim" class="col-sm-2 control-label">isim</label>
                             <div class="col-sm-10">
@@ -22,7 +22,7 @@
                                 <input type="text" name="telefon" id="telefon" class="form-control">
                             </div>
                         </div>
-                    @endif
+                    @endguest
 
 
                     <div class="form-group">
