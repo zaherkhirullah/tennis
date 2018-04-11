@@ -22,8 +22,8 @@ class KortController extends Controller
     }
     public function silindi()
     {
-        $kort = new Kort;
-        $kortlar = $kort->AllDeletedKortlar();
+
+        $kortlar = Kort::all_deleted();
         return view('admin.kort.index',compact('kortlar'));
     }
     public function tamir(Kort $kort)

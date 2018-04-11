@@ -51,6 +51,19 @@ Route::prefix('admin')->group(function()
     Route::get( '/Acontacts/silindi',  'ContactsController@silindi')->name("Acontacts.silindi");
 
     Route::post( '/rezervasyon/{rezervasyon}/delete','RezervasyonController@delete')->name("rezervasyon.delete");
+
+   
+    Route::get( '/kort/{kort}/tamir',     'KortController@tamir')->name("kort.tamir");
+    Route::get( '/kort/{kort}/calistir',     'KortController@calistir')->name("kort.calistir");
+    Route::get( '/kort/{kort}/rezervasyonlar',     'KortController@rezervasyonlar')->name("kort.rezervasyonlar");
+    Route::post( '/kort/{kort}/delete',       'KortController@delete')->name("kort.delete");
+
+
+    Route::get( '/servis/{servi}/tamir',     'ServisController@tamir')->name("servis.tamir");
+    Route::get( '/servis/{servi}/calistir',     'ServisController@calistir')->name("servis.calistir");
+    Route::get( '/servis/{servi}/rezervasyonlar',     'ServisController@rezervasyonlar')->name("servis.rezervasyonlar");
+    Route::post( '/servis/{servi}/delete',     'ServisController@delete')->name("servis.delete");
+
     Route::get( '/rezervasyon/silindi','RezervasyonController@silindi')->name("rezervasyon.silindi");
    
     Route::get( '/kort/{kort}/tamir',         'KortController@tamir')->name("kort.tamir");

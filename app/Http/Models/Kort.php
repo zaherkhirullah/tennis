@@ -23,13 +23,14 @@ class Kort extends Model
     {
         return Kort::all();
     }
-    public function AllDeletedKortlar()
-    {
-        return $this->where('durum',1)->orderBy('updated_at','desc')->get();
-        
-    }
+   
     public function Rezervasyons()
     {
         return $this->hasMany(Rezervasyon::class);
+    }
+
+
+    public static function all_deleted(){
+        return Kort::where('durum',1)->orderBy('updated_at','desc')->get();
     }
 }
