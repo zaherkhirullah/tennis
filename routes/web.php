@@ -57,7 +57,7 @@ Route::prefix('admin')->group(function()
     Route::get( '/kort/{kort}/calistir',     'KortController@calistir')->name("kort.calistir");
     Route::get( '/kort/{kort}/rezervasyonlar',     'KortController@rezervasyonlar')->name("kort.rezervasyonlar");
     Route::post( '/kort/{kort}/delete',       'KortController@delete')->name("kort.delete");
-   
+
 
     Route::get( '/servis/{servi}/tamir',     'ServisController@tamir')->name("servis.tamir");
     Route::get( '/servis/{servi}/calistir',     'ServisController@calistir')->name("servis.calistir");
