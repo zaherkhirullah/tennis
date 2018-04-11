@@ -18,11 +18,11 @@ class Servis extends Model
   
     public function AllServisler()
     {
-        return $this->orderBy('created_at','desc');
+        return $this->orderBy('created_at','desc')->get();
     }
     public function AllDeletedServisler()
     {
-        return $this->where('durum',1)->orderBy('updated_at','desc');
+        return $this->where('durum',1)->orderBy('updated_at','desc')->get();
         
     }
     public function Rezervasyons()

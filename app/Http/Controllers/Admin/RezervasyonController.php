@@ -20,32 +20,32 @@ class RezervasyonController extends Controller
     public function simdiki()
     {
         $rezervasyon = new Rezervasyon;
-        $rezervasyonlar = $rezervasyon->simdikiRezervasyonlar()->get();
+        $rezervasyonlar = $rezervasyon->simdikiRezervasyonlar();
         return view('admin.rezervasyon.index',compact('rezervasyonlar'));
     }
     public function sonraki()
     {
         $rezervasyon = new Rezervasyon;
-        $rezervasyonlar = $rezervasyon->sonrakiRezervasyonlar()->get();
+        $rezervasyonlar = $rezervasyon->sonrakiRezervasyonlar();
         return view('admin.rezervasyon.index',compact('rezervasyonlar'));
     }
     public function gecmis()
     {
         $rezervasyon = new Rezervasyon;
-        $rezervasyonlar = $rezervasyon->gecmisRezervasyonlar()->get();
+        $rezervasyonlar = $rezervasyon->gecmisRezervasyonlar();
         return view('admin.rezervasyon.index',compact('rezervasyonlar'));
     }
     
     public function index()
     {
         $rezervasyon = new Rezervasyon;
-        $rezervasyonlar = $rezervasyon->AllRezervasyonlar()->get();
+        $rezervasyonlar = $rezervasyon->AllRezervasyonlar();
         return view('admin.rezervasyon.index',compact('rezervasyonlar'));
     }
     public function silindi()
     {
         $rezervasyon = new Rezervasyon;
-        $rezervasyonlar = $rezervasyon->AllDeletedRezervasyonlar()->get();
+        $rezervasyonlar = $rezervasyon->AllDeletedRezervasyonlar();
         return view('admin.rezervasyon.index',compact('rezervasyonlar'));
     }
     public function create()
