@@ -1,0 +1,2 @@
+#n:Add_rezervasyon
+#i:(int(10),int(10),timestamp,timestamp,varchar(255))

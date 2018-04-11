@@ -953,7 +953,7 @@
       <Engine>InnoDB</Engine>
       <Collation>utf8mb4_unicode_ci</Collation>
     </table>
-    <routine id="241" parent="8" name="Add_rezevasyon">
+    <routine id="241" parent="8" name="Add_rezervasyon">
       <RoutineKind>procedure</RoutineKind>
     </routine>
     <routine id="242" parent="8" name="all_kiralayans">
@@ -1204,16 +1204,17 @@
       <DataType>int(10) unsigned|0</DataType>
       <ColumnKind>normal</ColumnKind>
     </column>
-    <column id="290" parent="238" name="baslangis_saat">
+    <column id="290" parent="238" name="baslangis">
       <Position>5</Position>
       <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
-      <OnUpdate>CURRENT_TIMESTAMP</OnUpdate>
     </column>
-    <column id="291" parent="238" name="bitis_saat">
+    <column id="291" parent="238" name="bitis">
       <Position>6</Position>
       <DataType>timestamp|0</DataType>
+      <NotNull>1</NotNull>
       <DefaultExpression>&apos;0000-00-00 00:00:00&apos;</DefaultExpression>
       <ColumnKind>normal</ColumnKind>
     </column>
@@ -1465,51 +1466,43 @@
       <Position>5</Position>
       <DataType>varchar(255)|0</DataType>
     </argument>
-    <argument id="341" parent="241" name="_created_at">
-      <Position>6</Position>
-      <DataType>timestamp|0</DataType>
-    </argument>
-    <argument id="342" parent="241" name="_updated_at">
-      <Position>7</Position>
-      <DataType>timestamp|0</DataType>
-    </argument>
-    <argument id="343" parent="247" name="_id">
+    <argument id="341" parent="247" name="_id">
       <Position>1</Position>
       <DataType>int(10)|0</DataType>
     </argument>
-    <argument id="344" parent="247" name="_updated_at">
+    <argument id="342" parent="247" name="_updated_at">
       <Position>2</Position>
       <DataType>timestamp|0</DataType>
     </argument>
-    <argument id="345" parent="248" name="_id">
+    <argument id="343" parent="248" name="_id">
       <Position>1</Position>
       <DataType>int(10)|0</DataType>
     </argument>
-    <argument id="346" parent="248" name="_isim">
+    <argument id="344" parent="248" name="_isim">
       <Position>2</Position>
       <DataType>varchar(255)|0</DataType>
     </argument>
-    <argument id="347" parent="248" name="_type">
+    <argument id="345" parent="248" name="_type">
       <Position>3</Position>
       <DataType>tinyint(4)|0</DataType>
     </argument>
-    <argument id="348" parent="248" name="_durum">
+    <argument id="346" parent="248" name="_durum">
       <Position>4</Position>
       <DataType>tinyint(1)|0</DataType>
     </argument>
-    <argument id="349" parent="248" name="_created_at">
+    <argument id="347" parent="248" name="_created_at">
       <Position>5</Position>
       <DataType>timestamp|0</DataType>
     </argument>
-    <argument id="350" parent="248" name="_updated_at">
+    <argument id="348" parent="248" name="_updated_at">
       <Position>6</Position>
       <DataType>timestamp|0</DataType>
     </argument>
-    <argument id="351" parent="248" name="_saat_ucreti">
+    <argument id="349" parent="248" name="_saat_ucreti">
       <Position>7</Position>
       <DataType>double|0</DataType>
     </argument>
-    <argument id="352" parent="248" name="_saat_puani">
+    <argument id="350" parent="248" name="_saat_puani">
       <Position>8</Position>
       <DataType>double|0</DataType>
     </argument>

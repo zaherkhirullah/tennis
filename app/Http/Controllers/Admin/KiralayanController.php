@@ -56,7 +56,7 @@ class KiralayanController extends Controller
     public function update(Request $request, Kiralayan $kiralayan)
     {
         $kiralayan->update($request->all());
-        Session::flash('success',$kiralayan->isim.' kiralayan belgileri basarile güncellendi');        
+        Session::flash('success',$kiralayan->isim.' kiralayan belgileri basarile güncellendi');
         return back();
     }
 

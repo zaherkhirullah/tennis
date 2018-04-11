@@ -76,7 +76,7 @@ Route::prefix('admin')->group(function()
     Route::get( '/rezervasyon/sonraki','RezervasyonController@sonraki')->name("rezervasyon.sonraki");
     Route::get( '/rezervasyon/gecmis', 'RezervasyonController@gecmis')->name("rezervasyon.gecmis");
     // Admin Resources
-    Route::resource( '/rezervasyon','RezervasyonController');
+    //Route::resource( '/rezervasyon','RezervasyonController');
     Route::resource( '/kort',       'KortController');
     Route::resource( '/kiralayan',  'KiralayanController');
     Route::resource( '/servis',     'ServisController');
@@ -111,7 +111,7 @@ Route::prefix('user')->group(function()
   {
     Route::get('/home',         'HomeController@index')->name('home'); // ana sayfa
     Route::get('/',         'HomeController@index')->name('homepage'); // ana sayfa
-    Route::get('/rezervasyonAl', 'HomeController@rezervasyonAl')->name('rezervasyonAl'); // randevo alma sayfa 
+    //Route::get('/rezervasyonAl', 'HomeController@rezervasyonAl')->name('rezervasyonAl'); // randevo alma sayfa
     Route::get('/contacts',      'ContactsController@create')->name('contacts'); // contact sayfa 
     Route::post('/contacts',      'ContactsController@store')->name('p_contacts'); // contact sayfa 
     Route::get('/prices',        'HomeController@prices')->name('prices'); // kiralama fiyatlari

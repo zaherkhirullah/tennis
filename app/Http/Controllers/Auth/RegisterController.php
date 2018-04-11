@@ -81,7 +81,7 @@ class RegisterController extends Controller
             'password'      => bcrypt($data['password']),
         ]);    
         if($user->count()==0)
-            $kiralayan->delete($kiralayan->id);
+            $kiralayan->delete($kiralayan);
         return $user;
     }
 }

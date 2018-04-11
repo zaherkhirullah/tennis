@@ -58,4 +58,11 @@ class Rezervasyon extends Model
     {
         return $this->belongsTo(Servis::class);
     }
+
+    public static function iptal(Rezervasyon $rezervasyon)
+    {
+        $rezervasyon->durum = 9;
+        $rezervasyon->update();
+        return $rezervasyon;
+    }
 }
