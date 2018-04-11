@@ -82,9 +82,17 @@ class KortController extends Controller
    
     public function destroy(Kort $kort)
     {
-        $kort->delete($kort->id);
+        if(Kort::find($kort->id)){
+            $kort->delete($kort);
+        }
         Session::flash('success','işlem başarile gerçekleştirilmiştir');
         return redirect()->route('kort.index');
-        
+    }
+
+
+    public function delete(Kort $kort){
+        return view('admin.kort.delete',compact([
+            'kort'
+        ]));
     }
 }

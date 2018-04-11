@@ -5,10 +5,17 @@
     <div class="row justify-content-center">
         <div class="col-md-12">
             <div class="card">
-                <div class="card-header">Delete Kortlar</div>
+                <div class="card-header">Delete   {{ $kort->isim }} Kort</div>
 
                 <div class="card-body">
-                    You are logged in!
+                    Are You Sure You Want to delete this asshole kort!
+
+
+                    <form action="{{ route('kort.destroy',$kort) }}" method="post">
+                        @method('delete')
+                        @csrf
+                        <input type="submit" value="delete">
+                    </form>
                 </div>
             </div>
         </div>

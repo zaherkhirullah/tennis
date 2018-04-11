@@ -23,7 +23,7 @@ class Kort extends Model
     {
         return Kort::all();
     }
-   
+
     public function Rezervasyons()
     {
         return $this->hasMany(Rezervasyon::class);
