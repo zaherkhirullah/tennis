@@ -16,13 +16,13 @@ class ServisController extends Controller
     public function index()
     {
         $servis = new Servis;
-        $servisler = $servis->AllServisler()->get();
+        $servisler = $servis->AllServisler();
         return view('admin.servis.index',compact('servisler'));
     }
     public function silindi()
     {
         $servis = new Servis;
-        $servisler = $servis->AllDeletedServisler()->get();
+        $servisler = $servis->AllDeletedServisler();
         return view('admin.servis.index',compact('servisler'));
     }
     public function tamir(Servis $servi)

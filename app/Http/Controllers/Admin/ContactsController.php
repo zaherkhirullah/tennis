@@ -16,13 +16,13 @@ class ContactsController extends Controller
     public function index(Contacts $contacts)
     {
         $contact = new Contacts;
-        $contacts = $contact->AllContacts()->get();
+        $contacts = $contact->AllContacts();
         return view('admin.contacts.index',compact('contacts'));
     }
     public function silindi()
     {
         $contact = new Contacts;
-        $contacts = $contact->AllDeletedContacts()->get();
+        $contacts = $contact->AllDeletedContacts();
         return view('admin.contacts.index',compact('contacts'));
     }
 

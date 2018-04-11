@@ -42,9 +42,19 @@
 <script src="{{ asset('/bower_components/admin-ltedist/js/demo.js')}}"></script>
  --}}
 
-
 <!-- Data Table --> 
 <script type="text/javascript" src="https://code.jquery.com/jquery-1.12.4.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
 <script type="text/javascript" src="https://cdn.datatables.net/1.10.16/js/dataTables.material.min.js"></script>
 <script type="text/javascript" src="{{ asset('js/datatable.js') }}"></script>
+
+
+<!-- Mainly scripts -->
+<script src="{{ asset('assets/js/jquery-3.1.1.min.js') }}"></script>
+<script src="{{ asset('assets/js/bootstrap.min.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/metisMenu/jquery.metisMenu.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/slimscroll/jquery.slimscroll.min.js') }}"></script>
+
+<!-- Custom and plugin javascript -->
+<script src="{{ asset('assets/js/inspinia.js') }}"></script>
+<script src="{{ asset('assets/js/plugins/pace/pace.min.js') }}"></script>

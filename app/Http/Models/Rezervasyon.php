@@ -18,24 +18,24 @@ class Rezervasyon extends Model
 
     public function AllRezervasyonlar()
     {
-        return $this->where('durum',0)->orderBy('created_at','desc');
+        return $this->where('durum',0)->orderBy('created_at','desc')->get();
     }
     public function simdikiRezervasyonlar()
     {
-        return $this->where('tarih','>',Today())->orderBy('created_at','desc');
+        return $this->where('tarih','>',Today())->orderBy('created_at','desc')->get();
     }
     public function sonrakiRezervasyonlar()
     {
-        return $this->where('tarih',Today())->orderBy('created_at','desc');
+        return $this->where('tarih',Today())->orderBy('created_at','desc')->get();
     }
     public function gecmisRezervasyonlar()
     {
-        return $this->where('tarih','<',Today())->orderBy('created_at','desc');
+        return $this->where('tarih','<',Today())->orderBy('created_at','desc')->get();
     }
     
     public function AllDeletedRezervasyonlar()
     {
-        return $this->where('durum',1)->orderBy('updated_at','desc');
+        return $this->where('durum',1)->orderBy('updated_at','desc')->get();
         
     }
 

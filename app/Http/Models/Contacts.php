@@ -11,11 +11,11 @@ class Contacts extends Model
     
     public function AllContacts()
     {
-        return $this->orderBy('created_at','desc');
+        return $this->orderBy('created_at','desc')->get();
     }
     public function AllDeletedContacts()
     {
-        return $this->where('durum',1)->orderBy('updated_at','desc');
+        return $this->where('durum',1)->orderBy('updated_at','desc')->get();
         
     }
     

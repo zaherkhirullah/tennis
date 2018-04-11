@@ -19,13 +19,13 @@ class KiralayanController extends Controller
     public function index()
     {
         $kiralayan = new Kiralayan;
-        $Kiralayanlar = $kiralayan->AllKiralayanlar()->get();
+        $Kiralayanlar = $kiralayan->AllKiralayanlar();
         return view('admin.kiralayan.index',compact('Kiralayanlar'));
     }
     public function silindi()
     {
         $kiralayan = new Kiralayan;
-        $Kiralayanlar = $kiralayan->AllDeletedKiralayanlar()->get();
+        $Kiralayanlar = $kiralayan->AllDeletedKiralayanlar();
         return view('admin.kiralayan.index',compact('Kiralayanlar'));
     }
 
