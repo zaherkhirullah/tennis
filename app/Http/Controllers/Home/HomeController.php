@@ -4,17 +4,23 @@ namespace App\Http\Controllers\Home;
 
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use App\Http\Models\Kort;
+use App\Http\Models\Rezervasyon;
 
+use App\Http\Models\Servis;
 class HomeController extends Controller
 {
+    // ana sayfa
     public function index()
     {
-        return view('home.home');
-    }
-    
-    public function rezervasyonAl()
-    {
-        return view('home.rezervasyonAl');
+        $rezervasyonlar = Rezervasyon::all();
+        $kortlar = Kort::all();
+        $servisler = Servis::all();
+        return view('home.home',compact([
+            'rezervasyonlar',
+            'kortlar',
+            'servisler'
+        ]));
     }
 
     public function aboutUs()

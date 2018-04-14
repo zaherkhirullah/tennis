@@ -5,9 +5,9 @@
       <div class="col-md-11">
         <div class="panel">
           <h4 class="panel-heading">
-            @if(Route::is('Acontacts.index'))
+            @if(Route::is('contacts.index'))
               <center>  Contacts listesi  </center>
-            @elseif(Route::is('Acontacts.all_deleted'))
+            @elseif(Route::is('contacts.all_deleted'))
               <center>  gizli Kiralayan listesi  </center>            
             @endif
           </h4>
@@ -44,19 +44,19 @@
                       <td>{{$contact->created_at }}</td>
                       <td class="text-center">
                         <dt>
-                          <a href="{{route('Acontacts.edit',$contact->id)}}" title="@lang('lang.edit') " class="text-info" >
+                          <a href="{{route('contacts.edit',$contact->id)}}" title="@lang('lang.edit') " class="text-info" >
                             <span class="text text-md" >
                             <i class="fa fa-edit"></i> 
                             </span>
                           </a>
-                          @if(Route::is('Acontacts.index'))
+                          @if(Route::is('contacts.index'))
                             <a href="#hide-file-{{$contact->id}}" title="@lang('lang.hide') " data-toggle="modal" class=" text-primary" >
                               <span class="text text-md" >
                                 <i class="fa  fa-eye-slash"></i> 
                               </span>	
                             </a>
                             
-                          @elseif(Route::is('Acontacts.all_deleted'))
+                          @elseif(Route::is('contacts.all_deleted'))
                               <a href="#restore-file-{{$contact->id}}" title="@lang('lang.restore') " data-toggle="modal" class=" text-warning" >
                               <span class="text text-md" >
                                 <i class="fa  fa-eye"></i> 
@@ -76,7 +76,7 @@
                         <div class="modal-content bg-default">
                           <div class="modal-body">
                             <div class="padder">
-                              {{Form::open(array('route' =>['Acontacts.destroy',$contact->id],
+                              {{Form::open(array('route' =>['contacts.destroy',$contact->id],
                               'method'=>'delete','class'=>'form-delete','id'=>'form-delete' )) }}
             
                                 <div class="text-center">
@@ -98,13 +98,13 @@
                         </div>
                       </div>
                     </div>
-                    @if(Route::is('Acontacts.index'))
+                    @if(Route::is('contacts.index'))
                       <div class="modal fade" id="hide-file-{{$contact->id}}">
                         <div class="modal-dialog modal-shorten">
                           <div class="modal-content bg-default">
                           <div class="modal-body">
                             <div class="padder">
-                              {{Form::open(array('route' =>['Acontacts.delete',$contact->id],
+                              {{Form::open(array('route' =>['contacts.delete',$contact->id],
                               'method'=>'delete','class'=>'form-delete','id'=>'form-delete' )) }}
           
                               <div class="text-center">
@@ -126,13 +126,13 @@
                           </div>
                         </div>
                       </div>
-                    @elseif(Route::is('Acontacts.deletedcontacts'))
+                    @elseif(Route::is('contacts.deletedcontacts'))
                       <div class="modal fade" id="restore-file-{{$contact->id}}">
                         <div class="modal-dialog modal-shorten">
                           <div class="modal-content bg-default">
                             <div class="modal-body">
                               <div class="padder">
-                                {{Form::open(array('route' =>['Acontacts.restore',$contact->id], 'method'=>'post',
+                                {{Form::open(array('route' =>['contacts.restore',$contact->id], 'method'=>'post',
                                 'class'=>'form-restore','id'=>'form-restore' ))
                                 }}
                                 <div class="text-center">
@@ -164,7 +164,7 @@
             @else
               <div class="col-md-8 col-md-offset-2">
                 <center> 
-                    @if(Route::is('Acontacts.index'))
+                    @if(Route::is('contacts.index'))
                         <h2 class="text-danger alert alert-warning"> @lang('lang.dont_have') @lang('lang.contacts')</h2>
                     @else
                         <h2 class="text-danger alert alert-warning"> @lang('lang.dont_have') @lang('lang.hidden_contacts')</h2>

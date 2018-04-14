@@ -25,7 +25,24 @@
 
 </head>
 <body>
-
+<style>
+    .left-ust{
+     margin-top:-90px;
+     left:0;
+     float:right;
+ }
+ .pad5{
+     padding :5px;
+ }
+ #de_trash{
+     display: none;
+     transition: all .3s;
+ }
+ .product-imitation:hover #de_trash{
+     display: block;
+     transition: all .3s;
+ }
+</style>
 <div id="wrapper">
 
     <nav class="navbar-default navbar-static-side" role="navigation">
@@ -101,10 +118,10 @@
                     </a>
                     <ul class="nav nav-second-level collapse">
                         <li>
-                            <a href="{{ route('Acontacts.index') }}">Yeni Mesajlari</a>
+                            <a href="{{ route('contacts.index') }}">Yeni Mesajlari</a>
                         </li>
                         <li>
-                            <a href="{{ route('Acontacts.all_deleted') }}">Cevabı verilmiş Mesajlari</a>
+                            <a href="{{ route('contacts.all_deleted') }}">Cevabı verilmiş Mesajlari</a>
                         </li>
                     </ul>
                 </li>

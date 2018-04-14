@@ -21,7 +21,16 @@ class RezervasyonController extends Controller
     
     public function index()
     {
-        //
+        $rezervasyonlar = Rezervasyon::all_list();
+        $gecmisler = Rezervasyon::gecmis();
+        $sonrakilar= Rezervasyon::sonraki();
+        $simdikiler= Rezervasyon::simdiki();
+        return view('admin.rezervasyon.index',compact([
+            'rezervasyonlar',
+            'gecmisler',
+            'sonrakilar',
+            'simdikiler',
+        ]));
     }
 
  
@@ -45,7 +54,8 @@ class RezervasyonController extends Controller
             $kiralayan->fill($request->all());
             $kiralayan->save();
             $kiralayan_id= $kiralayan->id;
-        }else{
+        }
+        else{
             $kiralayan_id=Auth::id();
         }
 

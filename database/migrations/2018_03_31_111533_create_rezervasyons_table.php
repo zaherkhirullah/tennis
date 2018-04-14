@@ -14,18 +14,16 @@ class CreateRezervasyonsTable extends Migration
             $table->integer('kort_id')->unsigned();
             $table->integer('kiralayan_id')->unsigned();
             $table->integer('servis_id')->unsigned();
-            $table->time('baslangis_saat');   // başlangiş saati 
-            $table->time('bitis_saat');     // bitiş saati 
-            $table->timestamp('tarih');  // tarih  
+            $table->dateTime('baslangis');   // başlangiş saati 
+            $table->dateTime('bitis');   // bitiş saati 
             $table->string('servis_adresi');  // servis gidecek adresi
-            // servis saati her zaman rezervasyonun saati 30 dakika önce                       
             $table->time('servis_saat');   
             $table->double('odenecek'); // odenecek miktari 
             $table->double('odenmis'); /// paid or not // odenmiş yada odenmemiş
             $table->float('kazanacak_puan'); /// paid or not // odenmiş yada odenmemiş
             $table->boolean('durum')->default(0); // active or not             
             $table->timestamps();
-           
+    
             $table->foreign('kort_id')->references('id')->on('korts');
             $table->foreign('kiralayan_id')->references('id')->on('kiralayans');
             $table->foreign('servis_id')->references('id')->on('servis');

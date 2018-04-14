@@ -1,23 +1,6 @@
 @extends('layouts.admin')
 @section('content')
- <style>
- .left-ust{
-     margin-top:-90px;
-     left:0;
-     float:right;
- }
- .pad5{
-     padding :5px;
- }
- #de_trash{
-     display: none;
-     transition: all .3s;
- }
- .product-imitation:hover #de_trash{
-     display: block;
-     transition: all .3s;
- }
- </style>
+
     <div class="row wrapper border-bottom white-bg page-heading">
         <div class="col-lg-8">
             <h2>Kortlar Listesi</h2>
