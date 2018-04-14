@@ -84,4 +84,10 @@ class RezervasyonController extends Controller
     {
         //
     }
+
+    
+
+    public function get_empty_hours($date){
+
+    }
 }
