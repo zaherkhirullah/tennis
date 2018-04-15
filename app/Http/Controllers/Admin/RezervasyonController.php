@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 
+use App\Http\Models\Kort;
 use App\Http\Models\Rezervasyon;
 
+use App\Http\Models\Servis;
 use Illuminate\Http\Request;
 use App\Http\Requests\RezervasyonValidation;
 use Session;
@@ -18,17 +20,39 @@ class RezervasyonController extends Controller
     }
     public function index()
     {
+        $classes = ['Kort','Servis'];
+        $class_ = isset($_GET['c']) ? $_GET['c'] : null ;
+        $id = isset($_GET['i']) ? $_GET['i'] : null   ;
 
-        $rezervasyonlar = Rezervasyon::all_list();
-        $gecmisler = Rezervasyon::gecmis();
-        $sonrakiler= Rezervasyon::sonraki();
-        $simdikiler= Rezervasyon::simdiki();
+        if($class_ && $id){
+            if(in_array($class_,$classes)){
+                $class = "\App\Http\Models\\".$class_;
+                if( $c = $class::find($id)){
+                    $rezervasyonlar = Rezervasyon::all_list();
+                    $gecmisler = Rezervasyon::gecmis()->where(strtolower($class_).'_id', '=',$id);
+                    $sonrakiler= Rezervasyon::sonraki()->where(strtolower($class_).'_id', '=',$id);
+                    $simdikiler= Rezervasyon::simdiki()->where(strtolower($class_).'_id', '=',$id);
+                }else{
+                    return 'kayit bulunmadi';
+                }
+            }else{
+                return 'none valid class name';
+            }
+        }else{
+            $rezervasyonlar = Rezervasyon::all_list();
+            $gecmisler = Rezervasyon::gecmis();
+            $sonrakiler= Rezervasyon::sonraki();
+            $simdikiler= Rezervasyon::simdiki();
+        }
+
         return view('admin.rezervasyon.index',compact([
             'rezervasyonlar',
             'gecmisler',
             'sonrakiler',
             'simdikiler',
-        ]));  }
+        ]));
+
+    }
     
     public function all_deleted()
     {

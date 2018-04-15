@@ -68,7 +68,7 @@
                           
                       </div>
                       <div class="m-t text-left">
-                          <a href="{{ route('kort.rezervasyonlar',$kort->id) }}" class="btn btn-xs btn-outline btn-primary">
+                          <a href="{{ route('rezervasyon.list',['c'=>'Kort','i'=>$kort->id]) }}" class="btn btn-xs btn-outline btn-primary">
                             Rezervasyonları 
                             <span class="hidden-sm hidden-xs"> Görüntle</span>
                             <i class="fa fa-long-arrow-right"></i>
