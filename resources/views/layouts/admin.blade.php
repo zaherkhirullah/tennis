@@ -100,15 +100,12 @@
                     </ul>
                 </li>
                 <li>
-                    <a href="#">
-                        <i class="fa fa-calendar-o"></i>
-                         <span class="nav-label">Kiralayanlar</span>
-                         <span class="fa arrow"></span>
+                    <a href="{{ route('kiralayan.index') }}">
+                        <i class="fa fa-th-large"></i>
+                        <span class="nav-label">Kiralayanlar</span>
                     </a>
-                    <ul class="nav nav-second-level collapse">
-                        <li><a href="{{ route('kiralayan.index') }}">  yeni Kiralayanlar</a></li>
-                        <li><a href="{{ route('kiralayan.all_deleted') }}">activ olmayan Kiralayanlar</a></li>
-                    </ul>
+
+
                 </li>
                 <li>
                     <a href="#">

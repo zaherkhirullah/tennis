@@ -37,8 +37,7 @@ class Rezervasyon extends Model
     public static function simdiki()
     {
         return Rezervasyon::where('baslangis','<=',Carbon::now())
-            ->where('bitis','>',Carbon::now())
-            ->get();
+            ->where('bitis','>',Carbon::now());
     }
     public static function sonraki()
     {
