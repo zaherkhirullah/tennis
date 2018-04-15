@@ -2,7 +2,7 @@
     <div class="alert alert-success alert-dismissible">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <center> 
-            <strong>Success!</strong> {{ session('success') }}
+            {{ session('success') }}
         </center>
      </div>
 @endif
@@ -10,7 +10,7 @@
 <div class="alert alert-danger alert-dismissible">
         <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
         <center>  
-             <strong>Error!</strong> {{ session('error') }}
+            {{ session('error') }}
         </center>
      </div>
     </div>

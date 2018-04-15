@@ -20,16 +20,17 @@
     <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="ibox-title"> Kortlar</div>
         <div class="ibox-content">
-           @if(count($kortlar)) 
-                @foreach($kortlar as $kort)
-                    <div>
-                        <ul>
+           @if(count($kortlar))
+                <div>
+                    <ul>
+                        @foreach($kortlar as $kort)
+
                             <li>{{ $kort->isim }}</li>
-                        </ul>
-                    </div>
-                @endforeach
+                        @endforeach
+                    </ul>
+                </div>
             @else
-            <div class="text-danger"> her hangi bir sonuc bulunmadi</div>
+                <div class="text-danger"> her hangi bir sonuc bulunmadi</div>
             @endif
         </div>
     </div>
@@ -53,17 +54,19 @@
     <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="ibox-title">Kirayanlar</div>
         <div class="ibox-content">
-       @if(count($kiralayanlar))
-            @foreach($kiralayanlar as $kiralayan)
-                <div>
-                    <ul>
-                        <li>{{ $kiralayan->isim }}</li>
-                    </ul>
-                </div>
-            @endforeach
-        @else
-        <div class="text-danger"> her hangi bir sonuc bulunmadi</div>
-        @endif
+           @if(count($kiralayanlar))
+                    <div>
+                        <ul>
+                @foreach($kiralayanlar as $kiralayan)
+
+                            <li>{{ $kiralayan->isim }}</li>
+
+                @endforeach
+                        </ul>
+                    </div>
+            @else
+            <div class="text-danger"> her hangi bir sonuc bulunmadi</div>
+            @endif
         </div>
     </div>           
 {{-- <div class='row'>

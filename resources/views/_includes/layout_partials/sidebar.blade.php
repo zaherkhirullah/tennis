@@ -41,7 +41,7 @@
               </a>
               <ul class="treeview-menu">
                 <li>
-                  <a href="{{route('rezervasyon.index')}}">
+                  <a href="{{route('rezervasyon.list')}}">
                     <i class="fa fa-circle-o" style="color:yellow;"></i>
                     All Rezervasyounlar
                   </a>

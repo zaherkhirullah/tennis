@@ -82,7 +82,7 @@
         </div>
         <div>
 
-            <div class="">
+            <div class="" id="rezerv">
 
                 <form action="{{ route('rezervasyon.store') }}" method="post">
                     @csrf
@@ -112,7 +112,7 @@
                     <div class="form-group row" v-if="servis">
                         <label class="col-sm-2 control-label" style="color:white">Adres</label>
                         <div class="col-sm-10">
-                            <input type="text" class="form-control" name="servis" v-model="address"/>
+                            <input type="text" class="form-control" name="servis_adresi" />
                         </div>
                     </div>
 
@@ -139,8 +139,6 @@
                     <div class="col-md-2">
                         <input type="text" name="saat" id="saat" readonly class="form-control" placeholder="please choose hour">
                     </div>
-
-
 
                     <input type="submit" value="rezerv et" v-if="true">
 

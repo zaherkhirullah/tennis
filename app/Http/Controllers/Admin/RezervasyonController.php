@@ -18,14 +18,15 @@ class RezervasyonController extends Controller
     }
     public function index()
     {
+
         $rezervasyonlar = Rezervasyon::all_list();
         $gecmisler = Rezervasyon::gecmis();
-        $sonrakilar= Rezervasyon::sonraki();
+        $sonrakiler= Rezervasyon::sonraki();
         $simdikiler= Rezervasyon::simdiki();
         return view('admin.rezervasyon.index',compact([
             'rezervasyonlar',
             'gecmisler',
-            'sonrakilar',
+            'sonrakiler',
             'simdikiler',
         ]));  }
     

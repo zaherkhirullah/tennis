@@ -26,16 +26,17 @@
                             <tr>
                         <td>{{ $rezv->id}} </td>
                             <td>
-                                @if($rezv->kort->type ==0)
-                                Tek'li Kort
+                                @if($rezv->kort->type ==1)
+                                    Tek'li Kort
                                 @else
-                                Çift'li Kort
+                                    Çift'li Kort
                                 @endif
                             </td>
                             <td>{{ $rezv->kiralayan->isim }}</td>
                             <td>{{ $rezv->kiralayan->telefon }}</td>
-                            <td>2 saat</td>
-                            <td>{{ $rezv->odenecek}}</td>
+                            <td>1 saat</td>
+                            <td>{{ $rezv->odenecek }}</td>
+                       
                         </tr>
                         @endforeach
                         </tbody>
@@ -54,7 +55,7 @@
                     <h5>Sonraki Dilim Zamanındaki Kortlar</h5>
                 </div>
                 <div class="ibox-content">
-                   @if($sonrakilar)
+                   @if($sonrakiler)
                     <table class="table">
                         <thead>
                             <tr>
@@ -65,54 +66,32 @@
                                 <th>Rezerv Süresi</th>
                                 <th>Ödenecek</th>
                                 <th>Servis Adresi</th>
-                                <th>Servis Plakası</th>
+
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($sonrakiler as $rezv )
                             <tr>
-                                <td>1</td>
-                                <td>Tekli Kort</td>
-                                <td>Eyad Almansour</td>
-                                <td>05553797885</td>
-                                <td>2 saat</td>
-                                <td>200</td>
-                                <td>Arifiye/Sakarya</td>
-                                <td>EYD 992</td>
+                                <td> </td>
+                                <td>
+                                    @if($rezv->kort->type ==1)
+                                        Tek'li Kort
+                                    @else
+                                        Çift'li Kort
+                                    @endif
+                                </td>
+                                <td>{{ $rezv->kiralayan->isim }}</td>
+                                <td>{{ $rezv->kiralayan->telefon }}</td>
+                                <td>1 saat</td>
+                                <td>{{ $rezv->odenecek}}</td>
+                                <td>{{ $rezv->servis_adresi }}</td>
+
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Tekli Kort</td>
-                                <td>Eyad Almansour</td>
-                                <td>05553797885</td>
-                                <td>2 saat</td>
-                                <td>200</td>
-                                <td>Arifiye/Sakarya</td>
-                                <td>EYD 992</td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Tekli Kort</td>
-                                <td>Eyad Almansour</td>
-                                <td>05553797885</td>
-                                <td>2 saat</td>
-                                <td>200</td>
-                                <td>Arifiye/Sakarya</td>
-                                <td>EYD 992</td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Tekli Kort</td>
-                                <td>Eyad Almansour</td>
-                                <td>05553797885</td>
-                                <td>2 saat</td>
-                                <td>200</td>
-                                <td>Arifiye/Sakarya</td>
-                                <td>EYD 992</td>
-                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
                     @else
-                    <div class="text danger"> her hangi bir kayit bulunmadi . </div>
+                        <div class="text danger"> her hangi bir kayit bulunmadi . </div>
                     @endif
                 </div>
             </div>
@@ -140,50 +119,22 @@
                             </tr>
                         </thead>
                         <tbody>
+                        @foreach($gecmisler as $rezv )
                             <tr>
-                                <td>1</td>
-                                <td>Tekli Kort</td>
-                                <td>Eyad Almansour</td>
-                                <td>05553797885</td>
-                                <td>2 saat</td>
-                                <td>200</td>
-                                <td>Arifiye/Sakarya</td>
-                                <td>EYD 992</td>
-                                <td><button class="btn btn-warning">İptal</button></td>
+                                <td>{{ $rezv->id}} </td>
+                                <td>
+                                    @if($rezv->kort->type ==1)
+                                        Tek'li Kort
+                                    @else
+                                        Çift'li Kort
+                                    @endif
+                                </td>
+                                <td>{{ $rezv->kiralayan->isim }}</td>
+                                <td>{{ $rezv->kiralayan->telefon }}</td>
+                                {{--<td>1 saat</td>--}}
+                                <td>{{ $rezv->odenecek}}</td>
                             </tr>
-                            <tr>
-                                <td>2</td>
-                                <td>Tekli Kort</td>
-                                <td>Eyad Almansour</td>
-                                <td>05553797885</td>
-                                <td>2 saat</td>
-                                <td>200</td>
-                                <td>Arifiye/Sakarya</td>
-                                <td>EYD 992</td>
-                                <td><button class="btn btn-warning">İptal</button></td>
-                            </tr>
-                            <tr>
-                                <td>3</td>
-                                <td>Tekli Kort</td>
-                                <td>Eyad Almansour</td>
-                                <td>05553797885</td>
-                                <td>2 saat</td>
-                                <td>200</td>
-                                <td>Arifiye/Sakarya</td>
-                                <td>EYD 992</td>
-                                <td><button class="btn btn-warning">İptal</button></td>
-                            </tr>
-                            <tr>
-                                <td>4</td>
-                                <td>Tekli Kort</td>
-                                <td>Eyad Almansour</td>
-                                <td>05553797885</td>
-                                <td>2 saat</td>
-                                <td>200</td>
-                                <td>Arifiye/Sakarya</td>
-                                <td>EYD 992</td>
-                                <td><button class="btn btn-warning">İptal</button></td>
-                            </tr>
+                        @endforeach
                         </tbody>
                     </table>
 

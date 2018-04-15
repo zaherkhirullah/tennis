@@ -13,7 +13,7 @@
                 <li><a class="page-scroll" href=" {{ route('home') }} ">AnaSayfa</a></li>
                 <li><a class="page-scroll" href=" {{ route('aboutUs') }} ">Hakkımızda</a></li>
                 <li><a class="page-scroll" href=" {{ route('contacts') }} ">İletişim</a></li>
-                <li><a class="page-scroll" href=" {{ route('rezervasyon.create') }} ">Rezervasyon</a></li>
+                <li><a class="page-scroll" href=" {{ route('home') }}#rezerv">Rezervasyon</a></li>
                 <li><a class="page-scroll" href=" {{ route('profile') }} ">Hesabım</a></li>
 
                  @include('_includes.partials.auth')

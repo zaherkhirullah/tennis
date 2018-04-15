@@ -7,6 +7,7 @@ use App\Http\Models\Kiralayan;
 use App\Http\Models\Kort;
 use App\Http\Models\Servis;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\DB;
 
 class Rezervasyon extends Model
 {
@@ -35,15 +36,19 @@ class Rezervasyon extends Model
     }
     public static function simdiki()
     {
-        return Rezervasyon::where('baslangis',Carbon::now())->orderBy('created_at','desc')->get();
+        return Rezervasyon::where('baslangis','<=',Carbon::now())
+            ->where('bitis','>',Carbon::now())
+            ->get();
     }
     public static function sonraki()
     {
-        return Rezervasyon::where('baslangis','>',Carbon::now())->orderBy('created_at','desc')->get();
+        return Rezervasyon::where('baslangis','<=',Carbon::now()->addHour())
+            ->where('bitis','>',Carbon::now()->addHour())
+            ->get();
     }
     public static function gecmis()
     {
-        return Rezervasyon::where('baslangis','<',Carbon::now())->orderBy('created_at','desc')->get();
+        return Rezervasyon::where('baslangis','<',Carbon::now()->subHour())->get();
     }
 
 

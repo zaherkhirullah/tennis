@@ -67,10 +67,6 @@ class RezervasyonController extends Controller
     else{
         $kiralayan_id=Auth::id();
     }
-
-
-
-
          $rezervasyonlar = Rezervasyon::all()
             ->where('baslangis','=',$baslangis_saati)
             ->pluck('servis_id')->toArray();
@@ -89,11 +85,12 @@ class RezervasyonController extends Controller
             $kiralayan_id,
             $baslangis_saati,
             $bitis_saati,
-            $request->adres,
+            $request->servis_adresi,
             $bos_servisler[0]
 
         ]);
-        return "done";
+        Session::flash('success',"sayin tizi rezervasyon basariyla olusturulmustur { $baslangis_saati }");
+        return back();
     }
 
     public function iptal(Rezervasyon $rezervasyon){
