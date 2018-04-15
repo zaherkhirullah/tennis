@@ -15,6 +15,7 @@
                 <li><a class="page-scroll" href=" {{ route('contacts') }} ">İletişim</a></li>
                 <li><a class="page-scroll" href=" {{ route('rezervasyon.create') }} ">Rezervasyon</a></li>
                 <li><a class="page-scroll" href=" {{ route('profile') }} ">Hesabım</a></li>
+
                  @include('_includes.partials.auth')
             </ul>
         </div>

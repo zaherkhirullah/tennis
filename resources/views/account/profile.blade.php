@@ -11,8 +11,8 @@
                 <img alt="image" class="img-responsive" src="{{ asset('assets/profil.jpg') }} ">
             </div>
             <div class="ibox-content profile-content">
-                <h4><strong>Eyad ALMANSOUR</strong></h4>
-                <p><i class="fa fa-map-marker"></i> Riviera State 32/106</p>
+                <h4><strong>{{ Auth::user()->ad }}</strong></h4>
+                <p><i class="fa fa-map-marker"></i> {{ Auth::user()->adres }}</p>
                 <h5>
                     Hakkımda bilgiler
                 </h5>

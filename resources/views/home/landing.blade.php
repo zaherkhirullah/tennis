@@ -1,16 +1,13 @@
-@extends('layouts.app')
-
-@section('content')
-        <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-    {{--<meta charset="utf-8">--}}
-    {{--<meta http-equiv="X-UA-Compatible" content="IE=edge">--}}
-    {{--<meta name="viewport" content="width=device-width, initial-scale=1">--}}
-    {{--<meta name="description" content="">--}}
-    {{--<meta name="author" content="">--}}
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
 
-    {{--<title>INSPINIA - Landing Page</title>--}}
+    <title>INSPINIA - Landing Page</title>
 
 
     <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet"
@@ -24,192 +21,220 @@
 
 </head>
 <body  class="landing-page no-skin-config"
-       style="background-image:url(img/183850434.jpg);background-color:black;background-position: center;background-size:contain; background-repeat:no-repeat;background-attachment: fixed;">
+      style="background-image:url(img/183850434.jpg);background-color:black;background-position: center;background-size:contain; background-repeat:no-repeat;background-attachment: fixed;">
 <div id="app">
 
 
-
-
-    <div id="features" class="container" style="margin: 5% auto;margin-top: 15%;width: 100%;position:center;">
-        <div class="row col-lg-6">
-            <div class="">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8">
-                    <h2 style="color:#99e600 !important;font-weight:400;text-align:center">Temiz Kortlar</h2>
-                    <p style="color:#99e600 !important;font-weight:400;text-align:left">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-
-                </div>
-                <div class="col-sm-2"></div>
+<div class="navbar-wrapper">
+    <nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+        <div class="container">
+            <div class="navbar-header page-scroll">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-            <div class="">
-                <div class="col-sm-2"></div>
-                <div class="col-sm-8">
-                    <h2 style="color:#99e600 !important;font-weight:400;text-align:center">Servis Araçları</h2>
-                    <p style="color:#99e600 !important;font-weight:400;text-align:right">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-
-                </div>
-                <div class="col-sm-2"></div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <a class="page-scroll" href="#page-top">AnaSayfa</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#features">Hakkımızda</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#team">İletişim</a>
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#testimonials">Giriş Yap</a>
+                    </li>
+                </ul>
             </div>
-
         </div>
-        <div class="row col-lg-6">
+    </nav>
+</div>
+<div id="features" class="container" style="margin: 5% auto;margin-top: 15%;width: 100%;position:center;">
+    <div class="row col-lg-6">
+        <div class="">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h2 style="color:#99e600 !important;font-weight:400;text-align:center">Temiz Kortlar</h2>
+                <p style="color:#99e600 !important;font-weight:400;text-align:left">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
 
-            <div class="">
-                <div class="col-sm-8">
-                    <h2 style="color:#99e600 !important;font-weight:400;text-align:left">Kıyafet Kiralama</h2>
-                    <p style="color:#99e600 !important;font-weight:400;text-align:left">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
-
-                </div>
-                <div class="col-sm-4"></div>
             </div>
-            <div class="">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-8">
-                    <h2 style="color:#99e600 !important;font-weight:400;text-align:right">Çeşitli Kortlar</h2>
-                    <p style="color:#99e600 !important;font-weight:400;text-align:right">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
+            <div class="col-sm-2"></div>
+        </div>
+        <div class="">
+            <div class="col-sm-2"></div>
+            <div class="col-sm-8">
+                <h2 style="color:#99e600 !important;font-weight:400;text-align:center">Servis Araçları</h2>
+                <p style="color:#99e600 !important;font-weight:400;text-align:right">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
 
-                </div>
+            </div>
+            <div class="col-sm-2"></div>
+        </div>
+
+    </div>
+    <div class="row col-lg-6">
+
+        <div class="">
+            <div class="col-sm-8">
+                <h2 style="color:#99e600 !important;font-weight:400;text-align:left">Kıyafet Kiralama</h2>
+                <p style="color:#99e600 !important;font-weight:400;text-align:left">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
+
+            </div>
+            <div class="col-sm-4"></div>
+        </div>
+        <div class="">
+            <div class="col-sm-4"></div>
+            <div class="col-sm-8">
+                <h2 style="color:#99e600 !important;font-weight:400;text-align:right">Çeşitli Kortlar</h2>
+                <p style="color:#99e600 !important;font-weight:400;text-align:right">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. Nullam id dolor id nibh ultricies vehicula ut id elit. Morbi leo risus.</p>
+
             </div>
         </div>
     </div>
-    <section class="container features" >
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                <h1 style="color:white">Kortunuzu Rezerv Ediniz</h1>
-                <p style="color:white">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
-            </div>
+</div>
+<section class="container features" >
+    <div class="row">
+        <div class="col-lg-12 text-center">
+            <div class="navy-line"></div>
+            <h1 style="color:white">Kortunuzu Rezerv Ediniz</h1>
+            <p style="color:white">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
         </div>
-        <div>
+    </div>
+    <div>
 
-            <div class="">
+        <div class="">
 
-                <form action="{{ route('rezervasyon.store') }}" method="post">
-                    @csrf
-                    @guest
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label" style="color:white">Adınız ve Soyadınız</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="isim" v-model="name">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label" style="color:white">Telefon Numaranız</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="telefon" />
-                            </div>
-                        </div>
+            <form action="{{ route('rezervasyon.store') }}" method="post">
+                @csrf
+                @guest
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label" style="color:white">Adınız ve Soyadınız</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="isim" v-model="name">
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label" style="color:white">Telefon Numaranız</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="telefon" />
+                    </div>
+                </div>
                     @endguest
 
 
-                    <div class="form-group row">
-                        <label class="col-sm-2 control-label" style="color:white">Servis istiyor musunuz</label>
-                        <div class="col-sm-10">
-                            <input type="checkbox" class="form-control" name="servis" v-model="servis"/>
-                        </div>
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label" style="color:white">Servis istiyor musunuz</label>
+                    <div class="col-sm-10">
+                        <input type="checkbox" class="form-control" name="servis" v-model="servis"/>
                     </div>
+                </div>
 
-                    <div class="form-group row" v-if="servis">
-                        <label class="col-sm-2 control-label" style="color:white">Adres</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="servis" v-model="address"/>
-                        </div>
+                <div class="form-group row" v-if="servis">
+                    <label class="col-sm-2 control-label" style="color:white">Adres</label>
+                    <div class="col-sm-10">
+                        <input type="text" class="form-control" name="servis" v-model="address"/>
                     </div>
+                </div>
 
 
-                    <div class="form-group row">
-                        <label class="col-sm-2 control-label" style="color:white">Kort Seç</label>
-                        <div class="col-sm-10">
-                            <select class="form-control m-b" name="kort_id" id="kort">
+                <div class="form-group row">
+                    <label class="col-sm-2 control-label" style="color:white">Kort Seç</label>
+                    <div class="col-sm-10">
+                        <select class="form-control m-b" name="kort_id" id="kort">
 
-                                @foreach($kortlar as $kort)
-                                    <option value="{{ $kort->id  }}">{{ $kort->isim}}</option>
-                                @endforeach
+                            @foreach($kortlar as $kort)
+                                <option value="{{ $kort->id  }}">{{ $kort->isim}}</option>
+                            @endforeach
 
 
 
-                            </select>
-                        </div>
+                        </select>
                     </div>
+                </div>
 
-                    <div class="col-md-2">
-                        <input type="text" name="tarih" id="tarih" readonly class="form-control">
-                    </div>
+                <div class="col-md-2">
+                    <input type="text" name="tarih" id="tarih" readonly class="form-control">
+                </div>
 
-                    <div class="col-md-2">
-                        <input type="text" name="saat" id="saat" readonly class="form-control" placeholder="please choose hour">
-                    </div>
+                <div class="col-md-2">
+                    <input type="text" name="saat" id="saat" readonly class="form-control" placeholder="please choose hour">
+                </div>
 
 
 
-                    <input type="submit" value="rezerv et" v-if="true">
+                <input type="submit" value="rezerv et" v-if="true">
 
-                </form>
+            </form>
 
-            </div>
         </div>
-    </section>
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div id="calendarContainer" class="col-lg-4"></div>
-        <div id="organizerContainer" class="col-lg-4"></div>
     </div>
+</section>
+<div class="row">
+    <div class="col-md-2"></div>
+    <div id="calendarContainer" class="col-lg-4"></div>
+    <div id="organizerContainer" class="col-lg-4"></div>
+</div>
 
 
 
-    <section id="contact" class="">
-        <div class="container">
-            <div class="row m-b-lg">
-                <div class="col-lg-12 text-center">
-                    <div class="navy-line"></div>
-                    <h1>Contact Us</h1>
-                    <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
-                </div>
-            </div>
-            <div class="row m-b-lg">
-                <div class="col-lg-3 col-lg-offset-3">
-                    <address>
-                        <strong><span class="navy">Company name, Inc.</span></strong><br />
-                        795 Folsom Ave, Suite 600<br />
-                        San Francisco, CA 94107<br />
-                        <abbr title="Phone">P:</abbr> (123) 456-7890
-                    </address>
-                </div>
-                <div class="col-lg-4">
-                    <p class="text-color">
-                        Consectetur adipisicing elit. Aut eaque, totam corporis laboriosam veritatis quis ad perspiciatis, totam corporis laboriosam veritatis, consectetur adipisicing elit quos non quis ad perspiciatis, totam corporis ea,
-                    </p>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-12 text-center">
-                    <a href="mailto:test@email.com" class="btn btn-primary">Send us mail</a>
-                    <p class="m-t-sm">
-                        Or follow us on social platform
-                    </p>
-                    <ul class="list-inline social-icon">
-                        <li>
-                            <a href="#"><i class="fa fa-twitter"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-facebook"></i></a>
-                        </li>
-                        <li>
-                            <a href="#"><i class="fa fa-linkedin"></i></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
-                    <p>
-                        <strong>&copy; 2015 Company Name</strong>
-                        <br /> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.
-                    </p>
-                </div>
+<section id="contact" class="">
+    <div class="container">
+        <div class="row m-b-lg">
+            <div class="col-lg-12 text-center">
+                <div class="navy-line"></div>
+                <h1>Contact Us</h1>
+                <p>Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod.</p>
             </div>
         </div>
-    </section>
+        <div class="row m-b-lg">
+            <div class="col-lg-3 col-lg-offset-3">
+                <address>
+                    <strong><span class="navy">Company name, Inc.</span></strong><br />
+                    795 Folsom Ave, Suite 600<br />
+                    San Francisco, CA 94107<br />
+                    <abbr title="Phone">P:</abbr> (123) 456-7890
+                </address>
+            </div>
+            <div class="col-lg-4">
+                <p class="text-color">
+                    Consectetur adipisicing elit. Aut eaque, totam corporis laboriosam veritatis quis ad perspiciatis, totam corporis laboriosam veritatis, consectetur adipisicing elit quos non quis ad perspiciatis, totam corporis ea,
+                </p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <a href="mailto:test@email.com" class="btn btn-primary">Send us mail</a>
+                <p class="m-t-sm">
+                    Or follow us on social platform
+                </p>
+                <ul class="list-inline social-icon">
+                    <li>
+                        <a href="#"><i class="fa fa-twitter"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-facebook"></i></a>
+                    </li>
+                    <li>
+                        <a href="#"><i class="fa fa-linkedin"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 text-center m-t-lg m-b-lg">
+                <p>
+                    <strong>&copy; 2015 Company Name</strong>
+                    <br /> consectetur adipisicing elit. Aut eaque, laboriosam veritatis, quos non quis ad perspiciatis, totam corporis ea, alias ut unde.
+                </p>
+            </div>
+        </div>
+    </div>
+</section>
 
 </div>
 <script src="js/Calender.js"></script>
@@ -229,7 +254,7 @@
             date = new Date();
             id = $(`span:contains("${date.getDate()}")`).closest("label").attr("id");
 
-            $('.day').css('background-color','white');
+             $('.day').css('background-color','white');
             $('#'+id).trigger('click').css('background-color', '#707070');
         }
 
@@ -856,24 +881,22 @@
 <script>
 
     var app = new Vue({
-            el: '#app',
-            data: {
-                name:'',
-                servis: '',
-                address:'',
-                show:true
-            },
-            methods:{
-                show_btn:function () {
+        el: '#app',
+        data: {
+            name:'',
+            servis: '',
+            address:'',
+            show:true
+        },
+        methods:{
+             show_btn:function () {
 
 
-                }
+             }
 
-            }
+        }
         }
     )
 </script>
 </body>
 </html>
-
-@endsection

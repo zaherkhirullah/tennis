@@ -1,5 +1,5 @@
 <?php
-
+header('Access-Control-Allow-Origin: *');
 /*
 |--------------------------------------------------------------------------
 |     Web Routes
@@ -91,6 +91,26 @@ Route::prefix('admin')->group(function()
   {
     Route::get( 'user/', 'UserController@index')->name("user");
     Route::resource( 'user/rezervasyon','RezervasyonController');
+    Route::get('/landing',[
+        'uses' => 'RezervasyonController@landing',
+        'as' => 'get.hours'
+    ]);
+
+
+    Route::post('/info/hours',[
+        'uses' => 'RezervasyonController@get_empty_hours',
+        'as' => 'ajax'
+        //'middleware' => ['auth', 'permission:admin']
+    ]);
+
+    Route::get('/land',[
+        'uses' => 'RezervasyonController@getview'
+    ]);
+
+    Route::post('/shit',[
+        'uses' => 'RezervasyonController@shit',
+        'as' => 'shit'
+    ]);
   });
 
 /*
@@ -135,3 +155,7 @@ Route::prefix('admin')->group(function()
       );
     }
   );
+
+
+
+

@@ -13,21 +13,21 @@
                             </span>
                     {{ Auth::user()->ad }} <span class="caret"></span>
                 </a>
-                {{--<ul class="dropdown-menu">--}}
-                    {{--<span class="arrow top"></span>--}}
-                    {{--<li>--}}
-                        {{--<a href="{{route('profile')}}">--}}
-                                {{--<i class="fa fa-user"> </i>--}}
-                                {{--@lang('lang.profile')--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                    {{--<li>--}}
-                        {{--<a href="{{route('changePassword')}}">--}}
-                                {{--<i class="fa fa-lock"> </i>--}}
-                                {{--@lang('lang.change') @lang('lang.password')--}}
-                        {{--</a>--}}
-                    {{--</li>--}}
-                {{--</ul>--}}
+                <ul class="dropdown-menu">
+                    <span class="arrow top"></span>
+                    <li>
+                        <a href="{{route('profile')}}">
+                                <i class="fa fa-user"> </i>
+                                @lang('lang.profile')
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{{route('changePassword')}}">
+                                <i class="fa fa-lock"> </i>
+                                @lang('lang.change') @lang('lang.password')
+                        </a>
+                    </li>
+                </ul>
             </li>
             <li  class="text-center">
                     <a href="{{ route('logout') }}"

@@ -11,8 +11,10 @@ use App\Http\Models\Servis;
 use Carbon\Carbon;
 
 use App\Http\Requests\RezervasyonValidation;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
+
 use Illuminate\Support\Facades\Session;
 
 
@@ -49,22 +51,47 @@ class RezervasyonController extends Controller
 
     public function store(RezervasyonValidation $request)
     {
-        if($request->telefon && $request->isim){
-            $kiralayan = new Kiralayan();
-            $kiralayan->fill($request->all());
-            $kiralayan->save();
-            $kiralayan_id= $kiralayan->id;
-        }
-        else{
-            $kiralayan_id=Auth::id();
-        }
+        $tarih = $request->tarih;
+        $saat = $request->saat;
+        $saat = substr($saat,0,strpos($saat,' '));
+        $baslangis_saati = $tarih.' '.$saat.':00';
+         $baslangis_saati = Carbon::parse($baslangis_saati);
+         $bitis_saati = Carbon::parse($baslangis_saati)->addHour();
 
-        $r = DB::Insert('call add_rezervasyon(?,?,?,?,?)',[
+        if($request->telefon && $request->isim){
+        $kiralayan = new Kiralayan();
+        $kiralayan->fill($request->all());
+        $kiralayan->save();
+        $kiralayan_id = $kiralayan->id;
+    }
+    else{
+        $kiralayan_id=Auth::id();
+    }
+
+
+
+
+         $rezervasyonlar = Rezervasyon::all()
+            ->where('baslangis','=',$baslangis_saati)
+            ->pluck('servis_id')->toArray();
+
+        $servisler = Servis::all()->pluck('id')->toArray();
+        $bos_servisler=[];
+
+
+        foreach($servisler as $item)
+            if (!in_array($item,$rezervasyonlar))
+                $bos_servisler [] = $item;
+
+
+        $r = DB::Insert('call add_rezervasyon(?,?,?,?,?,?)',[
             $request->kort_id,
             $kiralayan_id,
-            Carbon::now(),
-            Carbon::now()->addHour(),
+            $baslangis_saati,
+            $bitis_saati,
             $request->adres,
+            $bos_servisler[0]
+
         ]);
         return "done";
     }
@@ -95,9 +122,57 @@ class RezervasyonController extends Controller
         //
     }
 
-    
+    public function getview(){
+        return view('home.rezervasyon');
+    }
 
-    public function get_empty_hours($date){
+    public function get_empty_hours(Request $request){
+        $day = $_POST['day'];
+        $month = $_POST['month'];
+        $year = $_POST['year'];
+        $kort = $_POST['kort'];
+        $date = "$year-$month-$day";
+        $date = Carbon::parse($date);
+        $hours =[];
+        $av_hours=[9,8,10,11,12,13,14,15,16,17,18,19];
+        $rezervasyonlar = DB::table('rezervasyons')
+            ->whereDate('baslangis','=', $date)
+            ->where('kort_id','=', $kort)
 
+            ->pluck('baslangis')->toArray();
+
+
+        foreach ($rezervasyonlar as $item){
+            $item = Carbon::parse($item);
+            $hours [] =  $item->hour;
+            $index = 0;
+            if(($index = array_search($item->hour,$av_hours)) !== false ){
+
+                $av_hours[$index] = 0;
+            }
+
+        }
+        $av_saat=[];
+        foreach ($av_hours as $av_hour){
+            if ($av_hour != 0){
+                $av_saat[]=$av_hour;
+            }
+        }
+
+        return response()->json($av_saat);
+
+
+    }
+
+
+    public function landing(){
+        $kortlar = Kort::all_list();
+        return view('home.landing',compact([
+            'kortlar'
+        ]));
+    }
+
+    public function shit(Request $request){
+        return $request->all();
     }
 }

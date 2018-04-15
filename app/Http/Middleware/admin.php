@@ -11,7 +11,7 @@ class Admin
     {
         if (Auth::User())
         {
-            if(Auth::User()->id==1)
+            if(Auth::id()==1)
              return $next($request);
          }
          Session::flash('error', "You are don't authorize for access to this page  ");         
