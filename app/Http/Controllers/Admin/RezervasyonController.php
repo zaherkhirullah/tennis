@@ -37,18 +37,18 @@ class RezervasyonController extends Controller
     }
     public function simdiki()
     {
-        $rezervasyonlar = Rezervasyon::simdiki();
-        return view('admin.rezervasyon.index',compact('rezervasyonlar'));
+        $simdikiler = Rezervasyon::simdiki();
+        return view('admin.rezervasyon.simdiki',compact('simdikiler'));
     }
     public function sonraki()
     {
-        $rezervasyonlar = Rezervasyon::sonraki();
-        return view('admin.rezervasyon.index',compact('rezervasyonlar'));
+        $sonrakiler = Rezervasyon::sonraki();
+        return view('admin.rezervasyon.sonraki',compact('sonrakiler'));
     }
     public function gecmis()
     {
-        $rezervasyonlar = Rezervasyon::gecmis();
-        return view('admin.rezervasyon.index',compact('rezervasyonlar'));
+        $gecmisler = Rezervasyon::gecmis();
+        return view('admin.rezervasyon.gecmis',compact('gecmisler'));
     }
     
     public function create()

@@ -13,5 +13,4 @@
             {{ session('error') }}
         </center>
      </div>
-    </div>
 @endif

@@ -95,7 +95,7 @@
                     <ul class="nav nav-second-level collapse">
                         <li><a href="{{ route('rezervasyon.simdiki') }}">Şimdiki Rezervasyonlar</a></li>
                         <li><a href="{{ route('rezervasyon.sonraki') }}">Sonraki Rezervasyon</a></li>
-                        <li><a href="{{ route('rezervasyon.index') }}">Tüm Rezervasyonlar</a></li>
+                        <li><a href="{{ route('rezervasyon.list') }}">Tüm Rezervasyonlar</a></li>
                         <li><a href="{{ route('rezervasyon.gecmis') }}">Geçmiş Rezervasyonlar</a></li>
                     </ul>
                 </li>

@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
-  <div class="col-md-4">
+  {{-- <div class="col-md-4">
     <div class="ibox float-e-margins">
         <div class="ibox-title">
             <h5>Profile Detail</h5>
@@ -11,7 +11,7 @@
                 <img alt="image" class="img-responsive" src="{{ asset('assets/profil.jpg') }} ">
             </div>
             <div class="ibox-content profile-content">
-                <h4><strong>{{ Auth::user()->ad }}</strong></h4>
+                <h4><strong>{{ Auth::user()->isim }}</strong></h4>
                 <p><i class="fa fa-map-marker"></i> {{ Auth::user()->adres }}</p>
                 <h5>
                     Hakkımda bilgiler
@@ -93,5 +93,5 @@
 
         </div>
     </div>
-  </div>
+  </div> --}}
 @endsection

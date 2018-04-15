@@ -2,7 +2,7 @@
     @auth
         @if(Route::is('homepage'))
         <li class="nav-item nav-item-cta last">
-            <a class="btn btn-cta btn-cta-secondary" href="{{ url('user/dashboard') }}"> @lang('lang.my_account')
+            <a class="btn btn-cta btn-cta-secondary" href="{{ route('hesabim') }}"> @lang('lang.my_account')
             </a>
         </li>
         @else
@@ -29,6 +29,8 @@
                     </li>
                 </ul>
             </li>
+            <li><a class="page-scroll" href=" {{ route('hesabim') }} ">Hesabım</a></li>
+            
             <li  class="text-center">
                     <a href="{{ route('logout') }}"
                          onclick="event.preventDefault();

@@ -113,7 +113,7 @@
                 <li>
                   <a href="{{route('servis.all_deleted')}}">
                     <i class="fa fa-circle-o" style="color:red;"></i>
-                    all_deleted servisler
+                    all deleted servisler
                   </a>
                 </li>
               </ul>

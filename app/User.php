@@ -42,6 +42,8 @@ class User extends Authenticatable
  
      public function Kiralayan()
      {
-         return $this->belongsTo('App\Http\Models\Kiralayan');
+         return $this->hasOne('App\Http\Models\Kiralayan','id');
      }  
+  
+     
 }

@@ -90,6 +90,7 @@ Route::prefix('admin')->group(function()
   Route::group(['namespace' => 'User'], function()
   {
     Route::get( 'user/', 'UserController@index')->name("user");
+    Route::get( 'user/hesabim', 'UserController@hesabim')->name("hesabim");
     Route::resource( 'user/rezervasyon','RezervasyonController');
     Route::get('/landing',[
         'uses' => 'RezervasyonController@landing',

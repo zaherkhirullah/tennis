@@ -51,7 +51,6 @@ class Rezervasyon extends Model
         return Rezervasyon::where('baslangis','<',Carbon::now()->subHour())->get();
     }
 
-
     public function kiralayan()
     {
         return $this->belongsTo(Kiralayan::class);

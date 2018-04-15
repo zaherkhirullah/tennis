@@ -24,6 +24,7 @@ class Kiralayan extends Model
     public function Rezervasyons()
     {
         return $this->hasMany(Rezervasyon::class);
+        
     }
     public function User()
     {

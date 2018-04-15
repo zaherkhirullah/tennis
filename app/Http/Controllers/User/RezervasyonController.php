@@ -25,12 +25,12 @@ class RezervasyonController extends Controller
     {
         $rezervasyonlar = Rezervasyon::all_list();
         $gecmisler = Rezervasyon::gecmis();
-        $sonrakilar= Rezervasyon::sonraki();
+        $sonrakiler= Rezervasyon::sonraki();
         $simdikiler= Rezervasyon::simdiki();
         return view('admin.rezervasyon.index',compact([
             'rezervasyonlar',
             'gecmisler',
-            'sonrakilar',
+            'sonrakiler',
             'simdikiler',
         ]));
     }
@@ -67,6 +67,7 @@ class RezervasyonController extends Controller
     else{
         $kiralayan_id=Auth::id();
     }
+    
          $rezervasyonlar = Rezervasyon::all()
             ->where('baslangis','=',$baslangis_saati)
             ->pluck('servis_id')->toArray();
@@ -74,11 +75,11 @@ class RezervasyonController extends Controller
         $servisler = Servis::all()->pluck('id')->toArray();
         $bos_servisler=[];
 
-
+       
         foreach($servisler as $item)
             if (!in_array($item,$rezervasyonlar))
                 $bos_servisler [] = $item;
-
+        
 
         $r = DB::Insert('call add_rezervasyon(?,?,?,?,?,?)',[
             $request->kort_id,
@@ -89,7 +90,10 @@ class RezervasyonController extends Controller
             $bos_servisler[0]
 
         ]);
-        Session::flash('success',"sayin tizi rezervasyon basariyla olusturulmustur { $baslangis_saati }");
+       
+    $kiralaya=Kiralayan::find($kiralayan_id);
+        
+        Session::flash('success',"sayin {$kiralaya->isim} rezervasyon basariyla olusturulmustur { $baslangis_saati }");
         return back();
     }
 
