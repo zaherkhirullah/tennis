@@ -129,14 +129,13 @@ class RezervasyonController extends Controller
         $day =    $request->day;
         $month =  $request->month;
         $year =   $request->year;
-<<<<<<< HEAD
+
         $date= Carbon::parse("$year-$month-$day");
         // eger bugunku tarihi şimdiki saat al else sabah saat 9 Al
         $sonraki_saat =now()->format('H')+1;  
         $n=($date == Today())?$sonraki_saat: 9; 
         // aktive saatler tanimlama
-        
-=======
+
         $kort =   $request->kort;
         $date = "$year-$month-$day";
         $date = Carbon::parse($date);
@@ -154,16 +153,12 @@ class RezervasyonController extends Controller
 
         }
 
-
-
-
         $rezervasyonlar = DB::table('rezervasyons');
-
+       
         if($date == Today())
-        $n =now()->format('H');
+        $n= Carbon::now()->hour;
         else
         $n=9;  
->>>>>>> be4328ef7a91d5ff48efcdc21d6525bf04424f6c
         for($i=$n;$i<20;$i++)
             $av_hours[]=$i;
 
@@ -188,7 +183,6 @@ class RezervasyonController extends Controller
         }
         return response()->json($av_saat);
     }
-
 
     public function landing()
     {

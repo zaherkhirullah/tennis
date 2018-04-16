@@ -57,34 +57,34 @@
                                 <div class="feed-element">
                                     <div class="media-body ">
                                         @if($rez->suan())
-                                            <small class="pull-right text-navy">Şuan</small>
-                                            <div class="actions">
-                                                    @if($rez->uzatabilir() )
-                                                        <a href="{{ route('rezervasyon.uzatma',$rez) }}" class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Uzatma</a>
-                                                    @else
-                                                        @if((!$rez->sonraki_oyun()) && !$rez->bekleyen())
-                                                            <a href="{{ route('rezervasyon.bekleme',$rez) }}" class="btn btn-xs btn-warning"><i class="fa fa-heart"></i> Bekleme listesine ekle</a>
-                                                        @endif
-                                                    @endif
-        
-                                                </div>
+                                            <small class="pull-right ">Şuan</small>
                                             @else
                                             @if( $rez->baslangis > now())
-                                            <small class="pull-right text-navy">
+                                            <small class="pull-right">
                                                 <form action="{{ route('rezervasyon.destroy',$rez) }}" method="POST">
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-xs btn-danger">
-                                                        <i class="fa fa-trash">iptal</i></button>
+                                                    <button type="submit" class="btn btn-sm btn-danger">
+                                                        <i class="fa fa-trash"></i> Iptal
+                                                    </button>
                                                 </form>
                                             </small>
                                             @endif
-                                            <small class="pull-right text-navy">{{ $rez->baslangis }}</small>
+                                            <small class="pull-right btn-sm label-info">{{ $rez->baslangis }}</small>
                                         @endif
                                         <strong>{{ $rez->kort->isim }}</strong> Kiraladınız. Süre <strong>1
                                             saat</strong> boyunca. <br>
                                         <small class="text-muted"></small>
-                                      
+                                        <div class="actions pull-right">
+                                            @if($rez->suan() && $rez->uzatabilir() )
+                                                <a href="{{ route('rezervasyon.uzatma',$rez) }}" class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Uzatma</a>
+                                            @else
+                                                @if($rez->suan() &&  (!$rez->sonraki_oyun()) && !$rez->bekleyen())
+                                                    <a href="{{ route('rezervasyon.bekleme',$rez) }}" class="btn btn-xs btn-warning"><i class="fa fa-heart"></i> Bekleme listesine ekle</a>
+                                                @endif
+                                            @endif
+
+                                        </div>
                                     </div>
                                 </div>
                             @endforeach

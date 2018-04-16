@@ -72,86 +72,83 @@
             </div>
         </div>
     </div>
+    <div class="navy-line"></div>    
     <section class="container features" >
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <div class="navy-line"></div>
-                <h1 style="color:white">Kortunuzu Rezerv Ediniz</h1>
-                <p style="color:white">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
+        <div class="row ">
+            <div class="col-md-9 panel" style="margin-left:13%;">
+                <div class="">
+                    <div class="ibox-title text-center">
+                            <h1 >Kortunuzu Rezerv Ediniz</h1>
+                            <p >Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
+                    </div>
+                    <div class="ibox-content" id="rezerv">
+                        <form action="{{ route('rezervasyon.store') }}" method="post">
+                            @csrf
+                            @guest
+                            <div class="form-group row">
+                                <label class="col-sm-2 control-label">Adınız ve Soyadınız</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="isim" v-model="name">
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 control-label">Telefon Numaranız</label>
+                                <div class="col-sm-10">
+                                    <input type="text" class="form-control" name="telefon" />
+                                </div>
+                            </div>
+                            @endguest
+                            <div class="form-group row">
+                                <div class="col-md-6" >
+                                    <label class="col-sm-8 control-label">Servis istiyor musunuz</label>
+                                    <div class="col-sm-4">
+                                        <input type="checkbox" class="control-label" name="servis" v-model="servis"/>
+                                    </div>
+                                </div>
+                                <div class="col-md-6" v-if="servis">
+                                    <label class="col-sm-2 control-label" style="color:white">Adres</label>
+                                    <div class="col-sm-10">
+                                        <input type="text" class="form-control" name="servis_adresi" />
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label class="col-sm-2 control-label">Kort Seç</label>
+                                <div class="col-sm-10">
+                                    <select class="form-control" name="kort_id" id="kort">
+                                        @foreach($kortlar as $kort)
+                                            <option value="{{ $kort->id  }}">{{ $kort->isim}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group row ">
+                                <div class="col-md-6">
+                                    <input type="text" name="tarih" id="tarih" readonly class="form-control" placeholder="Bir tarih seçmek için Tikla ">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="text" name="saat" id="saat" readonly class="form-control"  placeholder="Tarih seçtikten sonra bir saat seç">
+                                </div>
+                            </div>
+                            <div class="form-group row ">
+                                <div class="col-md-6 col-xs-offset-3 text-center">
+                                    <button type="submit"  value="rezerv et" v-if="true" class="btn btn-primary">
+                                            Rezerv et
+                                    </button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
             </div>
         </div>
-        <div>
-
-            <div class="" id="rezerv">
-
-                <form action="{{ route('rezervasyon.store') }}" method="post">
-                    @csrf
-                    @guest
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label" style="color:white">Adınız ve Soyadınız</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="isim" v-model="name">
-                            </div>
-                        </div>
-                        <div class="form-group row">
-                            <label class="col-sm-2 control-label" style="color:white">Telefon Numaranız</label>
-                            <div class="col-sm-10">
-                                <input type="text" class="form-control" name="telefon" />
-                            </div>
-                        </div>
-                    @endguest
-
-
-                    <div class="form-group row">
-                        <label class="col-sm-2 control-label" style="color:white">Servis istiyor musunuz</label>
-                        <div class="col-sm-10">
-                            <input type="checkbox" class="form-control" name="servis" v-model="servis"/>
-                        </div>
-                    </div>
-
-                    <div class="form-group row" v-if="servis">
-                        <label class="col-sm-2 control-label" style="color:white">Adres</label>
-                        <div class="col-sm-10">
-                            <input type="text" class="form-control" name="servis_adresi" />
-                        </div>
-                    </div>
-
-
-                    <div class="form-group row">
-                        <label class="col-sm-2 control-label" style="color:white">Kort Seç</label>
-                        <div class="col-sm-10">
-                            <select class="form-control m-b" name="kort_id" id="kort">
-
-                                @foreach($kortlar as $kort)
-                                    <option value="{{ $kort->id  }}">{{ $kort->isim}}</option>
-                                @endforeach
-
-
-
-                            </select>
-                        </div>
-                    </div>
-
-                    <div class="col-md-2">
-                        <input type="text" name="tarih" id="tarih" readonly class="form-control">
-                    </div>
-
-                    <div class="col-md-2">
-                        <input type="text" name="saat" id="saat" readonly class="form-control" placeholder="please choose hour">
-                    </div>
-
-                    <input type="submit" value="rezerv et" v-if="true">
-
-                </form>
-
-            </div>
+        <div class="row">
+            <div class="col-md-12">
+            <div id="calendarContainer"  class="col-md-6"></div>
+            <div id="organizerContainer" class="col-md-6"></div>
         </div>
     </section>
-    <div class="row">
-        <div class="col-md-2"></div>
-        <div id="calendarContainer" class="col-lg-4"></div>
-        <div id="organizerContainer" class="col-lg-4"></div>
-    </div>
+    
 
 
 
