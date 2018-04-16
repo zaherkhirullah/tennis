@@ -2,4 +2,5 @@
 
 @section('title',   '404 page not found')
 
-@section('message', \Lang::get('lang.m_404_page') )
+@section('message', __('lang.m_404_page') )
+

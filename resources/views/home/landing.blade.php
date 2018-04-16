@@ -165,8 +165,6 @@
                     <input type="text" name="saat" id="saat" readonly class="form-control" placeholder="please choose hour">
                 </div>
 
-
-
                 <input type="submit" value="rezerv et" v-if="true">
 
             </form>
@@ -890,8 +888,6 @@
         },
         methods:{
              show_btn:function () {
-
-
              }
 
         }

@@ -8,9 +8,7 @@
                 <div class="card-header">Terms</div>
 
                 <div class="card-body">
-                    
-
-                    You are logged in!
+                        This is Terms Page
                 </div>
             </div>
         </div>

@@ -8,9 +8,7 @@
                 <div class="card-header">Prices</div>
 
                 <div class="card-body">
-                   
-
-                    You are logged in!
+                        This is Prices Page
                 </div>
             </div>
         </div>

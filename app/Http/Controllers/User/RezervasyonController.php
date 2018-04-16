@@ -126,49 +126,25 @@ class RezervasyonController extends Controller
 
     public function get_empty_hours(Request $request)
     {
-        $day =    $request->day;
-        $month =  $request->month;
-        $year =   $request->year;
+        $day =    $request->day;  // request gunu 
+        $month =  $request->month;// request ayı
+        $year =   $request->year; // request yılı
 
-        $date= Carbon::parse("$year-$month-$day");
-        // eger bugunku tarihi şimdiki saat al else sabah saat 9 Al
-        $sonraki_saat =now()->format('H')+1;  
-        $n=($date == Today())?$sonraki_saat: 9; 
-        // aktive saatler tanimlama
-
-        $kort =   $request->kort;
-        $date = "$year-$month-$day";
-        $date = Carbon::parse($date);
-        $hours = [];
-
-        $av_hours = [];
-        if (true){
-            for ($i = 8; $i > 20;$i++){
-                if (Carbon::now()->startOfHour()->hour > $i ){
-                    $av_hours [] = $i;
-                }
-            }
-        }else{
-            $av_hours = [9, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
-
-        }
-
-        $rezervasyonlar = DB::table('rezervasyons');
+        $date= Carbon::parse("$year-$month-$day"); // requestin tum tarihi
        
-        if($date == Today())
-        $n= Carbon::now()->hour;
-        else
-        $n=9;  
+        $sonraki_saat =$n= Carbon::now()->hour+1; // simdiki sattan bir saat sonra           
+        // eger bugunku tarihi şimdiki saat al else sabah saat 9 Al
+        $n=($date == Today())? $sonraki_saat : 9; 
+        // aktive saatler tanimlama
+        $av_hours = [];
         for($i=$n;$i<20;$i++)
             $av_hours[]=$i;
 
-        $alindi_rez_times = DB::table('rezervasyons')
-
+        $rezervasyons = DB::table('rezervasyons')
             ->whereDate('baslangis', '=', $date)
             ->where('kort_id', '=', $request->kort)
             ->pluck('baslangis')->toArray();
-
-        foreach ($alindi_rez_times as $rez_time) 
+        foreach ($rezervasyons as $rez_time) 
         {
             $rez_time= Carbon::parse($rez_time);
             $index = array_search($rez_time->hour, $av_hours);
@@ -176,11 +152,12 @@ class RezervasyonController extends Controller
                 $av_hours[$index] = 0;
         }
         $av_saat = [];
-        foreach ($av_hours as $av_hour) {
-            if ($av_hour != 0) {
+        foreach ($av_hours as $av_hour) 
+        {    
+            if ($av_hour != 0)
                 $av_saat[] = $av_hour;
-            }
         }
+        $av_saat= ($date < Today())? "" : $av_saat; 
         return response()->json($av_saat);
     }
 
@@ -215,7 +192,8 @@ class RezervasyonController extends Controller
             $bekleyen->user_id = $rezervasyon->kiralayan_id;
             $bekleyen->save();
             Session::flash('success', 'bekleme listesine alindi');
-        } else
+        } 
+        else
             Session::flash('error', 'bir hata olustu ');
         return back();
     }

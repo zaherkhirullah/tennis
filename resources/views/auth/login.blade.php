@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('content')
-<div style="margin-left:150px;">
-        <div class="col-md-9">
-            <div class="card">
+    <div class="col-md-8 col-md-offset-2">
+        <div class="card text-center">
                 <div class="ibox-title">
                         <h3 class="text-center">Giriş Yap</h3>
                     </div>
@@ -61,6 +60,4 @@
                 </div>
             </div>
         </div>
-    </div>
-</div>
 @endsection

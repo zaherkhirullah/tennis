@@ -1,127 +1,4 @@
-<head>
 
-    <link href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
-    <script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
-</head>
-
-<body>
-<!------ Include the above in your HEAD tag ---------->
-<div class="wrapper">
-    <div id="calendarContainer"></div>
-    <div id="organizerContainer" style="margin-left: 8px;"></div>
-</div>
-<script src="js/Calender.js"></script>
-<script src="js/jquery-3.1.1.min.js"></script>
-<script>
-
-
-sayac =0;
-setTimeout(function() {
-
-clickRight();
-}, 1);
-   function clickRight()
-   {
-       if ((sayac % 2) ==1){
-           $('#calendarContainer-day-22').trigger('click');
-            sayac =1;
-       }else{
-
-       }
-
-
-
-   }
-    $(document).ready(function () {
-        
-
-        saat_list=[];
-        _events = [];
-         calendar = new Calendar("calendarContainer", "small", [ "PZT", 3 ], [ "#054910", "#07911d", "#ffffff", "#ffffff" ]);
-         organizer = new Organizer("organizerContainer", calendar);
-        currentDay = calendar.date.getDate();
-
-        $('.day').on('click', function () {
-
-             gun = $(this).children('[id^="calendarContainer-day-num-"]').text();
-             yil = $("#calendarContainer-year").text();
-             ay = months.indexOf(  $("#calendarContainer-month").text());
-             ay= ay +1;
-
-            $.ajax({
-                type: 'POST',
-                url: '{{ route('ajax') }}',
-                dataType: 'json',
-
-                data: {
-                    day:gun,
-                    month:ay,
-                    year:yil,
-                    "_token": "{{ csrf_token() }}"
-                },
-                success: function (data) {
-
-
-                    saat_list = data;
-                    console.log(data);
-
-                    for(i=0;i<saat_list.length;i++){
-
-                        _events[i]=
-                            {
-                                startTime: saat_list[i]+":00",
-                                endTime: (saat_list[i] +1)+":00",
-                                mTime: "",
-                                text: "Reserved."
-                            }
-                    }
-                    clickRight();
-                    sayac = sayac +1;
-                    console.log(_events);
-
-
-                },
-                error: function (ex) {
-                    alert('Failed.' + ex);
-                }
-            });
-
-
-            data = {
-                years: [
-                    {
-                        int: yil,
-                        months: [
-                            {
-                                int:ay,
-                                days: [
-                                    {
-                                        int: gun,
-                                        events: _events
-                                    }
-                                ]
-                            }
-                        ]
-                    }
-
-                ]
-            };
-
-
-            organizer.setOnClickListener('day-slider', function () { showEvents(); console.log("Day back slider clicked"); }, function () { showEvents(); console.log("Day next slider clicked"); });
-            organizer.setOnClickListener('days-blocks', function () { showEvents(); console.log("Day block clicked"); }, null);
-            organizer.setOnClickListener('month-slider', function () { showEvents(); console.log("Month back slider clicked"); }, function () { showEvents(); console.log("Month next slider clicked"); });
-            organizer.setOnClickListener('year-slider', function () { showEvents(); console.log("Year back slider clicked"); }, function () { showEvents(); console.log("Year next slider clicked"); });
-
-
-
-
-
-        });
-    });
-</script>
-<style>
     body {
         display: felx;
         -webkit-box-orient: vertical;
@@ -164,6 +41,7 @@ clickRight();
     }
 
     .calendar {
+        background-color:white;
         width: 800px;
         height: 800px;
         display: -webkit-box;
@@ -187,6 +65,7 @@ clickRight();
     }
 
     .calendar.small {
+        float: right;
         width: 400px;
         height: 400px;
     }
@@ -332,11 +211,11 @@ clickRight();
     }
 
     .days {
-        width:100%;
+        width: 100%;
         -webkit-box-flex: 1;
         -ms-flex: 1;
         flex: 1;
-        margin-left:4%;
+        margin-left: 4%;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -348,7 +227,7 @@ clickRight();
     }
 
     .row {
-        float:right;
+        float: right;
         width: 100%;
         -webkit-box-flex: 1;
         -ms-flex: 1;
@@ -417,6 +296,7 @@ clickRight();
     }
 
     .events {
+        background-color:white;
         width: 800px;
         height: 800px;
         font-family: "Satellite", "Roboto", sans-serif;
@@ -453,7 +333,7 @@ clickRight();
     }
 
     .date {
-        width: calc(100% - 10px);
+        width:100%;
         display: -webkit-box;
         display: -ms-flexbox;
         display: flex;
@@ -577,7 +457,6 @@ clickRight();
     .list > li > p {
         -webkit-box-flex: 4;
         -ms-flex: 4;
-        flex: 4;
         margin: 10px;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -594,6 +473,3 @@ clickRight();
         word-wrap: break-word;
         word-break: break-word;
     }
-</style>
-
-</body>
