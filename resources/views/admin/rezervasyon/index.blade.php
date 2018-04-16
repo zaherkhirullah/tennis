@@ -1,7 +1,43 @@
 @extends('layouts.admin')
 @section('content')
 <div class="wrapper wrapper-content animated fadeInRight">
-    
+
+
+
+    <div class="row">
+        <div class="col-md-6">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <h5>Bekleyenler</h5>
+                </div>
+                <div class="ibox-content">
+                    @if(count($bekleyenler)>0)
+                        <table class="table">
+                            <thead>
+                            <tr>
+                                <th>#</th>
+                                <th>Bekleyen Adi</th>
+
+                            </tr>
+                            </thead>
+                            <tbody>
+                            @foreach($bekleyenler as $item)
+                                <tr>
+                                    <td></td>
+                                    <td>{{ $item->kiralayan()->isim}}</td>
+                                </tr>
+                            @endforeach
+                            </tbody>
+                        </table>
+                    @else
+                        <div class="text danger"> her hangi bir kayit bulunmadi . </div>
+                    @endif
+                </div>
+            </div>
+        </div>
+    </div>
+
+
     <div class="row">
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
@@ -84,8 +120,8 @@
                                 <td>{{ $rezv->kiralayan->isim }}</td>
                                 <td>{{ $rezv->kiralayan->telefon }}</td>
                                 <td>1 saat</td>
-                                <td>{{\Carbon\Carbon::now()->startOfHour()->addHour()}}</td>
-                                <td>{{ \Carbon\Carbon::now()}}</td>
+                                <td>{{$rezv->odenecek}}</td>
+
                                 <td>{{ $rezv->servis->sofor_adi}}</td>
                                 <td>@if($rezv->servis_adresi){{$rezv->servis_adresi}}@else Servis Kullanilmayacaktir @endif</td>
                             </tr>

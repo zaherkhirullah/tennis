@@ -1,8 +1,12 @@
 <?php
 
 namespace App\Http\Controllers\Admin;
+
+
 use App\Http\Controllers\Controller;
 
+
+use App\Http\Models\bekleyen;
 use App\Http\Models\Kort;
 use App\Http\Models\Rezervasyon;
 
@@ -45,14 +49,16 @@ class RezervasyonController extends Controller
             $sonrakiler= Rezervasyon::sonraki();
             $simdikiler= Rezervasyon::simdiki();
             $tumgelecekler= Rezervasyon::tumgelecek();
-        }
 
+        }
+        $bekleyenler = Bekleyen::all();
         return view('admin.rezervasyon.index',compact([
             'rezervasyonlar',
             'gecmisler',
             'sonrakiler',
             'simdikiler',
             'tumgelecekler',
+            'bekleyenler',
         ]));
 
     }
