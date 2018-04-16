@@ -1,6 +1,6 @@
 
 <script>
-     var sayac = 0;
+     sayac = 0;
     setTimeout(function () {
         clickRight(); 
     }, 1);
@@ -21,10 +21,8 @@
 </script>
 <script src="{{ asset('js/Calender.js') }}"></script>
 <script>
-       
-    
-    $(document).ready(function () {
-    saat_list = [];
+$(document).ready(function () {
+        saat_list = [];
         _events = [];
         calendar = new Calendar("calendarContainer", "small", ["PZT", 3], ["#054910", "#07911d", "#ffffff", "#ffffff"]);
         organizer = new Organizer("organizerContainer", calendar);
@@ -67,7 +65,6 @@
                 },
                 error: function (ex) {
                     alert('Bir hata olustu. '+ ex);
-                    // alert('Failed.' + ex);
                 }
             });
             data = 
@@ -116,21 +113,21 @@
                 console.log("Year next slider clicked");
             });
         });
-        $(document).on('change',function () {
+       
+
+    });
+    $(document).on('change',function () {
             $('[id^="organizerContainer-list-item-"]').on('click',
             function(){alert('organizer Container list item clicked');});
         });
 
-    // function fuckme (id) 
-    // {
-    //     $(`li[id^='organizerContainer-list-item-']`).css('background-color','white');
-    //     $(`#${id}`).css('background-color','#707070');
-    //     time = $(`#${id}-time`).text();
-    //     $('#saat').val(time);
-    // }
-
-    });
-
+    function clackme (id) 
+    {
+        $(`li[id^='organizerContainer-list-item-']`).css('background-color','white');
+        $(`#${id}`).css('background-color','#707070');
+        time = $(`#${id}-time`).text();
+        $('#saat').val(time);
+    }
 </script>
 <script src="{{ asset('js/vue.js') }}"></script>
 <script>
