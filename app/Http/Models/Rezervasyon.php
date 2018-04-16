@@ -111,7 +111,6 @@ class Rezervasyon extends Model
             ['kiralayan_id','=',$this->kiralayan_id],
             ['baslangis','=', $this->bitis ],
         ])->first();
-
         return $rez ? true : false;
     }
 

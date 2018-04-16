@@ -128,43 +128,34 @@ class RezervasyonController extends Controller
         $day =    $request->day;
         $month =  $request->month;
         $year =   $request->year;
-        $kort =   $request->kort;
-        $date = "$year-$month-$day";
-        $date = Carbon::parse($date);
-        $hours = [];
-
-        if($date == Today())
-        $n =now()->format('H');
-        else
-        $n=9;  
+        $date= Carbon::parse("$year-$month-$day");
+        // eger bugunku tarihi şimdiki saat al else sabah saat 9 Al
+        $sonraki_saat =now()->format('H')+1;  
+        $n=($date == Today())?$sonraki_saat: 9; 
+        // aktive saatler tanimlama
+        
         for($i=$n;$i<20;$i++)
-        $av_hours[]=$i;
-       
+            $av_hours[]=$i;
+
         $alindi_rez_times = DB::table('rezervasyons')
             ->whereDate('baslangis', '=', $date)
-            ->where('kort_id', '=', $kort)
+            ->where('kort_id', '=', $request->kort)
             ->pluck('baslangis')->toArray();
 
-        foreach ($alindi_rez_times as $rez_time) {
-            $rez_time = Carbon::parse($rez_time);
-            $hours [] = $rez_time->hour;
-            $index = 0;
-            if (($index = array_search($rez_time->hour, $av_hours)) !== false) 
-            {
+        foreach ($alindi_rez_times as $rez_time) 
+        {
+            $rez_time= Carbon::parse($rez_time);
+            $index = array_search($rez_time->hour, $av_hours);
+            if ( $index !== false)
                 $av_hours[$index] = 0;
-            }
         }
-
         $av_saat = [];
         foreach ($av_hours as $av_hour) {
             if ($av_hour != 0) {
                 $av_saat[] = $av_hour;
             }
         }
-
         return response()->json($av_saat);
-
-
     }
 
 
@@ -175,7 +166,6 @@ class RezervasyonController extends Controller
             'kortlar'
         ]));
     }
-
     public function uzatma(Rezervasyon $rezervasyon)
     {
         if ($rezervasyon->uzatabilir()) {
@@ -192,12 +182,10 @@ class RezervasyonController extends Controller
         return back();
     }
 
-    /**
-     * @param Rezervasyon $rezervasyon
-     */
     public function bekleme(Rezervasyon $rezervasyon)
     {
-        if ($rezervasyon->suan()) {
+        if ($rezervasyon->suan())
+        {
             $bekleyen = new Bekleyen();
             $bekleyen->user_id = $rezervasyon->kiralayan_id;
             $bekleyen->save();
@@ -206,6 +194,4 @@ class RezervasyonController extends Controller
             Session::flash('error', 'bir hata olustu ');
         return back();
     }
-
-
 }

@@ -58,7 +58,17 @@
                                     <div class="media-body ">
                                         @if($rez->suan())
                                             <small class="pull-right text-navy">Şuan</small>
-                                        @else
+                                            <div class="actions">
+                                                    @if($rez->uzatabilir() )
+                                                        <a href="{{ route('rezervasyon.uzatma',$rez) }}" class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Uzatma</a>
+                                                    @else
+                                                        @if((!$rez->sonraki_oyun()) && !$rez->bekleyen())
+                                                            <a href="{{ route('rezervasyon.bekleme',$rez) }}" class="btn btn-xs btn-warning"><i class="fa fa-heart"></i> Bekleme listesine ekle</a>
+                                                        @endif
+                                                    @endif
+        
+                                                </div>
+                                            @else
                                             @if( $rez->baslangis > now())
                                             <small class="pull-right text-navy">
                                                 <form action="{{ route('rezervasyon.destroy',$rez) }}" method="POST">
@@ -74,18 +84,7 @@
                                         <strong>{{ $rez->kort->isim }}</strong> Kiraladınız. Süre <strong>1
                                             saat</strong> boyunca. <br>
                                         <small class="text-muted"></small>
-                                        <div class="actions">
-
-                                            @if($rez->uzatabilir() )
-                                                <a href="{{ route('rezervasyon.uzatma',$rez) }}" class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Uzatma</a>
-                                            @else
-                                                @if($rez->suan() && (! $rez->sonraki_oyun()) && !$rez->bekleyen())
-
-                                                    <a href="{{ route('rezervasyon.bekleme',$rez) }}" class="btn btn-xs btn-warning"><i class="fa fa-heart"></i> Bekleme listesine ekle</a>
-                                                @endif
-                                            @endif
-
-                                        </div>
+                                      
                                     </div>
                                 </div>
                             @endforeach
