@@ -28,4 +28,16 @@ class Servis extends Model
     {
         return $this->hasMany(Rezervasyon::class);
     }
+    public static function musaitServisler($baslangis_saati)
+    {
+        $rezervasyonlar = Rezervasyon::all()
+        ->where('baslangis', '=', $baslangis_saati)
+        ->pluck('servis_id')->toArray();
+        $servisler = Servis::all()->pluck('id')->toArray();
+        $bos_servisler = [];
+        foreach ($servisler as $item)
+            if (!in_array($item, $rezervasyonlar))
+                $bos_servisler [] = $item;
+        return  $bos_servisler ;
+    }
 }

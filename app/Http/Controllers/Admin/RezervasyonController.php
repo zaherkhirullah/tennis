@@ -25,6 +25,7 @@ class RezervasyonController extends Controller
     }
     public function index()
     {
+        // return Rezervasyon::all();
         $classes = ['Kort','Servis'];
         $class_ = isset($_GET['c']) ? $_GET['c'] : null ;
         $id = isset($_GET['i']) ? $_GET['i'] : null   ;
@@ -38,10 +39,11 @@ class RezervasyonController extends Controller
                     $sonrakiler= Rezervasyon::sonraki()->where(strtolower($class_).'_id', '=',$id);
                     $simdikiler= Rezervasyon::simdiki()->where(strtolower($class_).'_id', '=',$id);
                 }else{
-                    return 'kayit bulunmadi';
+                    Session::flash('error','kayit bulunmadi') ;
                 }
             }else{
-                return 'none valid class name';
+                Session::flash('error','none valid class name') ;
+                
             }
         }else{
             $rezervasyonlar = Rezervasyon::all_list();
@@ -109,9 +111,9 @@ class RezervasyonController extends Controller
     }
     public function destroy(Rezervasyon $rezervasyon)
     {
-        $isim=$rezervasyon->isim;
-        $rezervasyon->delete($rezervasyon);
-        Session::flash('success',$isim.' servis belgileri basarile silinmiş');        
+        $time=$rezervasyon->baslangis;
+        $rezervasyon->delete();
+        Session::flash('success',$time.' rezervasyounu belgileri basarile silinmiştir');        
         return back();
     }
 }

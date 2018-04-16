@@ -13,10 +13,10 @@ class CreateRezervasyonsTable extends Migration
             $table->increments('id');
             $table->integer('kort_id')->unsigned();
             $table->integer('kiralayan_id')->unsigned();
-            $table->integer('servis_id')->unsigned();
+            $table->integer('servis_id')->unsigned()->nullable();
             $table->dateTime('baslangis');   // başlangiş saati 
             $table->dateTime('bitis');   // bitiş saati 
-            $table->string('servis_adresi');  // servis gidecek adresi
+            $table->string('servis_adresi')->nullable();  // servis gidecek adresi
             $table->time('servis_saat');   
             $table->double('odenecek'); // odenecek miktari 
             $table->double('odenmis'); /// paid or not // odenmiş yada odenmemiş

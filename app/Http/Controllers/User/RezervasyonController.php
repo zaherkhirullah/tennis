@@ -56,41 +56,34 @@ class RezervasyonController extends Controller
         $baslangis_saati = Carbon::parse($baslangis_saati);
         $bitis_saati = Carbon::parse($baslangis_saati)->addHour();
 
-        if ($request->telefon && $request->isim) {
+        if ($request->telefon && $request->isim)
+         {
             $kiralayan = new Kiralayan();
             $kiralayan->fill($request->all());
             $kiralayan->save();
             $kiralayan_id = $kiralayan->id;
-        } else {
+        } 
+        elseif(Auth::id())
             $kiralayan_id = Auth::id();
-        }
-
-        $rezervasyonlar = Rezervasyon::all()
-            ->where('baslangis', '=', $baslangis_saati)
-            ->pluck('servis_id')->toArray();
-
-        $servisler = Servis::all()->pluck('id')->toArray();
-        $bos_servisler = [];
-
-
-        foreach ($servisler as $item)
-            if (!in_array($item, $rezervasyonlar))
-                $bos_servisler [] = $item;
-
-
-        $r = DB::Insert('call add_rezervasyon(?,?,?,?,?,?)', [
+        else
+        Session::flash('error', "Hata olustu ");
+        
+        $bos_servisler = Servis::musaitServisler($baslangis_saati);
+        
+       $rezerv= DB::Insert('call add_rezervasyon(?,?,?,?,?,?)', [
             $request->kort_id,
             $kiralayan_id,
             $baslangis_saati,
             $bitis_saati,
             $request->servis_adresi,
             $bos_servisler[0]
-
         ]);
-
         $kiralaya = Kiralayan::find($kiralayan_id);
-
+        if($rezerv)
         Session::flash('success', "sayin {$kiralaya->isim} rezervasyon basariyla olusturulmustur { $baslangis_saati }");
+        else
+        Session::flash('error', "Hata olustu "); 
+
         return back();
     }
 
@@ -116,11 +109,14 @@ class RezervasyonController extends Controller
     {
         //
     }
-
     public function destroy(Rezervasyon $rezervasyon)
     {
-        //
+        $time=$rezervasyon->baslangis;
+        $rezervasyon->delete();
+        Session::flash('success',$time.' rezervasyounu belgileri basarile silinmiştir');        
+        return back();
     }
+   
 
     public function getview()
     {
@@ -180,6 +176,8 @@ class RezervasyonController extends Controller
             $yeni_rezervasyon = new Rezervasyon();
             $yeni_rezervasyon->fill($rezervasyon->toArray());
             $yeni_rezervasyon->baslangis = $rezervasyon->bitis;
+            $yeni_rezervasyon->servis_id = NULL;
+            $yeni_rezervasyon->servis_adresi = NULL;
             $yeni_rezervasyon->bitis = Carbon::parse($rezervasyon->bitis)->addHour();
             $yeni_rezervasyon->save();
             Session::flash('success', 'uzatma isleminiz basarile ulasilmistir');

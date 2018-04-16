@@ -38,8 +38,10 @@ class Rezervasyon extends Model
     }
     public static function simdiki()
     {
-        return Rezervasyon::where('baslangis','<=',Carbon::now())
-            ->where('bitis','>',Carbon::now());
+        return Rezervasyon::where([
+            ['baslangis','<=',Carbon::now()],
+            ['bitis','>',Carbon::now()]
+            ])->get();
     }
     public static function sonraki()
     {
@@ -78,8 +80,7 @@ class Rezervasyon extends Model
 
     public static function iptal(Rezervasyon $rezervasyon)
     {
-        $rezervasyon->durum = 9;
-        $rezervasyon->update();
+        $rezervasyon->delete();
         return $rezervasyon;
     }
 

@@ -59,6 +59,16 @@
                                         @if($rez->suan())
                                             <small class="pull-right text-navy">Şuan</small>
                                         @else
+                                            @if( $rez->baslangis > now())
+                                            <small class="pull-right text-navy">
+                                                <form action="{{ route('rezervasyon.destroy',$rez) }}" method="POST">
+                                                    @csrf
+                                                    @method('DELETE')
+                                                    <button type="submit" class="btn btn-xs btn-danger">
+                                                        <i class="fa fa-trash">iptal</i></button>
+                                                </form>
+                                            </small>
+                                            @endif
                                             <small class="pull-right text-navy">{{ $rez->baslangis }}</small>
                                         @endif
                                         <strong>{{ $rez->kort->isim }}</strong> Kiraladınız. Süre <strong>1

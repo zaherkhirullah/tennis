@@ -91,29 +91,18 @@ Route::prefix('admin')->group(function()
   {
     Route::get( 'user/', 'UserController@index')->name("user");
     Route::get( 'user/hesabim', 'UserController@hesabim')->name("hesabim");
-    Route::resource( 'user/rezervasyon','RezervasyonController');
     Route::get('/landing',[
         'uses' => 'RezervasyonController@landing',
         'as' => 'get.hours'
     ]);
-
-
     Route::post('/info/hours',[
         'uses' => 'RezervasyonController@get_empty_hours',
         'as' => 'ajax'
-        //'middleware' => ['auth', 'permission:admin']
     ]);
 
     Route::get('/land',[
         'uses' => 'RezervasyonController@getview'
     ]);
-
-    Route::post('/shit',[
-        'uses' => 'RezervasyonController@shit',
-        'as' => 'shit'
-    ]);
-
-
 
       Route::get('/uzatma/{rezervasyon}',[
           'uses' => 'RezervasyonController@uzatma',
@@ -123,6 +112,8 @@ Route::prefix('admin')->group(function()
           'uses' => 'RezervasyonController@bekleme',
           'as' => 'rezervasyon.bekleme'
       ]);
+    Route::resource( 'user/rezervasyon','RezervasyonController');
+
   });
 
 /*
@@ -134,7 +125,6 @@ Route::prefix('admin')->group(function()
   {
     Route::get('/home','HomeController@index')->name('home'); // ana sayfa
     Route::get('/',    'HomeController@index')->name('homepage'); // ana sayfa
-    //Route::get('/rezervasyonAl', 'HomeController@rezervasyonAl')->name('rezervasyonAl'); // randevo alma sayfa
     Route::get('/iletisim',      'ContactsController@create')->name('contacts'); // contact sayfa 
     Route::post('/iletisim',      'ContactsController@store')->name('p_contacts'); // contact sayfa 
     Route::get('/hakkimizda',       'HomeController@aboutUs')->name('aboutUs'); // hakkimizde
