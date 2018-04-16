@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="0fb6e3f9-4362-4b85-81a2-d9f0b299785e" name="Default" comment="kort change 1">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Models/Rezervasyon.php" afterPath="$PROJECT_DIR$/app/Http/Models/Rezervasyon.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -71,12 +71,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="RezervasyonController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="182">
-              <caret line="136" column="39" lean-forward="true" selection-start-line="136" selection-start-column="39" selection-end-line="142" selection-end-column="71" />
-              <folding />
+      <file leaf-file-name="rezervasyons" pinned="false" current-in-tab="false">
+        <entry file="das://table:/416e0880/95e8464a-baae-453c-9260-9824d0662b95/tennis.rezervasyons">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -87,6 +86,34 @@
             <state relative-caret-position="-1384">
               <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="hesabim.blade.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/resources/views/users/hesabim.blade.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="176">
+              <caret line="81" column="111" lean-forward="false" selection-start-line="81" selection-start-column="103" selection-end-line="81" selection-end-column="111" />
+              <folding>
+                <marker date="1523877117645" expanded="true" signature="9:22" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="34:43" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="368:396" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="518:538" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="613:634" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="2341:2363" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="2402:2425" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="2592:2602" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="2592:2604" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="3591:3608" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="3716:3734" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="4032:4038" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="4032:4050" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="4032:4051" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="4112:4146" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="4321:4362" ph="..." />
+                <marker date="1523877117645" expanded="true" signature="4321:4382" ph="..." />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -158,11 +185,18 @@
       <file leaf-file-name="Rezervasyon.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/app/Http/Models/Rezervasyon.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3169">
-              <caret line="114" column="26" lean-forward="false" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="26" />
-              <folding>
-                <element signature="e#35#52#0#PHP" expanded="true" />
-              </folding>
+            <state relative-caret-position="145">
+              <caret line="5" column="39" lean-forward="true" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="bekleyenler" pinned="false" current-in-tab="true">
+        <entry file="das://table:/416e0880/95e8464a-baae-453c-9260-9824d0662b95/tennis.bekleyenler">
+          <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+            <state>
+              <filtering enabled="true" />
             </state>
           </provider>
         </entry>
@@ -185,6 +219,7 @@
       <find>acti</find>
       <find>bekleme</find>
       <find>gele</find>
+      <find>Bekleyen</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -237,13 +272,13 @@
         <option value="$PROJECT_DIR$/config/app.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/User/UserController.php" />
         <option value="$PROJECT_DIR$/routes/web.php" />
-        <option value="$PROJECT_DIR$/app/Http/Models/Rezervasyon.php" />
         <option value="$PROJECT_DIR$/resources/views/users/hesabim.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/Admin/RezervasyonController.php" />
         <option value="$PROJECT_DIR$/app/Http/Models/bekleyen.php" />
         <option value="$PROJECT_DIR$/resources/views/admin/rezervasyon/index.blade.php" />
         <option value="$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php" />
+        <option value="$PROJECT_DIR$/app/Http/Models/Rezervasyon.php" />
       </list>
     </option>
   </component>
@@ -539,7 +574,7 @@
       <workItem from="1523702839157" duration="21818000" />
       <workItem from="1523778405470" duration="25538000" />
       <workItem from="1523812555561" duration="12617000" />
-      <workItem from="1523857252329" duration="16581000" />
+      <workItem from="1523857252329" duration="16927000" />
     </task>
     <task id="LOCAL-00001" summary="kort change 1">
       <created>1523001567497</created>
@@ -552,7 +587,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="118188000" />
+    <option name="totallyTimeSpent" value="118534000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -932,13 +967,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="das://table:/416e0880/95e8464a-baae-453c-9260-9824d0662b95/tennis.rezervasyons">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/AdminController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="95">
@@ -946,43 +974,6 @@
           <folding>
             <element signature="e#46#82#0#PHP" expanded="false" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/resources/views/users/hesabim.blade.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="356">
-          <caret line="71" column="113" lean-forward="false" selection-start-line="71" selection-start-column="93" selection-end-line="71" selection-end-column="113" />
-          <folding>
-            <marker date="1523877117645" expanded="true" signature="9:22" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="34:43" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="368:396" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="518:538" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="613:634" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="2341:2363" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="2402:2425" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="2592:2602" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="2592:2604" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="3591:3608" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="3716:3734" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="4032:4038" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="4032:4050" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="4032:4051" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="4112:4146" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="4321:4362" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="4321:4382" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="4321:4986" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="4382:4986" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="4384:4986" ph="..." />
-            <marker date="1523877117645" expanded="true" signature="4448:4483" ph="..." />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="das://table:/416e0880/95e8464a-baae-453c-9260-9824d0662b95/tennis.bekleyenler">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1013,6 +1004,31 @@
         <state relative-caret-position="348">
           <caret line="13" column="68" lean-forward="false" selection-start-line="13" selection-start-column="68" selection-end-line="13" selection-end-column="68" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RezervasyonController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1384">
+          <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="116">
+          <caret line="4" column="0" lean-forward="false" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding>
+            <element signature="e#46#82#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="das://table:/416e0880/95e8464a-baae-453c-9260-9824d0662b95/tennis.rezervasyons">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>
@@ -1068,29 +1084,44 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/Admin/RezervasyonController.php">
+    <entry file="file://$PROJECT_DIR$/resources/views/users/hesabim.blade.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1384">
-          <caret line="8" column="28" lean-forward="false" selection-start-line="8" selection-start-column="28" selection-end-line="8" selection-end-column="28" />
-          <folding />
+        <state relative-caret-position="176">
+          <caret line="81" column="111" lean-forward="false" selection-start-line="81" selection-start-column="103" selection-end-line="81" selection-end-column="111" />
+          <folding>
+            <marker date="1523877117645" expanded="true" signature="9:22" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="34:43" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="368:396" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="518:538" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="613:634" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="2341:2363" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="2402:2425" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="2592:2602" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="2592:2604" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="3591:3608" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="3716:3734" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="4032:4038" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="4032:4050" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="4032:4051" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="4112:4146" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="4321:4362" ph="..." />
+            <marker date="1523877117645" expanded="true" signature="4321:4382" ph="..." />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/app/Http/Models/Rezervasyon.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3169">
-          <caret line="114" column="26" lean-forward="false" selection-start-line="114" selection-start-column="22" selection-end-line="114" selection-end-column="26" />
-          <folding>
-            <element signature="e#35#52#0#PHP" expanded="true" />
-          </folding>
+        <state relative-caret-position="145">
+          <caret line="5" column="39" lean-forward="true" selection-start-line="5" selection-start-column="39" selection-end-line="5" selection-end-column="39" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="182">
-          <caret line="136" column="39" lean-forward="true" selection-start-line="136" selection-start-column="39" selection-end-line="142" selection-end-column="71" />
-          <folding />
+    <entry file="das://table:/416e0880/95e8464a-baae-453c-9260-9824d0662b95/tennis.bekleyenler">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
         </state>
       </provider>
     </entry>

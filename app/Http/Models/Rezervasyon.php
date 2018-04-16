@@ -2,7 +2,7 @@
 
 namespace App\Http\Models;
 
-use App\bekleyen;
+use App\Http\Models\bekleyen;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Models\Kiralayan;
 use App\Http\Models\Kort;
