@@ -112,6 +112,17 @@ Route::prefix('admin')->group(function()
         'uses' => 'RezervasyonController@shit',
         'as' => 'shit'
     ]);
+
+
+
+      Route::get('/uzatma/{rezervasyon}',[
+          'uses' => 'RezervasyonController@uzatma',
+          'as' => 'rezervasyon.uzatma'
+      ]);
+      Route::get('/bekleme/{rezervasyon}',[
+          'uses' => 'RezervasyonController@bekleme',
+          'as' => 'rezervasyon.bekleme'
+      ]);
   });
 
 /*

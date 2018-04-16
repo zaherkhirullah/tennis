@@ -13,14 +13,19 @@ use Auth;
 class UserController extends Controller
 {
 
-        public function index()
+    public function __construct()
+    {
+        $this->middleware(['auth']);
+    }
+
+    public function index()
         {
     
         }
         public function hesabim()
         {
                 $kiralayan = Kiralayan::find(Auth::id());
-                $rezervasyonlar= $kiralayan->Rezervasyons()->get();
+                $rezervasyonlar= $kiralayan->Rezervasyons()->latest('baslangis')->get();
                 return view('users.hesabim',compact([
                         'rezervasyonlar',
                 ]));

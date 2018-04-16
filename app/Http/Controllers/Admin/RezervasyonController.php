@@ -10,6 +10,7 @@ use App\Http\Models\Servis;
 use Illuminate\Http\Request;
 use App\Http\Requests\RezervasyonValidation;
 use Session;
+use Carbon\Carbon;
 
 class RezervasyonController extends Controller
 {
@@ -43,6 +44,7 @@ class RezervasyonController extends Controller
             $gecmisler = Rezervasyon::gecmis();
             $sonrakiler= Rezervasyon::sonraki();
             $simdikiler= Rezervasyon::simdiki();
+            $tumgelecekler= Rezervasyon::tumgelecek();
         }
 
         return view('admin.rezervasyon.index',compact([
@@ -50,6 +52,7 @@ class RezervasyonController extends Controller
             'gecmisler',
             'sonrakiler',
             'simdikiler',
+            'tumgelecekler',
         ]));
 
     }

@@ -2,12 +2,14 @@
 
 namespace App\Http\Models;
 
+use App\bekleyen;
 use Illuminate\Database\Eloquent\Model;
 use App\Http\Models\Kiralayan;
 use App\Http\Models\Kort;
 use App\Http\Models\Servis;
 use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Session;
 
 class Rezervasyon extends Model
 {
@@ -41,15 +43,26 @@ class Rezervasyon extends Model
     }
     public static function sonraki()
     {
-        return Rezervasyon::where('baslangis','<=',Carbon::now()->addHour())
-            ->where('bitis','>',Carbon::now()->addHour())
-            ->get();
-    }
-    public static function gecmis()
-    {
-        return Rezervasyon::where('baslangis','<',Carbon::now()->subHour())->get();
+        return Rezervasyon::where([
+            ['baslangis','>=', Carbon::now()->startOfHour()->addHour()],
+            ['bitis','<=',Carbon::now()->startOfHour()->addHour(2)]
+        ])->get();
     }
 
+    public static function gecmis()
+    {
+        return Rezervasyon::where([
+            ['baslangis','<',Carbon::now()->subHour()],
+            ['baslangis','>',Carbon::now()->startOfDay()],
+        ])->get();
+    }
+    public static function tumgelecek()
+    {
+        return Rezervasyon::where([
+            ['baslangis','>=', Carbon::now()->startOfHour()->addHour()],
+            ['bitis','<=',Carbon::now()->endOfDay()]
+        ])->get();
+    }
     public function kiralayan()
     {
         return $this->belongsTo(Kiralayan::class);
@@ -68,5 +81,42 @@ class Rezervasyon extends Model
         $rezervasyon->durum = 9;
         $rezervasyon->update();
         return $rezervasyon;
+    }
+
+    public  function suan()
+    {
+        if ($this->baslangis <= Carbon::now() && $this->bitis > Carbon::now()){
+            return true;
+        }else{
+            return false;
+        }
+    }
+
+    public function uzatabilir(){
+        if ($this->suan()){
+            $rez = Rezervasyon::where([
+                ['kort_id', '=', $this->kort_id],
+                ['baslangis', '=', $this->bitis],
+            ])->first();
+             if(!$rez)
+                 return true ;
+        }
+        return false;
+    }
+
+    public function sonraki_oyun(){
+
+        $rez = Rezervasyon::where([
+            ['kiralayan_id','=',$this->kiralayan_id],
+            ['baslangis','=', $this->bitis ],
+        ])->first();
+
+        return $rez ? true : false;
+    }
+
+
+    public function bekleyen(){
+        $bekelyen = Bekleyen::where('user_id','=',$this->kiralayan_id)->first();
+        return $bekelyen ? true : false;
     }
 }

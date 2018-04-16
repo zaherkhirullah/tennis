@@ -6,7 +6,7 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>Şimdiki Dilim Zamanındaki Kortlar</h5>
+                    <h5>Şimdiki Dilim Zamanındaki Kortlar   <span> {{ \Carbon\Carbon::now()->startOfHour()->toTimeString()}}</span></h5>
                 </div>
                 <div class="ibox-content">
                     @if(count($simdikiler)>0)
@@ -36,7 +36,6 @@
                             <td>{{ $rezv->kiralayan->telefon }}</td>
                             <td>1 saat</td>
                             <td>{{ $rezv->odenecek }}</td>
-
                         </tr>
                         @endforeach
                         </tbody>
@@ -52,7 +51,7 @@
         <div class="col-lg-12">
             <div class="ibox float-e-margins">
                 <div class="ibox-title">
-                    <h5>Sonraki Dilim Zamanındaki Kortlar</h5>
+                    <h5>Sonraki Dilim Zamanındaki Kortlar      <span> {{ \Carbon\Carbon::now()->addHour()->startOfHour()->toTimeString()}}</span></h5>
                 </div>
                 <div class="ibox-content">
                    @if($sonrakiler)
@@ -85,11 +84,10 @@
                                 <td>{{ $rezv->kiralayan->isim }}</td>
                                 <td>{{ $rezv->kiralayan->telefon }}</td>
                                 <td>1 saat</td>
-                                <td>{{ $rezv->odenecek}}</td>
+                                <td>{{\Carbon\Carbon::now()->startOfHour()->addHour()}}</td>
+                                <td>{{ \Carbon\Carbon::now()}}</td>
                                 <td>{{ $rezv->servis->sofor_adi}}</td>
                                 <td>@if($rezv->servis_adresi){{$rezv->servis_adresi}}@else Servis Kullanilmayacaktir @endif</td>
-
-
                             </tr>
                         @endforeach
                         </tbody>
@@ -113,6 +111,8 @@
                             <tr>
                                 <th>#</th>
                                 <th>Kort</th>
+                                <th>Kort tipi</th>
+                                <th>baslangis</th>
                                 <th>Rezerv Eden</th>
                                 <th>Rezerv Tel</th>
                                 <th>Rezerv Süresi</th>
@@ -125,7 +125,8 @@
                         <tbody>
                         @foreach($gecmisler as $rezv )
                             <tr>
-                                <td> </td>
+                                <td></td>
+                                <td>{{ $rezv->kort->isim }} </td>
                                 <td>
                                     @if($rezv->kort->type ==1)
                                         Tek'li Kort
@@ -133,6 +134,8 @@
                                         Çift'li Kort
                                     @endif
                                 </td>
+
+                                <td>{{ $rezv->baslangis }} </td>
                                 <td>{{ $rezv->kiralayan->isim }}</td>
                                 <td>{{ $rezv->kiralayan->telefon }}</td>
                                 <td>1 saat</td>
@@ -162,6 +165,7 @@
                                 <th>#</th>
                                 <th>Kort</th>
                                 <th>Kort tipi</th>
+                                <th>baslangis</th>
                                 <th>Rezerv Eden</th>
                                 <th>Rezerv Tel</th>
                                 <th>Rezerv Süresi</th>
@@ -172,7 +176,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                             @foreach($sonrakiler as $rezv )
+                             @foreach($tumgelecekler as $rezv )
                             <tr>
                                 <td></td>
                                 <td>{{ $rezv->kort->isim }}</td>
@@ -183,6 +187,7 @@
                                         Çift'li Kort
                                     @endif
                                 </td>
+                                <td>{{ \Carbon\Carbon::parse( $rezv->baslangis)->toTimeString()}}</td>
                                 <td>{{ $rezv->kiralayan->isim }}</td>
                                 <td>{{ $rezv->kiralayan->telefon }}</td>
                                 <td>1 saat</td>
