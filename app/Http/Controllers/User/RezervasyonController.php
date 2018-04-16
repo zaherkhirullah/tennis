@@ -125,30 +125,36 @@ class RezervasyonController extends Controller
 
     public function get_empty_hours(Request $request)
     {
-        $day = $_POST['day'];
-        $month = $_POST['month'];
-        $year = $_POST['year'];
-        $kort = $_POST['kort'];
+        $day =    $request->day;
+        $month =  $request->month;
+        $year =   $request->year;
+        $kort =   $request->kort;
         $date = "$year-$month-$day";
         $date = Carbon::parse($date);
         $hours = [];
-        $av_hours = [9, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
-        $rezervasyonlar = DB::table('rezervasyons')
+
+        if($date == Today())
+        $n =now()->format('H');
+        else
+        $n=9;  
+        for($i=$n;$i<20;$i++)
+        $av_hours[]=$i;
+       
+        $alindi_rez_times = DB::table('rezervasyons')
             ->whereDate('baslangis', '=', $date)
             ->where('kort_id', '=', $kort)
             ->pluck('baslangis')->toArray();
 
-
-        foreach ($rezervasyonlar as $item) {
-            $item = Carbon::parse($item);
-            $hours [] = $item->hour;
+        foreach ($alindi_rez_times as $rez_time) {
+            $rez_time = Carbon::parse($rez_time);
+            $hours [] = $rez_time->hour;
             $index = 0;
-            if (($index = array_search($item->hour, $av_hours)) !== false) {
-
+            if (($index = array_search($rez_time->hour, $av_hours)) !== false) 
+            {
                 $av_hours[$index] = 0;
             }
-
         }
+
         $av_saat = [];
         foreach ($av_hours as $av_hour) {
             if ($av_hour != 0) {
