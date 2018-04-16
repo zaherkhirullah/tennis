@@ -132,7 +132,21 @@ class RezervasyonController extends Controller
         $date = "$year-$month-$day";
         $date = Carbon::parse($date);
         $hours = [];
-        $av_hours = [9, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+        $av_hours = [];
+        if (true){
+            for ($i = 8; $i > 20;$i++){
+                if (Carbon::now()->startOfHour()->hour > $i ){
+                    $av_hours [] = $i;
+                }
+            }
+        }else{
+            $av_hours = [9, 8, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19];
+
+        }
+
+
+
+
         $rezervasyonlar = DB::table('rezervasyons')
             ->whereDate('baslangis', '=', $date)
             ->where('kort_id', '=', $kort)
