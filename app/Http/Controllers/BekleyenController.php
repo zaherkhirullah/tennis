@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\bekleyen;
+use App\Http\Models\Bekleyen;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 

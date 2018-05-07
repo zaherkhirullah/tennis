@@ -5,7 +5,7 @@ namespace App\Http\Models;
 use App\Http\Models\Kiralayan;
 use Illuminate\Database\Eloquent\Model;
 
-class bekleyen extends Model
+class Bekleyen extends Model
 {
     protected $table='bekleyenler';
 

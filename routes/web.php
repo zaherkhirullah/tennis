@@ -36,7 +36,6 @@ Route::prefix('admin')->group(function()
     /******************
      * Kort Routes
      ******************/
-    Route::resource('/kort','KortController');
     Route::get( 
       '/kort/{kort}/tamir','KortController@tamir')
       ->name("kort.tamir");
@@ -52,32 +51,41 @@ Route::prefix('admin')->group(function()
     Route::get(
       '/kort/dlist','KortController@all_deleted')
       ->name("kort.all_deleted");
-    Route::get(
-       '/kort/{kort}/delete','KortController@delete')
-       ->name("kort.delete");
+      Route::get('/kort/{kort}/delete','KortController@delete')->name("kort.delete");
+      Route::post('/kort/{kort}/delete','KortController@p_delete')->name("kort.p_delete");
+      Route::get('/kort/{kort}/restore','KortController@restore')->name("kort.restore");
+      Route::post('/kort/{kort}/restore','KortController@p_restore')->name("kort.p_restore");
+    Route::resource('/kort','KortController');
+       
 
     /*****************
     * kiralayan Routes
     ******************/
-    Route::resource( '/kiralayan',  'KiralayanController');  
     Route::get( '/kiralayan/dlist',  'KiralayanController@all_deleted')->name("kiralayan.all_deleted");
     Route::get( '/kiralayan/{kiralayan}/delete',  'KiralayanController@delete')->name("kiralayan.delete");    
+    Route::resource( '/kiralayan',  'KiralayanController');  
+   
     /*******************
      * Servis Routes
      ******************/
-    Route::resource( '/servis',     'ServisController');
     Route::get( '/servis/{servi}/tamir',         'ServisController@tamir')->name("servis.tamir");
     Route::get( '/servis/{servi}/mesgul',        'ServisController@mesgul')->name("servis.mesgul");
     Route::get( '/servis/{servi}/calistir',      'ServisController@calistir')->name("servis.calistir");
     Route::get( '/servis/{servi}/rezervasyonlar','ServisController@rezervasyonlar')->name("servis.rezervasyonlar");
     Route::get('/servis/dlist',     'ServisController@all_deleted')->name("servis.all_deleted");
-    Route::get('/servis/{servi}/delete',       'ServisController@delete')->name("servis.delete");
+    Route::get('/servis/{servi}/delete', 'ServisController@delete')->name("servis.delete");
+    Route::post('/servis/{servi}/delete', 'ServisController@p_delete')->name("servis.p_delete");
+    Route::get('/servis/{servi}/restore', 'ServisController@restore')->name("servis.restore");
+    Route::post('/servis/{servi}/restore', 'ServisController@p_restore')->name("servis.p_restore");
+    Route::resource( '/servis',     'ServisController');
+    
     /*****************
     * contacts Routes
     ******************/
-    Route::resource( '/contacts',   'ContactsController');
     Route::get( '/contacts/{contacts}/delete',  'ContactsController@delete')->name("contacts.delete");    
     Route::get( '/contacts/dlist',  'ContactsController@all_deleted')->name("contacts.all_deleted");
+    Route::resource( '/contacts',   'ContactsController');
+  
   });
 });
 

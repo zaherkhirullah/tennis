@@ -45,12 +45,16 @@
         </div>
         <div class="col-lg-4" style="margin-top:3%">
             <a href="{{ route('servis.create') }}" class="btn btn-primary" ><i class="fa fa-plus"></i> Ekle</a>
+            @if(Route::is('servis.index'))
             <a href="{{ route('servis.all_deleted') }}" class="btn btn-danger" ><i class="fa fa-trash"></i> Silinen göster </a>
+          @elseif(Route::is('servis.all_deleted'))
+          <a href="{{ route('servis.index') }}" class="btn btn-success" ><i class="fa fa-check"></i> Activeler göster </a>
+          @endif
         </div>
     </div>
 <div class="wrapper wrapper-content animated fadeInRight">
   <div class="row">
-    @if(count($servisler))
+    @if($servisler)
      @foreach ($servisler as $servis)
       <div class="col-md-3 col-sm-4 col-xs-6">
           <div class="ibox">
@@ -58,9 +62,16 @@
 
               <div class="product-imitation" style="background:no-repeat ;background-image:url('{{  asset('assets/ServisList.jpg') }}');max-width:100%;max-height:100%;">
                 <span class="left-ust white-bg pad5" id="de_trash"> 
-                    <a href="{{ route('servis.delete',$servis->id) }}" class="">
-                        <i class="fa fa-trash"></i>
-                        </a>
+                  
+                    @if(Route::is('servis.index'))
+                    <a href="{{ route('servis.delete',$servis) }}" class="">
+                            <i class="fa fa-trash"></i>
+                    </a>
+                     @elseif(Route::is('servis.all_deleted'))
+                    <a href="{{ route('servis.restore',$servis) }}" class="text-success">
+                        <i class="fa fa-eye"></i>
+                    </a>
+                    @endif
                   </span>      
             </div>
                   <div class="product-desc">

@@ -72,16 +72,35 @@
                             <form action="{{ route('rezervasyon.store') }}" method="post">
                                 @csrf
                                 @guest
+                                    @if ($errors->any())
+                                    <div class="alert alert-danger">
+                                        <ul>
+                                            @foreach ($errors->all() as $error)
+                                                <li>{{ $error }}</li>
+                                            @endforeach
+                                        </ul>
+                                    </div>
+                                    @endif
                                 <div class="form-group row">
                                     <label class="col-sm-2 control-label">Adınız ve Soyadınız</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="isim" v-model="name">
+                                        <input id="isim" type="text" class="form-control{{ $errors->has('isim') ? ' is-invalid' : '' }}" name="isim" value="{{ old('isim') }}" required autofocus>
+                                        @if ($errors->has('isim'))
+                                            <span class="invalid-feedback">
+                                                <strong>{{ $errors->first('isim') }}</strong>
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 control-label">Telefon Numaranız</label>
                                     <div class="col-sm-10">
-                                        <input type="text" class="form-control" name="telefon" />
+                                        <input  type="text" class="form-control{{ $errors->has('telefon') ? ' is-invalid' : '' }}" id="telefon" name="telefon" value="{{ old('telefon') }}"  required autofocus>
+                                        @if ($errors->has('telefon'))
+                                            <span class="invalid-feedback">
+                                                <strong>{{ $errors->first('telefon') }}</strong>
+                                            </span>
+                                        @endif
                                     </div>
                                 </div>
                                 @endguest
@@ -104,17 +123,17 @@
                                     <div class="col-sm-10">
                                         <select class="form-control" name="kort_id" id="kort">
                                             @foreach($kortlar as $kort)
-                                                <option value="{{ $kort->id  }}">{{ $kort->isim}}</option>
+                                                <option value="{{ $kort->id  }}" >{{ $kort->isim}}</option>
                                             @endforeach
                                         </select>
                                     </div>
                                 </div>
                                 <div class="form-group row ">
                                     <div class="col-md-6">
-                                        <input type="text" name="tarih" id="tarih" readonly class="form-control" placeholder="Bir tarih seçmek için Tikla ">
+                                        <input type="text" name="tarih" id="tarih" readonly class="form-control" placeholder="Bir tarih seçmek için Tikla " required>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" name="saat" id="saat" readonly class="form-control"  placeholder="Tarih seçtikten sonra bir saat seç">
+                                        <input type="text" name="saat" id="saat" readonly class="form-control"  placeholder="Tarih seçtikten sonra bir saat seç" required>
                                     </div>
                                 </div>
                                 <div class="form-group row ">

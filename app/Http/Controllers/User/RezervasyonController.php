@@ -19,18 +19,22 @@ use Illuminate\Support\Facades\Session;
 
 class RezervasyonController extends Controller
 {
-
+   
     public function index()
     {
         $rezervasyonlar = Rezervasyon::all_list();
         $gecmisler = Rezervasyon::gecmis();
-        $sonrakiler = Rezervasyon::sonraki();
-        $simdikiler = Rezervasyon::simdiki();
+        $sonrakiler= Rezervasyon::sonraki();
+        $simdikiler= Rezervasyon::simdiki();
+        $tumgelecekler= Rezervasyon::tumgelecek();
+        $bekleyenler = Bekleyen::all();
         return view('admin.rezervasyon.index', compact([
             'rezervasyonlar',
             'gecmisler',
             'sonrakiler',
             'simdikiler',
+            'tumgelecekler',
+            'bekleyenler',
         ]));
     }
 
@@ -52,6 +56,15 @@ class RezervasyonController extends Controller
     {
         $tarih = $request->tarih;
         $saat = $request->saat;
+        if(!$tarih){
+            Session::flash('error', "lutfen tarih secin "); 
+            return back();
+        }
+        if(!$saat){
+            Session::flash('error', "lutfen saat secin "); 
+            return back();
+        }
+
         $saat = substr($saat, 0, strpos($saat, ' '));
         $baslangis_saati = $tarih . ' ' . $saat . ':00';
         $baslangis_saati = Carbon::parse($baslangis_saati);

@@ -1,9 +1,6 @@
 @extends('layouts.admin')
 @section('content')
 <div class="wrapper wrapper-content animated fadeInRight">
-
-
-
     <div class="row">
         <div class="col-md-6">
             <div class="ibox float-e-margins">
@@ -11,7 +8,7 @@
                     <h5>Bekleyenler</h5>
                 </div>
                 <div class="ibox-content">
-                    @if(count($bekleyenler)>0)
+                    @if($bekleyenler)
                         <table class="table">
                             <thead>
                             <tr>
@@ -21,7 +18,7 @@
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($bekleyenler as $item)
+                            @foreach($bekleyenler  as $item)
                                 <tr>
                                     <td></td>
                                     <td>{{ $item->kiralayan()->isim}}</td>
@@ -45,7 +42,7 @@
                     <h5>Şimdiki Dilim Zamanındaki Kortlar   <span> {{ \Carbon\Carbon::now()->startOfHour()->toTimeString()}}</span></h5>
                 </div>
                 <div class="ibox-content">
-                    @if(count($simdikiler)>0)
+                    @if($simdikiler)
                     <table class="table">
                         <thead>
                         <tr>
@@ -142,6 +139,7 @@
                     <h5>Tüm geçmiş Rezevasyonlar</h5>
                 </div>
                 <div class="ibox-content">
+                @if($gecmisler)
                     <table class="table">
                         <thead>
                             <tr>
@@ -154,8 +152,6 @@
                                 <th>Rezerv Süresi</th>
                                 <th>Ödenecek</th>
                                 <th>Servis Adresi</th>
-
-
                             </tr>
                         </thead>
                         <tbody>
@@ -183,7 +179,7 @@
                         @endforeach
                         </tbody>
                     </table>
-
+                @endif
                 </div>
             </div>
         </div>
@@ -196,7 +192,8 @@
                 </div>
                 <div class="ibox-content">
                     <table class="table">
-                        <thead>
+                @if($tumgelecekler)
+                <thead>
                             <tr>
                                 <th>#</th>
                                 <th>Kort</th>
@@ -236,7 +233,7 @@
                         @endforeach
                         </tbody>
                     </table>
-
+                    @endif
                 </div>
             </div>
         </div>

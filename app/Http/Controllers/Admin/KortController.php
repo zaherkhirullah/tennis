@@ -68,7 +68,7 @@ class KortController extends Controller
         return  view('admin.kort.edit',compact('kort'));
     }
 
-  
+
     public function update(KortValidation $request, Kort $kort)
     {
         $kort->update($request->all());
@@ -76,9 +76,28 @@ class KortController extends Controller
         return redirect()->route('kort.index');
     }
 
+   
     public function delete(Kort $kort)
     {
         return view('admin.kort.delete',compact('kort'));
+	}
+	public function p_delete( Kort $kort)
+    {
+		$kort->durum=9;
+		$kort->save();
+		Session::flash('success',$kort->isim.' kort belgileri basarile silindi');        
+		return redirect()->route('kort.index');
+	}
+	public function restore(Kort $kort)
+    {
+        return view('admin.kort.delete',compact('kort'));
+	}
+	public function p_restore(Kort $kort)
+    {
+		$kort->durum=0;
+		$kort->save();
+		Session::flash('success',$kort->isim.' kort belgileri basarile silindi');        
+		return redirect()->route('kort.index');
     }
     public function destroy(Kort $kort)
     {

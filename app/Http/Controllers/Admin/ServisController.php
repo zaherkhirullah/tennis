@@ -77,16 +77,35 @@ class ServisController extends Controller
 	{
 		$servi->update($request->all());
 		Session::flash('success',$servi->isim.' servis belgileri basarile güncellendi');        
-		return back();
+		return redirect()->route('servis.index');
 	}
 	public function delete(Servis $servi)
     {
         return view('admin.servis.delete',compact('servi'));
+	}
+	public function p_delete( Servis $servi)
+    {
+		$servi->durum=9;
+		$servi->save();
+		Session::flash('success',$servi->isim.' servis belgileri basarile silindi');        
+		return redirect()->route('servis.index');
+	}
+	public function restore(Servis $servi)
+    {
+        return view('admin.servis.delete',compact('servi'));
+	}
+	public function p_restore( Servis $servi)
+    {
+		$servi->durum=0;
+		$servi->save();
+		Session::flash('success',$servi->isim.' servis belgileri basarile silindi');        
+		return redirect()->route('servis.index');
     }
 	public function destroy(Servis $servi)
-	{   $isim=$servi->isim;
+	{  	
+		 $isim=$servi->isim;
 		$servi->delete($servi);
 		Session::flash('success',$isim.' servis belgileri basarile silinmiş');        
-		return back();
+		return redirect()->route('servis.index');
 	}
 }

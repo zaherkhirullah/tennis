@@ -11,31 +11,22 @@
                     <img alt="image" class="img-responsive" src="{{ asset('assets/profil.jpg') }} ">
                 </div>
                 <div class="ibox-content profile-content">
-                    <h4><strong>{{ Auth::user()->isim }}</strong></h4>
-                    <p><i class="fa fa-map-marker"></i> {{ Auth::user()->adres }}</p>
+                    <h4><strong>{{ Auth::user()->kiralayan->isim }}</strong></h4>
+                    @if(Auth::user()->kiralayan->adres)
+                    <p><i class="fa fa-map-marker"></i> {{ Auth::user()->kiralayan->adres }}</p>
+                    @else
+                    <p><i class="fa fa-map-marker"></i>  Sakarya </p>
+                    @endif
                     <h5>
                         Hakkımda bilgiler
                     </h5>
-                    <p>
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut
-                        labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitat.
-                    </p>
-                    <div class="row m-t-lg">
-                        <div class="col-md-4">
-                            <span class="bar">5,3,9,6,5,9,7,3,5,2</span>
-                            <h5><strong>169</strong> Puan</h5>
-                        </div>
-                        <div class="col-md-4">
-                            <span class="line">5,3,9,6,5,9,7,3,5,2</span>
-                            <h5><strong>28</strong> Saatler</h5>
-                        </div>
-                    </div>
+                    
                     <div class="user-button">
                         <div class="row">
                             <div class="col-md-6">
-                                <button type="button" class="btn btn-primary btn-sm btn-block"><i
-                                            class="fa fa-envelope"></i> Yeni Rezerve
-                                </button>
+                                    <a href="/home#rezerv" class="btn btn-primary btn-sm btn-block"><i
+                                        class="fa fa-envelope"></i> Yeni Rezerve
+                            </a>
                             </div>
                         </div>
                     </div>
@@ -46,10 +37,17 @@
     <div class="col-md-8">
         <div class="ibox float-e-margins">
             <div class="ibox-title">
-                <h5>Aktivitelerim</h5>
+                <h5>  
+                    <span class="pull-right">
+                        <a href="/home#rezerv" class="label label-primary">
+                            <i class="fa fa-plus"></i> Yeni Rezervasyon
+                        </a>
+                    </span>
+                        Aktivitelerim
+                </h5>
             </div>
             <div class="ibox-content">
-
+            
                 <div>
                     <div class="feed-activity-list">
                         @if(count($rezervasyonlar))
@@ -88,6 +86,10 @@
                                     </div>
                                 </div>
                             @endforeach
+                        @else
+                        <div class="well well-sm">
+                            <h3 class="text-danger">Her hangi bir rezervasyon bulunmadi .... </h3>
+                        </div>
                         @endif
                     </div>
                 </div>

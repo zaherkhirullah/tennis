@@ -24,7 +24,10 @@ class RezervasyonValidation extends FormRequest
     public function rules()
     {
         return [
-            //
+        'kort_id'           =>'required|integer' ,
+        'servis_id'         =>'integer' ,
+        'servis_adresi'     =>'string' ,
+        'servis_saat'       =>'string' ,
         ];
     }
 }

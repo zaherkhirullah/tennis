@@ -35,7 +35,7 @@ class KiralayanController extends Controller
         return  view('admin.kiralayan.create');        
     }
 
-    public function store(Request $request)
+    public function store(KiralayanValidation $request)
     {
         $kiralayan = new Kiralayan;
         $kiralayan->fill($request->all());
@@ -53,7 +53,7 @@ class KiralayanController extends Controller
         return view('admin.kiralayan.edit',compact('kiralayan'));
     }
     
-    public function update(Request $request, Kiralayan $kiralayan)
+    public function update(KiralayanValidation $request, Kiralayan $kiralayan)
     {
         $kiralayan->update($request->all());
         Session::flash('success',$kiralayan->isim.' kiralayan belgileri basarile güncellendi');
@@ -68,7 +68,6 @@ class KiralayanController extends Controller
     public function destroy(Kiralayan $kiralayan)
     {
         $isim = $kiralayan->isim;
-        
         $kiralayan->delete($kiralayan);
         Session::flash('success',$isim.' kiralayan belgileri basarile silinmiş');        
         return back();

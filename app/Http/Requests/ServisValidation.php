@@ -26,7 +26,7 @@ class ServisValidation extends FormRequest
         return [
             'sofor_adi' => 'string|required',
             'sofor_numarasi' => 'string|required',
-            'plaka' => 'string|required',
+            'plaka' => 'integer|required',
         ];
     }
 }

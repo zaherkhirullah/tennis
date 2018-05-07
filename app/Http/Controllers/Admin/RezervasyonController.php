@@ -38,20 +38,16 @@ class RezervasyonController extends Controller
                     $gecmisler = Rezervasyon::gecmis()->where(strtolower($class_).'_id', '=',$id);
                     $sonrakiler= Rezervasyon::sonraki()->where(strtolower($class_).'_id', '=',$id);
                     $simdikiler= Rezervasyon::simdiki()->where(strtolower($class_).'_id', '=',$id);
-                }else{
+                }else
                     Session::flash('error','kayit bulunmadi') ;
-                }
-            }else{
+            }else
                 Session::flash('error','none valid class name') ;
-                
-            }
         }else{
             $rezervasyonlar = Rezervasyon::all_list();
             $gecmisler = Rezervasyon::gecmis();
             $sonrakiler= Rezervasyon::sonraki();
             $simdikiler= Rezervasyon::simdiki();
             $tumgelecekler= Rezervasyon::tumgelecek();
-
         }
         $bekleyenler = Bekleyen::all();
         return view('admin.rezervasyon.index',compact([

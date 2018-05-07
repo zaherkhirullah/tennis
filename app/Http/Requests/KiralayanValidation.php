@@ -24,7 +24,8 @@ class KiralayanValidation extends FormRequest
     public function rules()
     {
         return [
-            //
+            'isim'      =>'required|string' ,
+            'telefon'   =>'required|string' ,
         ];
     }
 }
