@@ -1,7 +1,29 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="BranchesTreeState">
+    <expand>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="LOCAL_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+      <path>
+        <item name="ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="REMOTE_ROOT" type="e8cecc67:BranchNodeDescriptor" />
+        <item name="GROUP_NODE:origin" type="e8cecc67:BranchNodeDescriptor" />
+      </path>
+    </expand>
+    <select />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="0fb6e3f9-4362-4b85-81a2-d9f0b299785e" name="Default" comment="update project and add gitignore" />
+    <list default="true" id="0fb6e3f9-4362-4b85-81a2-d9f0b299785e" name="Default" comment="add .idea and .env to .gitignore">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/User/RezervasyonController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Models/Rezervasyon.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Models/Rezervasyon.php" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -64,25 +86,6 @@
       </path>
     </expand>
     <select />
-  </component>
-  <component name="FindInProjectRecents">
-    <findStrings>
-      <find>$servis</find>
-      <find>silindi</find>
-      <find>baslangis_saat</find>
-      <find>183850434</find>
-      <find>Kortunuzu Rezerv Ediniz</find>
-      <find>tarih</find>
-      <find>saat</find>
-      <find>form</find>
-      <find>admin</find>
-      <find>rezer</find>
-      <find>adres</find>
-      <find>acti</find>
-      <find>bekleme</find>
-      <find>gele</find>
-      <find>Bekleyen</find>
-    </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -223,12 +226,13 @@
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Alex\Desktop\test\tennis\app\Http\Models" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\PhpstormProjects\tennis" />
       <recent name="C:\Users\Alex\Desktop\test\tennis\public\js" />
       <recent name="C:\Users\Alex\Desktop\test\tennis\public\img" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Alex\Desktop\test\tennis\app\Http\Models" />
     </key>
   </component>
   <component name="SvnConfiguration">
@@ -260,7 +264,7 @@
       <workItem from="1523778405470" duration="25538000" />
       <workItem from="1523812555561" duration="12617000" />
       <workItem from="1523857252329" duration="16927000" />
-      <workItem from="1589863987690" duration="321000" />
+      <workItem from="1589863987690" duration="893000" />
     </task>
     <task id="LOCAL-00001" summary="kort change 1">
       <created>1523001567497</created>
@@ -276,17 +280,22 @@
       <option name="project" value="LOCAL" />
       <updated>1589864276808</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="add .idea and .env to .gitignore">
+      <created>1589864398120</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1589864398120</updated>
+    </task>
+    <task id="LOCAL-00004" summary="add .idea and .env to .gitignore">
+      <created>1589864457975</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1589864457975</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
-  </component>
-  <component name="TodoView">
-    <todo-panel id="selected-file">
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
-    <todo-panel id="all">
-      <are-packages-shown value="true" />
-      <is-autoscroll-to-source value="true" />
-    </todo-panel>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="2" />
@@ -305,6 +314,29 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="kort change 1" />
     <MESSAGE value="update project and add gitignore" />
-    <option name="LAST_COMMIT_MESSAGE" value="update project and add gitignore" />
+    <MESSAGE value="add .idea and .env to .gitignore" />
+    <option name="LAST_COMMIT_MESSAGE" value="add .idea and .env to .gitignore" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog" timestamp="1589864658000">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="93" y="93" width="1350" height="638" key="DiffContextDialog/0.0.1536.824@0.0.1536.824" timestamp="1589864658000" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1589864466341">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589864466341" />
+    <state x="478" y="143" width="579" height="538" key="find.popup" timestamp="1589864797088">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="478" y="143" width="579" height="538" key="find.popup/0.0.1536.824@0.0.1536.824" timestamp="1589864797088" />
+    <state x="479" y="198" key="git4idea.merge.GitPullDialog" timestamp="1589864523778">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="479" y="198" key="git4idea.merge.GitPullDialog/0.0.1536.824@0.0.1536.824" timestamp="1589864523778" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1589864750810">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1589864750810" />
   </component>
 </project>

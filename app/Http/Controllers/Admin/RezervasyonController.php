@@ -30,6 +30,13 @@ class RezervasyonController extends Controller
         $class_ = isset($_GET['c']) ? $_GET['c'] : null ;
         $id = isset($_GET['i']) ? $_GET['i'] : null   ;
 
+        $rezervasyonlar = Rezervasyon::all_list();
+        $gecmisler = Rezervasyon::gecmis();
+        $sonrakiler= Rezervasyon::sonraki();
+        $simdikiler= Rezervasyon::simdiki();
+        $tumgelecekler= Rezervasyon::tumgelecek();
+
+
         if($class_ && $id){
             if(in_array($class_,$classes)){
                 $class = "\App\Http\Models\\".$class_;
@@ -42,12 +49,6 @@ class RezervasyonController extends Controller
                     Session::flash('error','kayit bulunmadi') ;
             }else
                 Session::flash('error','none valid class name') ;
-        }else{
-            $rezervasyonlar = Rezervasyon::all_list();
-            $gecmisler = Rezervasyon::gecmis();
-            $sonrakiler= Rezervasyon::sonraki();
-            $simdikiler= Rezervasyon::simdiki();
-            $tumgelecekler= Rezervasyon::tumgelecek();
         }
         $bekleyenler = Bekleyen::all();
         return view('admin.rezervasyon.index',compact([
