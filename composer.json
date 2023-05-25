@@ -8,7 +8,7 @@
   "license": "MIT",
   "type": "project",
   "require": {
-    "php": "^7.3|^8.0",
+    "php": "^7.2|^7.3|^8.0",
     "davejamesmiller/laravel-breadcrumbs": "^5.3.2",
     "fideloper/proxy": "^4.4.2",
     "laravel/framework": "^v8.83.27",
