@@ -7,7 +7,7 @@
           <h4 class="panel-heading">
             @if(Route::is('contacts.index'))
               <center>  Contacts listesi  </center>
-            @elseif(Route::is('contacts.all_deleted'))
+            @elseif(Route::is('contacts.allDeleted'))
               <center>  gizli Kiralayan listesi  </center>            
             @endif
           </h4>
@@ -37,10 +37,10 @@
                 <tbody>
                   @foreach ($contacts as $contact)
                     <tr>
-                      <td>{{$contact->isim }}</td>
+                      <td>{{$contact->name }}</td>
                       <td>{{$contact->email }}</td>
-                      <td>{{$contact->konu }}</td>
-                      <td>{{$contact->mesaj }}</td>
+                      <td>{{$contact->subject }}</td>
+                      <td>{{$contact->message }}</td>
                       <td>{{$contact->created_at }}</td>
                       <td class="text-center">
                         <dt>
@@ -56,7 +56,7 @@
                               </span>	
                             </a>
                             
-                          @elseif(Route::is('contacts.all_deleted'))
+                          @elseif(Route::is('contacts.allDeleted'))
                               <a href="#restore-file-{{$contact->id}}" title="@lang('lang.restore') " data-toggle="modal" class=" text-warning" >
                               <span class="text text-md" >
                                 <i class="fa  fa-eye"></i> 

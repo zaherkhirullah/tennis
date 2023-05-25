@@ -65,11 +65,11 @@
                 <div class="col-md-9 panel" style="margin-left:13%;">
                     <div class="">
                         <div class="ibox-title text-center">
-                                <h1 >Kortunuzu Rezerv Ediniz</h1>
+                                <h1 >Kortunuzu reservationEdiniz</h1>
                                 <p >Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
                         </div>
                         <div class="ibox-content" id="rezerv">
-                            <form action="{{ route('rezervasyon.store') }}" method="post">
+                            <form action="{{ route('reservation.store') }}" method="post">
                                 @csrf
                                 @guest
                                     @if ($errors->any())
@@ -84,10 +84,10 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 control-label">Adınız ve Soyadınız</label>
                                     <div class="col-sm-10">
-                                        <input id="isim" type="text" class="form-control{{ $errors->has('isim') ? ' is-invalid' : '' }}" name="isim" value="{{ old('isim') }}" required autofocus>
-                                        @if ($errors->has('isim'))
+                                        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                        @if ($errors->has('name'))
                                             <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('isim') }}</strong>
+                                                <strong>{{ $errors->first('name') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -95,10 +95,10 @@
                                 <div class="form-group row">
                                     <label class="col-sm-2 control-label">Telefon Numaranız</label>
                                     <div class="col-sm-10">
-                                        <input  type="text" class="form-control{{ $errors->has('telefon') ? ' is-invalid' : '' }}" id="telefon" name="telefon" value="{{ old('telefon') }}"  required autofocus>
-                                        @if ($errors->has('telefon'))
+                                        <input  type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" id="phone" name="phone" value="{{ old('phone') }}"  required autofocus>
+                                        @if ($errors->has('phone'))
                                             <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('telefon') }}</strong>
+                                                <strong>{{ $errors->first('phone') }}</strong>
                                             </span>
                                         @endif
                                     </div>
@@ -108,22 +108,22 @@
                                     <div class="col-md-6" >
                                         <label class="col-sm-8 control-label">Servis istiyor musunuz</label>
                                         <div class="col-sm-4">
-                                            <input type="checkbox" class="control-label" name="servis" v-model="servis"/>
+                                            <input type="checkbox" class="control-label" name="service" v-model="service"/>
                                         </div>
                                     </div>
-                                    <div class="col-md-6" v-if="servis">
+                                    <div class="col-md-6" v-if="service">
                                         <label class="col-sm-2 control-label" style="color:white">Adres</label>
                                         <div class="col-sm-10">
-                                            <input type="text" class="form-control" name="servis_adresi" />
+                                            <input type="text" class="form-control" name="service_address" />
                                         </div>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-sm-2 control-label">Kort Seç</label>
                                     <div class="col-sm-10">
-                                        <select class="form-control" name="kort_id" id="kort">
-                                            @foreach($kortlar as $kort)
-                                                <option value="{{ $kort->id  }}" >{{ $kort->isim}}</option>
+                                        <select class="form-control" name="stage_id" id="stage">
+                                            @foreach($stages as $stage)
+                                                <option value="{{ $stage->id  }}" >{{ $stage->name}}</option>
                                             @endforeach
                                         </select>
                                     </div>
@@ -133,13 +133,13 @@
                                         <input type="text" name="tarih" id="tarih" readonly class="form-control" placeholder="Bir tarih seçmek için Tikla " required>
                                     </div>
                                     <div class="col-md-6">
-                                        <input type="text" name="saat" id="saat" readonly class="form-control"  placeholder="Tarih seçtikten sonra bir saat seç" required>
+                                        <input type="text" name="hour" id="hour" readonly class="form-control"  placeholder="Tarih seçtikten sonra bir hour seç" required>
                                     </div>
                                 </div>
                                 <div class="form-group row ">
                                     <div class="col-md-6 col-xs-offset-3 text-center">
-                                        <button type="submit"  value="rezerv et" v-if="true" class="btn btn-primary">
-                                                Rezerv et
+                                        <button type="submit"  value="reservationet" v-if="true" class="btn btn-primary">
+                                                reservationet
                                         </button>
                                     </div>
                                 </div>

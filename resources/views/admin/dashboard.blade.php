@@ -4,8 +4,8 @@
     <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="ibox-title"> Rezervasyounlar</div>
         <div class="ibox-content">
-            @if(count($rezervasyonlar))       
-                @foreach($rezervasyonlar as $rez)
+            @if(count($reservations))
+                @foreach($reservations as $rez)
                     <div>
                         <ul>
                             <li>{{ $rez->created_at }}</li>
@@ -20,12 +20,12 @@
     <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="ibox-title"> Kortlar</div>
         <div class="ibox-content">
-           @if(count($kortlar))
+           @if(count($stages))
                 <div>
                     <ul>
-                        @foreach($kortlar as $kort)
+                        @foreach($stages as $stage)
 
-                            <li>{{ $kort->isim }}</li>
+                            <li>{{ $stage->name }}</li>
                         @endforeach
                     </ul>
                 </div>
@@ -38,11 +38,11 @@
     <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="ibox-title">Servisler</div>
         <div class="ibox-content">
-        @if(count($servisler))                
-            @foreach($servisler as $servis)
+        @if(count($services))
+            @foreach($services as $service)
                 <div>
                     <ul>
-                        <li>{{ $servis->isim }}</li>
+                        <li>{{ $service->name }}</li>
                     </ul>
                 </div>
             @endforeach
@@ -54,12 +54,12 @@
     <div class="col-md-6 col-sm-6 col-xs-12">
         <div class="ibox-title">Kirayanlar</div>
         <div class="ibox-content">
-           @if(count($kiralayanlar))
+           @if(count($renters))
                     <div>
                         <ul>
-                @foreach($kiralayanlar as $kiralayan)
+                @foreach($renters as $renter)
 
-                            <li>{{ $kiralayan->isim }}</li>
+                            <li>{{ $renter->name }}</li>
 
                 @endforeach
                         </ul>

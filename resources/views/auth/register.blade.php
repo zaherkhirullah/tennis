@@ -12,25 +12,25 @@
                         @csrf
                         
                         <div class="form-group row">
-                                <label for="isim" class="col-md-4 col-form-label text-md-right">@lang('lang.name')</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-right">@lang('lang.name')</label>
 
                                 <div class="col-md-6">
-                                    <input id="isim" type="text" class="form-control{{ $errors->has('isim') ? ' is-invalid' : '' }}" name="isim" value="{{ old('isim') }}" required autofocus>
-                                    @if ($errors->has('isim'))
+                                    <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
+                                    @if ($errors->has('name'))
                                         <span class="invalid-feedback">
-                                            <strong>{{ $errors->first('isim') }}</strong>
+                                            <strong>{{ $errors->first('name') }}</strong>
                                         </span>
                                     @endif
                                 </div>
                             </div>
                             <div class="form-group row">
-                                    <label for="telefon" class="col-md-4 col-form-label text-md-right">Telefon</label>
+                                    <label for="phone" class="col-md-4 col-form-label text-md-right">Telefon</label>
         
                                     <div class="col-md-6">
-                                        <input id="telefon" type="text" class="form-control{{ $errors->has('telefon') ? ' is-invalid' : '' }}" name="telefon" value="{{ old('telefon') }}" required autofocus>
-                                        @if ($errors->has('telefon'))
+                                        <input id="phone" type="text" class="form-control{{ $errors->has('phone') ? ' is-invalid' : '' }}" name="phone" value="{{ old('phone') }}" required autofocus>
+                                        @if ($errors->has('phone'))
                                             <span class="invalid-feedback">
-                                                <strong>{{ $errors->first('telefon') }}</strong>
+                                                <strong>{{ $errors->first('phone') }}</strong>
                                             </span>
                                         @endif
                                     </div>

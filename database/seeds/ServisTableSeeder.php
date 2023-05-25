@@ -1,37 +1,38 @@
 <?php
 
+use App\Models\Service;
 use Illuminate\Database\Seeder;
-use App\Http\Models\Servis;
+
 class ServisTableSeeder extends Seeder
 {
     
     public function run()
     {
-        $servis = new Servis;
+        $service = new Service;
 
-        $servis->isim ='servis A';
-        $servis->plaka ='542154';
-        $servis->sofor_adi ='ahmet';
-        $servis->sofor_numarasi ='5061442151';
-        $servis->save();
+        $service->name ='service A';
+        $service->number_plate ='542154';
+        $service->driver_name ='ahmet';
+        $service->driver_phone ='5061442151';
+        $service->save();
 
-        Servis::create([
-            'isim'=>'servis B',
-            'plaka'=>'544564',
-            'sofor_adi'=>'alican',
-            'sofor_numarasi'=>'5511463352',
+        Service::create([
+            'name'=>'service B',
+            'number_plate'=>'544564',
+            'driver_name'=>'alican',
+            'driver_phone'=>'5511463352',
         ]);
-        Servis::create([
-            'isim'=>'servis C',
-            'plaka'=>'251241',
-            'sofor_adi'=>'alican',
-            'sofor_numarasi'=>'5123456789',
+        Service::create([
+            'name'=>'service C',
+            'number_plate'=>'251241',
+            'driver_name'=>'alican',
+            'driver_phone'=>'5123456789',
         ]);
-        Servis::create([
-            'isim'=>'servis D',
-            'plaka'=>'544564',
-            'sofor_adi'=>'mehmet',
-            'sofor_numarasi'=>'5515215214',
+        Service::create([
+            'name'=>'service D',
+            'number_plate'=>'544564',
+            'driver_name'=>'mehmet',
+            'driver_phone'=>'5515215214',
         ]);
     }
 }

@@ -3,13 +3,10 @@
 namespace App\Http\Controllers\User;
 
 use App\Http\Controllers\Controller;
-use App\Http\Models\Kiralayan;
-
-use Illuminate\Http\Request;
-
-use App\User;
-use Session;
+use App\Models\Renter;
 use Auth;
+use Session;
+
 class UserController extends Controller
 {
 
@@ -19,18 +16,19 @@ class UserController extends Controller
     }
 
     public function index()
-        {
-    
-        }
-        public function hesabim()
-        {
-                $kiralayan = Kiralayan::find(Auth::id());
-                $rezervasyonlar= $kiralayan->Rezervasyons()->latest('baslangis')->get();
-                return view('users.hesabim',compact([
-                        'rezervasyonlar',
-                ]));
-    
-        }
+    {
 
-    
+    }
+
+    public function profile()
+    {
+        $renter = Renter::find(Auth::id());
+        $reservations = $renter->Reservations()->latest('start_at')->get();
+        return view('users.profile', compact([
+            'reservations',
+        ]));
+
+    }
+
+
 }

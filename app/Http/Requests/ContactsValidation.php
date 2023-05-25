@@ -24,10 +24,10 @@ class ContactsValidation extends FormRequest
     public function rules()
     {
         return [
-            'isim' =>'required|string|max:50',
-            'email'=>'required|string|max:50',
-            'konu' =>'required|string|max:50',
-            'mesaj'=>'required|string|max:1000',
+            'name'  => 'required|string|max:50',
+            'email' => 'required|string|max:50',
+            'subject'  => 'required|string|max:50',
+            'message' => 'required|string|max:1000',
         ];
     }
 }

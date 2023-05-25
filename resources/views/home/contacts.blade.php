@@ -11,14 +11,14 @@
                 @csrf
 
                 <div class="form-group row">
-                    <label for="isim" class="col-sm-4 col-form-label text-md-right">Adi Soyadi</label>
+                    <label for="name" class="col-sm-4 col-form-label text-md-right">Adi Soyadi</label>
 
                     <div class="col-md-6">
-                        <input id="isim" type="text" class="form-control{{ $errors->has('isim') ? ' is-invalid' : '' }}" name="isim" value="{{ old('isim') }}" required autofocus>
+                        <input id="name" type="text" class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}" name="name" value="{{ old('name') }}" required autofocus>
 
-                        @if ($errors->has('isim'))
+                        @if ($errors->has('name'))
                             <span class="invalid-feedback">
-                                <strong>{{ $errors->first('isim') }}</strong>
+                                <strong>{{ $errors->first('name') }}</strong>
                             </span>
                         @endif
                     </div>
@@ -38,27 +38,27 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="konu" class="col-sm-4 col-form-label text-md-right">konu</label>
+                    <label for="subject" class="col-sm-4 col-form-label text-md-right">subject</label>
 
                     <div class="col-md-6">
-                        <input id="konu" type="text" class="form-control{{ $errors->has('konu') ? ' is-invalid' : '' }}" name="konu" value="{{ old('konu') }}" required autofocus>
+                        <input id="subject" type="text" class="form-control{{ $errors->has('subject') ? ' is-invalid' : '' }}" name="subject" value="{{ old('subject') }}" required autofocus>
 
-                        @if ($errors->has('konu'))
+                        @if ($errors->has('subject'))
                             <span class="invalid-feedback">
-                                <strong>{{ $errors->first('konu') }}</strong>
+                                <strong>{{ $errors->first('subject') }}</strong>
                             </span>
                         @endif
                     </div>
                 </div>
                 <div class="form-group row">
-                    <label for="mesaj" class="col-sm-4 col-form-label text-md-right">mesaj</label>
+                    <label for="message" class="col-sm-4 col-form-label text-md-right">message</label>
 
                     <div class="col-md-6">
-                        <input id="mesaj" type="text" class="form-control{{ $errors->has('mesaj') ? ' is-invalid' : '' }}" name="mesaj" value="{{ old('mesaj') }}" required autofocus>
+                        <input id="message" type="text" class="form-control{{ $errors->has('message') ? ' is-invalid' : '' }}" name="message" value="{{ old('message') }}" required autofocus>
 
-                        @if ($errors->has('mesaj'))
+                        @if ($errors->has('message'))
                             <span class="invalid-feedback">
-                                <strong>{{ $errors->first('mesaj') }}</strong>
+                                <strong>{{ $errors->first('message') }}</strong>
                             </span>
                         @endif
                     </div>

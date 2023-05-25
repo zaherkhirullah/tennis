@@ -21,12 +21,12 @@ class CreateUsersTable extends Migration
             $table->string('adres',255)->nullable();
             $table->integer('yas')->nullable();
             $table->double('puan')->default(0);
-            $table->boolean('durum')->default(0);
+            $table->boolean('status')->default(0);
             $table->rememberToken();
             $table->timestamps();
             $table->engine = 'InnoDB';   
             $table->primary('id');                
-            $table->foreign('id')->references('id')->on('kiralayans');
+            $table->foreign('id')->references('id')->on('renters');
                             
         });
         

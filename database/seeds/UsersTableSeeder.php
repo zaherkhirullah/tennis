@@ -12,13 +12,13 @@ class UsersTableSeeder extends Seeder
     public function run()
     {
         $user = new \App\User();
-        $kiralayan = new \App\Http\Models\Kiralayan;
+        $renter = new \App\Models\Renter;
         
-        $kiralayan->isim='Admin';
-        $kiralayan->telefon='05511545521';
-        $kiralayan->save();
+        $renter->name='Admin';
+        $renter->phone='05511545521';
+        $renter->save();
         
-        $user->id =  $kiralayan->id;
+        $user->id =  $renter->id;
         $user->email='admin@gmail.com';
         $user->cinsiyet='syrian';
         $user->yas=22;

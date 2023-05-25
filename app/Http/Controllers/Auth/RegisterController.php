@@ -2,13 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
-use App\Http\Models\Kiralayan;
-use App\Http\Models\Profile;
 use App\Http\Controllers\Controller;
-use Illuminate\Support\Facades\Hash;
-use Illuminate\Support\Facades\Validator;
+use App\Http\Models\Profile;
+use App\Models\Renter;
+use App\User;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Validator;
 
 class RegisterController extends Controller
 {
@@ -51,37 +50,39 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'isim' => 'required|string|max:255',
-            'telefon' => 'required|string|max:255|unique:kiralayans',
-            'cinsiyet'  =>'string|max:50',
-            'adres' =>'string|max:250',
-            'yas'   =>'integer|max:50',
-            'email' => 'required|string|email|max:255|unique:users',
+            'name'     => 'required|string|max:255',
+            'phone'  => 'required|string|max:255|unique:renters',
+            'cinsiyet' => 'string|max:50',
+            'adres'    => 'string|max:250',
+            'yas'      => 'integer|max:50',
+            'email'    => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:6|confirmed',
         ]);
     }
+
     /**
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return \App\User
+     * @return User
      */
     protected function create(array $data)
     {
-        $kiralayan  =  Kiralayan::create([
-            'isim'       =>  $data['isim'],
-            'telefon'    =>  $data['telefon'],
+        $renter = Renter::create([
+            'name'    => $data['name'],
+            'phone' => $data['phone'],
         ]);
-        $user = User::create([ 
-            'id'         => $kiralayan->id,          
-            'cinsiyet'   =>  $data['cinsiyet'],
-            'adres'      =>  $data['adres'],
-            'yas'        =>  $data['yas'],
-            'email'      =>  $data['email'],
-            'password'      => bcrypt($data['password']),
-        ]);    
-        if($user->count()==0)
-            $kiralayan->delete($kiralayan);
+        $user = User::create([
+            'id'       => $renter->id,
+            'cinsiyet' => $data['cinsiyet'],
+            'adres'    => $data['adres'],
+            'yas'      => $data['yas'],
+            'email'    => $data['email'],
+            'password' => bcrypt($data['password']),
+        ]);
+        if ($user->count() == 0) {
+            $renter->delete($renter);
+        }
         return $user;
     }
 }

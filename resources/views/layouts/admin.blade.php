@@ -56,7 +56,7 @@
                         <a data-toggle="dropdown" class="dropdown-toggle" href="#">
                             <span class="clear">
                                 <span class="block m-t-xs">
-                                    <strong class="font-bold">{{ Auth::user()->isim }}</strong>
+                                    <strong class="font-bold">{{ Auth::user()->name }}</strong>
                                 </span> <span class="text-muted text-xs block">Admin<b class="caret"></b></span>
                             </span>
                         </a>
@@ -85,22 +85,22 @@
                     </div>
                 </li>
                 <li>
-                    <a href="{{ route('kort.index') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Kortlar</span></a>
+                    <a href="{{ route('stage.index') }}"><i class="fa fa-th-large"></i> <span class="nav-label">Kortlar</span></a>
                 </li>
                 <li>
-                    <a href="{{ route('servis.index') }}"><i class="fa fa-bus"></i> <span class="nav-label">Servis Araçları</span></a>
+                    <a href="{{ route('service.index') }}"><i class="fa fa-bus"></i> <span class="nav-label">Servis Araçları</span></a>
                 </li>
                 <li>
-                    <a href="#"><i class="fa fa-calendar-o"></i> <span class="nav-label">Rezervasyonlar</span><span class="fa arrow"></span></a>
+                    <a href="#"><i class="fa fa-calendar-o"></i> <span class="nav-label">Reservationlar</span><span class="fa arrow"></span></a>
                     <ul class="nav nav-second-level collapse">
-                        <li><a href="{{ route('rezervasyon.simdiki') }}">Şimdiki Rezervasyonlar</a></li>
-                        <li><a href="{{ route('rezervasyon.sonraki') }}">Sonraki Rezervasyon</a></li>
-                        <li><a href="{{ route('rezervasyon.list') }}">Tüm Rezervasyonlar</a></li>
-                        <li><a href="{{ route('rezervasyon.gecmis') }}">Geçmiş Rezervasyonlar</a></li>
+                        <li><a href="{{ route('reservation.current') }}">Şimdiki Reservationlar</a></li>
+                        <li><a href="{{ route('reservation.nextReservations') }}">Sonraki Reservation</a></li>
+                        <li><a href="{{ route('reservation.list') }}">Tüm Reservationlar</a></li>
+                        <li><a href="{{ route('reservation.oldReservations') }}">Geçmiş Reservationlar</a></li>
                     </ul>
                 </li>
                 <li>
-                    <a href="{{ route('kiralayan.index') }}">
+                    <a href="{{ route('renter.index') }}">
                         <i class="fa fa-th-large"></i>
                         <span class="nav-label">Kiralayanlar</span>
                     </a>
@@ -118,7 +118,7 @@
                             <a href="{{ route('contacts.index') }}">Yeni Mesajlari</a>
                         </li>
                         <li>
-                            <a href="{{ route('contacts.all_deleted') }}">Cevabı verilmiş Mesajlari</a>
+                            <a href="{{ route('contacts.allDeleted') }}">Cevabı verilmiş Mesajlari</a>
                         </li>
                     </ul>
                 </li>

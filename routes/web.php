@@ -1,4 +1,8 @@
 <?php
+
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
+
 header('Access-Control-Allow-Origin: *');
 /*
 |--------------------------------------------------------------------------
@@ -16,77 +20,76 @@ Auth::routes();
 |      --/ Admin Area /--      
 |=============================
 */
-Route::prefix('admin')->group(function()
-{ 
-  Route::group(['namespace' => 'Admin'], function()
-  {
-     // Admin 
-    Route::get( '/', 'AdminController@index')->name("admin");
+Route::prefix('admin')->group(function () {
+    Route::group(['namespace' => 'Admin'], function () {
+        // Admin
+        Route::get('/', 'AdminController@index')->name("admin");
 
-    /*****************
-    * rezervasyon Routes
-    ******************/
-    Route::get( '/rezervasyon/list','RezervasyonController@index')->name("rezervasyon.list");
-    Route::get( '/rezervasyon/simdiki','RezervasyonController@simdiki')->name("rezervasyon.simdiki");
-    Route::get( '/rezervasyon/sonraki','RezervasyonController@sonraki')->name("rezervasyon.sonraki");
-    Route::get( '/rezervasyon/gecmis', 'RezervasyonController@gecmis')->name("rezervasyon.gecmis");
-    Route::get( '/rezervasyon/dlist','RezervasyonController@all_deleted')->name("rezervasyon.all_deleted");
-    Route::get( '/rezervasyon/{rezervasyon}/delete','RezervasyonController@delete')->name("rezervasyon.delete");
+        /*****************
+         * reservation Routes
+         ******************/
+        Route::get('/reservation/list', 'ReservationController@index')->name("reservation.list");
+//        Route::get('/reservation/{status}', 'ReservationController@status')->name("reservation.status");
+        Route::get('/reservation/current', 'ReservationController@current')->name("reservation.current");
+        Route::get('/reservation/nextReservations', 'ReservationController@nextReservations')->name("reservation.nextReservations");
+        Route::get('/reservation/oldReservations', 'ReservationController@oldReservations')->name("reservation.oldReservations");
+        Route::get('/reservation/deleted', 'ReservationController@allDeleted')->name("reservation.allDeleted");
+        Route::get('/reservation/{reservation}/delete', 'ReservationController@delete')->name("reservation.delete");
 
-    /******************
-     * Kort Routes
-     ******************/
-    Route::get( 
-      '/kort/{kort}/tamir','KortController@tamir')
-      ->name("kort.tamir");
-    Route::get( 
-      '/kort/{kort}/mesgul','KortController@mesgul')
-      ->name("kort.mesgul");
-    Route::get( 
-      '/kort/{kort}/calistir','KortController@calistir')
-      ->name("kort.calistir");
-    Route::get( 
-      '/kort/{kort}/rezervasyonlar','KortController@rezervasyonlar')
-      ->name("kort.rezervasyonlar");
-    Route::get(
-      '/kort/dlist','KortController@all_deleted')
-      ->name("kort.all_deleted");
-      Route::get('/kort/{kort}/delete','KortController@delete')->name("kort.delete");
-      Route::post('/kort/{kort}/delete','KortController@p_delete')->name("kort.p_delete");
-      Route::get('/kort/{kort}/restore','KortController@restore')->name("kort.restore");
-      Route::post('/kort/{kort}/restore','KortController@p_restore')->name("kort.p_restore");
-    Route::resource('/kort','KortController');
-       
+        /******************
+         * Kort Routes
+         ******************/
+        Route::get(
+            '/stage/{stage}/fix', 'StageController@fix')
+            ->name("stage.fix");
+        Route::get(
+            '/stage/{stage}/busy', 'StageController@busy')
+            ->name("stage.busy");
+        Route::get(
+            '/stage/{stage}/run', 'StageController@run')
+            ->name("stage.run");
+        Route::get(
+            '/stage/{stage}/reservations', 'StageController@reservations')
+            ->name("stage.reservations");
+        Route::get(
+            '/stage/deleted', 'StageController@allDeleted')
+            ->name("stage.allDeleted");
+        Route::get('/stage/{stage}/delete', 'StageController@delete')->name("stage.delete");
+        Route::post('/stage/{stage}/delete', 'StageController@p_delete')->name("stage.p_delete");
+        Route::get('/stage/{stage}/restore', 'StageController@restore')->name("stage.restore");
+        Route::post('/stage/{stage}/restore', 'StageController@p_restore')->name("stage.p_restore");
+        Route::resource('/stage', 'StageController');
 
-    /*****************
-    * kiralayan Routes
-    ******************/
-    Route::get( '/kiralayan/dlist',  'KiralayanController@all_deleted')->name("kiralayan.all_deleted");
-    Route::get( '/kiralayan/{kiralayan}/delete',  'KiralayanController@delete')->name("kiralayan.delete");    
-    Route::resource( '/kiralayan',  'KiralayanController');  
-   
-    /*******************
-     * Servis Routes
-     ******************/
-    Route::get( '/servis/{servi}/tamir',         'ServisController@tamir')->name("servis.tamir");
-    Route::get( '/servis/{servi}/mesgul',        'ServisController@mesgul')->name("servis.mesgul");
-    Route::get( '/servis/{servi}/calistir',      'ServisController@calistir')->name("servis.calistir");
-    Route::get( '/servis/{servi}/rezervasyonlar','ServisController@rezervasyonlar')->name("servis.rezervasyonlar");
-    Route::get('/servis/dlist',     'ServisController@all_deleted')->name("servis.all_deleted");
-    Route::get('/servis/{servi}/delete', 'ServisController@delete')->name("servis.delete");
-    Route::post('/servis/{servi}/delete', 'ServisController@p_delete')->name("servis.p_delete");
-    Route::get('/servis/{servi}/restore', 'ServisController@restore')->name("servis.restore");
-    Route::post('/servis/{servi}/restore', 'ServisController@p_restore')->name("servis.p_restore");
-    Route::resource( '/servis',     'ServisController');
-    
-    /*****************
-    * contacts Routes
-    ******************/
-    Route::get( '/contacts/{contacts}/delete',  'ContactsController@delete')->name("contacts.delete");    
-    Route::get( '/contacts/dlist',  'ContactsController@all_deleted')->name("contacts.all_deleted");
-    Route::resource( '/contacts',   'ContactsController');
-  
-  });
+
+        /*****************
+         * renter Routes
+         ******************/
+        Route::get('/renter/deleted', 'RenterController@allDeleted')->name("renter.allDeleted");
+        Route::get('/renter/{renter}/delete', 'RenterController@delete')->name("renter.delete");
+        Route::resource('/renter', 'RenterController');
+
+        /*******************
+         * Servis Routes
+         ******************/
+        Route::get('/service/{service}/fix', 'ServisController@fix')->name("service.fix");
+        Route::get('/service/{service}/busy', 'ServisController@busy')->name("service.busy");
+        Route::get('/service/{service}/run', 'ServisController@run')->name("service.run");
+        Route::get('/service/{service}/reservations', 'ServisController@reservations')->name("service.reservations");
+        Route::get('/service/deleted', 'ServisController@allDeleted')->name("service.allDeleted");
+        Route::get('/service/{service}/delete', 'ServisController@delete')->name("service.delete");
+        Route::post('/service/{service}/delete', 'ServisController@p_delete')->name("service.p_delete");
+        Route::get('/service/{service}/restore', 'ServisController@restore')->name("service.restore");
+        Route::post('/service/{service}/restore', 'ServisController@p_restore')->name("service.p_restore");
+        Route::resource('/service', 'ServisController');
+
+        /*****************
+         * contacts Routes
+         ******************/
+        Route::get('/contacts/{contacts}/delete', 'ContactsController@delete')->name("contacts.delete");
+        Route::get('/contacts/deleted', 'ContactsController@allDeleted')->name("contacts.allDeleted");
+        Route::resource('/contacts', 'ContactsController');
+
+    });
 });
 
 /*
@@ -95,57 +98,52 @@ Route::prefix('admin')->group(function()
 |=============================
 */
 
-  Route::group(['namespace' => 'User'], function()
-  {
-    Route::get( 'user/', 'UserController@index')->name("user");
-    Route::get( 'user/hesabim', 'UserController@hesabim')->name("hesabim");
-    Route::get('/landing',[
-        'uses' => 'RezervasyonController@landing',
-        'as' => 'get.hours'
+Route::group(['namespace' => 'User'], function () {
+    Route::get('user/', 'UserController@index')->name("user");
+    Route::get('user/profile', 'UserController@profile')->name("profile");
+    Route::get('/landing', [
+        'uses' => 'ReservationController@landing',
+        'as'   => 'get.hours'
     ]);
-    Route::post('/info/hours',[
-        'uses' => 'RezervasyonController@get_empty_hours',
-        'as' => 'ajax'
-    ]);
-
-    Route::get('/land',[
-        'uses' => 'RezervasyonController@getview'
+    Route::post('/info/hours', [
+        'uses' => 'ReservationController@getEmptyHours',
+        'as'   => 'ajax'
     ]);
 
-      Route::get('/uzatma/{rezervasyon}',[
-          'uses' => 'RezervasyonController@uzatma',
-          'as' => 'rezervasyon.uzatma'
-      ]);
-      Route::get('/bekleme/{rezervasyon}',[
-          'uses' => 'RezervasyonController@bekleme',
-          'as' => 'rezervasyon.bekleme'
-      ]);
-    Route::resource( 'user/rezervasyon','RezervasyonController');
+    Route::get('/land', [
+        'uses' => 'ReservationController@getview'
+    ]);
 
-  });
+    Route::get('/extension/{reservation}', [
+        'uses' => 'ReservationController@extension',
+        'as'   => 'reservation.extension'
+    ]);
+    Route::get('/waiting/{reservation}', [
+        'uses' => 'ReservationController@waiting',
+        'as'   => 'reservation.waiting'
+    ]);
+    Route::resource('user/reservation', 'ReservationController');
+
+});
 
 /*
 |=============================
 |      --/ Home  Area /--      
 |=============================
 */
-  Route::group(['namespace' => 'Home'], function()
-  {
-    Route::get('/home','HomeController@index')->name('home'); // ana sayfa
-    Route::get('/',    'HomeController@index')->name('homepage'); // ana sayfa
-    Route::get('/iletisim',      'ContactsController@create')->name('contacts'); // contact sayfa 
-    Route::post('/iletisim',      'ContactsController@store')->name('p_contacts'); // contact sayfa 
-    Route::get('/hakkimizda',       'HomeController@aboutUs')->name('aboutUs'); // hakkimizde
-    Route::get('/prices',        'HomeController@prices')->name('prices'); // kiralama fiyatlari    
-    Route::get('/terms',         'HomeController@terms')->name('terms'); // Kurallar
-  });
+Route::group(['namespace' => 'Home'], function () {
+    Route::get('/home', 'HomeController@index')->name('home'); // ana sayfa
+    Route::get('/', 'HomeController@index')->name('homepage'); // ana sayfa
+    Route::get('/iletname', 'ContactsController@create')->name('contacts'); // contact sayfa
+    Route::post('/iletname', 'ContactsController@store')->name('p_contacts'); // contact sayfa
+    Route::get('/hakkimizda', 'HomeController@aboutUs')->name('aboutUs'); // hakkimizde
+    Route::get('/prices', 'HomeController@prices')->name('prices'); // kiralama fiyatlari
+    Route::get('/terms', 'HomeController@terms')->name('terms'); // Kurallar
+});
 
 
-
-
-  Route::group(['namespace' => 'Settings'], function()
-{
-  Route::get('lang/{lang}', 'LanguageController@index')->name('lang');
+Route::group(['namespace' => 'Settings'], function () {
+    Route::get('lang/{lang}', 'LanguageController@index')->name('lang');
 });
 
 /*
@@ -153,18 +151,16 @@ Route::prefix('admin')->group(function()
 |      --/Account Area /--      
 |=============================
 */
-    Route::prefix('account')->group(function()
-    {
-      Route::group(['namespace' => 'Account'], function()
-        {
-          Route::get ('/profile',         'AccountController@showprofile')->name("profile");
-          Route::post('/profile',         'AccountController@profile')->name("post_profile");
-          Route::get ('/change-password',  'AccountController@showchangePassword')->name('changePassword');;
-          Route::post('/change-password',  'AccountController@changePassword')->name('post_changePassword');
-        }
-      );
+Route::prefix('account')->group(function () {
+    Route::group(['namespace' => 'Account'], function () {
+        Route::get('/profile', 'AccountController@showProfilePage')->name("profile");
+        Route::post('/profile', 'AccountController@profile')->name("post_profile");
+        Route::get('/change-password', 'AccountController@showchangePassword')->name('changePassword');;
+        Route::post('/change-password', 'AccountController@changePassword')->name('post_changePassword');
     }
-  );
+    );
+}
+);
 
 
 

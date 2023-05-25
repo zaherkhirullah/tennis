@@ -101,7 +101,7 @@
     <div class="row">
         <div class="col-lg-12 text-center">
             <div class="navy-line"></div>
-            <h1 style="color:white">Kortunuzu Rezerv Ediniz</h1>
+            <h1 style="color:white">Kortunuzu reservationEdiniz</h1>
             <p style="color:white">Donec sed odio dui. Etiam porta sem malesuada magna mollis euismod. </p>
         </div>
     </div>
@@ -109,19 +109,19 @@
 
         <div class="">
 
-            <form action="{{ route('rezervasyon.store') }}" method="post">
+            <form action="{{ route('reservation.store') }}" method="post">
                 @csrf
                 @guest
                 <div class="form-group row">
                     <label class="col-sm-2 control-label" style="color:white">Adınız ve Soyadınız</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="isim" v-model="name">
+                        <input type="text" class="form-control" name="name" v-model="name">
                     </div>
                 </div>
                 <div class="form-group row">
                     <label class="col-sm-2 control-label" style="color:white">Telefon Numaranız</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="telefon" />
+                        <input type="text" class="form-control" name="phone" />
                     </div>
                 </div>
                     @endguest
@@ -130,14 +130,14 @@
                 <div class="form-group row">
                     <label class="col-sm-2 control-label" style="color:white">Servis istiyor musunuz</label>
                     <div class="col-sm-10">
-                        <input type="checkbox" class="form-control" name="servis" v-model="servis"/>
+                        <input type="checkbox" class="form-control" name="service" v-model="service"/>
                     </div>
                 </div>
 
-                <div class="form-group row" v-if="servis">
+                <div class="form-group row" v-if="service">
                     <label class="col-sm-2 control-label" style="color:white">Adres</label>
                     <div class="col-sm-10">
-                        <input type="text" class="form-control" name="servis" v-model="address"/>
+                        <input type="text" class="form-control" name="service" v-model="address"/>
                     </div>
                 </div>
 
@@ -145,10 +145,10 @@
                 <div class="form-group row">
                     <label class="col-sm-2 control-label" style="color:white">Kort Seç</label>
                     <div class="col-sm-10">
-                        <select class="form-control m-b" name="kort_id" id="kort">
+                        <select class="form-control m-b" name="stage_id" id="stage">
 
-                            @foreach($kortlar as $kort)
-                                <option value="{{ $kort->id  }}">{{ $kort->isim}}</option>
+                            @foreach($stages as $stage)
+                                <option value="{{ $stage->id  }}">{{ $stage->name}}</option>
                             @endforeach
 
 
@@ -162,10 +162,10 @@
                 </div>
 
                 <div class="col-md-2">
-                    <input type="text" name="saat" id="saat" readonly class="form-control" placeholder="please choose hour">
+                    <input type="text" name="hour" id="hour" readonly class="form-control" placeholder="please choose hour">
                 </div>
 
-                <input type="submit" value="rezerv et" v-if="true">
+                <input type="submit" value="reservationet" v-if="true">
 
             </form>
 
@@ -270,7 +270,7 @@
     $(document).ready(function () {
 
 
-        saat_list = [];
+        hour_list = [];
         _events = [];
         calendar = new Calendar("calendarContainer", "small", ["PZT", 3], ["#054910", "#07911d", "#ffffff", "#ffffff"]);
         organizer = new Organizer("organizerContainer", calendar);
@@ -283,7 +283,7 @@
             yil = $("#calendarContainer-year").text();
             ay = months.indexOf($("#calendarContainer-month").text());
             ay = ay + 1;
-            kort = $('#kort').val();
+            stage = $('#stage').val();
             $('#tarih').val(`${yil}-${ay}-${gun}`);
 
 
@@ -297,19 +297,19 @@
                     day: gun,
                     month: ay,
                     year: yil,
-                    kort:kort,
+                    stage:stage,
                     "_token": "{{ csrf_token() }}"
                 },
                 success: function (data) {
-                    saat_list = data;
+                    hour_list = data;
                     console.log(data);
-                    for (i = 0; i < saat_list.length; i++) {
+                    for (i = 0; i < hour_list.length; i++) {
                         _events[i] =
                             {
-                                startTime: saat_list[i] + ":00",
-                                endTime: (saat_list[i] + 1) + ":00",
+                                startTime: hour_list[i] + ":00",
+                                endTime: (hour_list[i] + 1) + ":00",
                                 mTime: "",
-                                text: "Rezerv Et "
+                                text: "reservationEt "
                             }
                     }
                     clickRight(id);
@@ -390,7 +390,7 @@
         $(`li[id^='organizerContainer-list-item-']`).css('background-color','white');
         $(`#${id}`).css('background-color','#707070');
         time = $(`#${id}-time`).text();
-        $('#saat').val(time);
+        $('#hour').val(time);
     }
 
 
@@ -882,7 +882,7 @@
         el: '#app',
         data: {
             name:'',
-            servis: '',
+            service: '',
             address:'',
             show:true
         },

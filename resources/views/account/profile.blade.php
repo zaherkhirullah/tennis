@@ -11,7 +11,7 @@
                 <img alt="image" class="img-responsive" src="{{ asset('assets/profil.jpg') }} ">
             </div>
             <div class="ibox-content profile-content">
-                <h4><strong>{{ Auth::user()->isim }}</strong></h4>
+                <h4><strong>{{ Auth::user()->name }}</strong></h4>
                 <p><i class="fa fa-map-marker"></i> {{ Auth::user()->adres }}</p>
                 <h5>
                     Hakkımda bilgiler
@@ -26,7 +26,7 @@
                     </div>
                     <div class="col-md-4">
                         <span class="line">5,3,9,6,5,9,7,3,5,2</span>
-                        <h5><strong>28</strong> Saatler</h5>
+                        <h5><strong>28</strong> hourler</h5>
                     </div>
                 </div>
                 <div class="user-button">
@@ -53,7 +53,7 @@
                     <div class="feed-element">
                         <div class="media-body ">
                             <small class="pull-right text-navy">Şuan</small>
-                            <strong>Kort Adi</strong> Kiraladınız. Süre <strong>2 saat</strong> boyunca. <br>
+                            <strong>Kort Adi</strong> Kiraladınız. Süre <strong>2 hour</strong> boyunca. <br>
                             <small class="text-muted">Çarşamba 4:21 pm - 12.06.2014</small>
                             <div class="actions">
                                 <a class="btn btn-xs btn-danger"><i class="fa fa-heart"></i> Uzatma</a>
@@ -63,28 +63,28 @@
                     <div class="feed-element">
                         <div class="media-body ">
                             <small class="pull-right text-navy">2 gün önce</small>
-                            <strong>Kort Adi</strong> Kiraladınız. Süre <strong>2 saat</strong> boyunca. <br>
+                            <strong>Kort Adi</strong> Kiraladınız. Süre <strong>2 hour</strong> boyunca. <br>
                             <small class="text-muted">Çarşamba 4:21 pm - 12.06.2014</small>
                         </div>
                     </div>
                     <div class="feed-element">
                         <div class="media-body ">
                             <small class="pull-right text-navy">2 gün önce</small>
-                            <strong>Kort Adi</strong> Kiraladınız. Süre <strong>2 saat</strong> boyunca. <br>
+                            <strong>Kort Adi</strong> Kiraladınız. Süre <strong>2 hour</strong> boyunca. <br>
                             <small class="text-muted">Çarşamba 4:21 pm - 12.06.2014</small>
                         </div>
                     </div>
                     <div class="feed-element">
                         <div class="media-body ">
                             <small class="pull-right text-navy">2 gün önce</small>
-                            <strong>Kort Adi</strong> Kiraladınız. Süre <strong>2 saat</strong> boyunca. <br>
+                            <strong>Kort Adi</strong> Kiraladınız. Süre <strong>2 hour</strong> boyunca. <br>
                             <small class="text-muted">Çarşamba 4:21 pm - 12.06.2014</small>
                         </div>
                     </div>
                     <div class="feed-element">
                         <div class="media-body ">
                             <small class="pull-right text-navy">2 gün önce</small>
-                            <strong>Kort Adi</strong> Kiraladınız. Süre <strong>2 saat</strong> boyunca. <br>
+                            <strong>Kort Adi</strong> Kiraladınız. Süre <strong>2 hour</strong> boyunca. <br>
                             <small class="text-muted">Çarşamba 4:21 pm - 12.06.2014</small>
                         </div>
                     </div>

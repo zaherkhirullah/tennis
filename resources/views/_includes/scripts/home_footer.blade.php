@@ -22,7 +22,7 @@
 <script src="{{ asset('js/Calender.js') }}"></script>
 <script>
 $(document).ready(function () {
-        saat_list = [];
+        hour_list = [];
         _events = [];
         calendar = new Calendar("calendarContainer", "small", ["PZT", 3], ["#054910", "#07911d", "#ffffff", "#ffffff"]);
         organizer = new Organizer("organizerContainer", calendar);
@@ -33,7 +33,7 @@ $(document).ready(function () {
             yil = $("#calendarContainer-year").text();
             ay = months.indexOf($("#calendarContainer-month").text());
             ay = ay + 1;
-            kort = $('#kort').val();
+            stage = $('#stage').val();
             $('#tarih').val(`${yil}-${ay}-${gun}`);
             $.ajax({
                 type: 'POST',
@@ -43,20 +43,20 @@ $(document).ready(function () {
                     day: gun,
                     month: ay,
                     year: yil,
-                    kort:kort,
+                    stage:stage,
                     "_token": "{{ csrf_token() }}"
                 },
                 success: function (data) {
-                    saat_list = data;
+                    hour_list = data;
                     console.log(data);
-                    for (i = 0; i < saat_list.length; i++) 
+                    for (i = 0; i < hour_list.length; i++)
                     {
                         _events[i] =
                             {
-                                startTime: saat_list[i] + ":00",
-                                endTime: (saat_list[i] + 1) + ":00",
+                                startTime: hour_list[i] + ":00",
+                                endTime: (hour_list[i] + 1) + ":00",
                                 mTime: "",
-                                text: "Rezerv Et "
+                                text: "reservationEt "
                             }
                     }
                     clickRight(id);
@@ -126,7 +126,7 @@ $(document).ready(function () {
         $(`li[id^='organizerContainer-list-item-']`).css('background-color','white');
         $(`#${id}`).css('background-color','#707070');
         time = $(`#${id}-time`).text();
-        $('#saat').val(time);
+        $('#hour').val(time);
     }
 </script>
 <script src="{{ asset('js/vue.js') }}"></script>
@@ -135,7 +135,7 @@ $(document).ready(function () {
             el: '#app',
             data: {
                 name:'',
-                servis: '',
+                service: '',
                 address:'',
                 show:true
             },

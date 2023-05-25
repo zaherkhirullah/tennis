@@ -3254,28 +3254,28 @@ function createPromiseCapability() {
       while (this.handlers.length > 0) {
         var handler = this.handlers.shift();
 
-        var nextStatus = handler.thisPromise._status;
+        var nextReservations = handler.thisPromise._status;
         var nextValue = handler.thisPromise._value;
 
         try {
-          if (nextStatus === STATUS_RESOLVED) {
+          if (nextReservations === STATUS_RESOLVED) {
             if (typeof handler.onResolve === 'function') {
               nextValue = handler.onResolve(nextValue);
             }
           } else if (typeof handler.onReject === 'function') {
               nextValue = handler.onReject(nextValue);
-              nextStatus = STATUS_RESOLVED;
+              nextReservations = STATUS_RESOLVED;
 
               if (handler.thisPromise._unhandledRejection) {
                 this.removeUnhandeledRejection(handler.thisPromise);
               }
           }
         } catch (ex) {
-          nextStatus = STATUS_REJECTED;
+          nextReservations = STATUS_REJECTED;
           nextValue = ex;
         }
 
-        handler.nextPromise._updateStatus(nextStatus, nextValue);
+        handler.nextPromise._updateStatus(nextReservations, nextValue);
         if (Date.now() >= timeoutAt) {
           break;
         }
