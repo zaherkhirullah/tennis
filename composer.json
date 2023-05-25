@@ -9,20 +9,20 @@
   "type": "project",
   "require": {
     "php": "^7.3|^8.0",
-    "davejamesmiller/laravel-breadcrumbs": "*",
-    "fideloper/proxy": "*",
-    "laravel/framework": "*",
-    "laravel/tinker": "*",
+    "davejamesmiller/laravel-breadcrumbs": "^5.3.2",
+    "fideloper/proxy": "^4.4.2",
+    "laravel/framework": "^v8.83.27",
+    "laravel/tinker": "^v2.8.1",
     "laravel/ui": "^3.4",
-    "laravelcollective/html": "*"
+    "laravelcollective/html": "^v6.4.1"
   },
   "require-dev": {
-    "filp/whoops": "*",
-    "fzaninotto/faker": "*",
-    "mockery/mockery": "*",
-    "nunomaduro/collision": "*",
-    "phpunit/phpunit": "*",
-    "symfony/thanks": "*"
+    "filp/whoops": "^2.15.2",
+    "fzaninotto/faker": "^v1.9.2",
+    "mockery/mockery": "^1.5.1",
+    "nunomaduro/collision": "^v5.11.0",
+    "phpunit/phpunit": "^9.6.8",
+    "symfony/thanks": "^v1.2.10"
   },
   "autoload": {
     "classmap": [
