@@ -78,7 +78,7 @@ class Reservation extends Model
         return $this->belongsTo(Service::class);
     }
 
-    public static function iptal(Reservation $reservation)
+    public static function cancel(Reservation $reservation)
     {
         $reservation->delete();
 

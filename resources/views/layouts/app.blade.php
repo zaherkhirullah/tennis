@@ -84,7 +84,8 @@
         </div>
  
     </div>
-    
+
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
     <!-- Mainly scripts -->
     <script src="{{ asset('assets/js/jquery-3.1.1.min.js') }} "></script>
     <script src="{{ asset('assets/js/bootstrap.min.js') }} "></script>

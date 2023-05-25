@@ -75,9 +75,9 @@ class ReservationController extends Controller
         }
 
         $hour = substr($hour, 0, strpos($hour, ' '));
-        $start_at_houri = $tarih.' '.$hour.':00';
-        $start_at_houri = Carbon::parse($start_at_houri);
-        $end_at_houri = Carbon::parse($start_at_houri)->addHour();
+        $start_at_hour = $tarih.' '.$hour.':00';
+        $start_at_hour = Carbon::parse($start_at_hour);
+        $end_at_hour = Carbon::parse($start_at_hour)->addHour();
 
         if ($request->phone && $request->name) {
             $renter = new Renter();
@@ -90,19 +90,20 @@ class ReservationController extends Controller
             Session::flash('error', "Hata olustu ");
         }
 
-        $bos_services = Service::musaitServisler($start_at_houri);
+        $bos_services = Service::musaitServisler($start_at_hour);
 
         $reservation = DB::Insert('call add_reservation(?,?,?,?,?,?)', [
             $request->stage_id,
             $renter_id,
-            $start_at_houri,
-            $end_at_houri,
+            $start_at_hour,
+            $end_at_hour,
             $request->service_address,
             $bos_services[0]
         ]);
+        
         $kiralaya = Renter::find($renter_id);
         if ($reservation) {
-            Session::flash('success', "sayin {$kiralaya->name} reservation basariyla olusturulmustur { $start_at_houri }");
+            Session::flash('success', "sayin {$kiralaya->name} reservation basariyla olusturulmustur { $start_at_hour }");
         } else {
             Session::flash('error', "Hata olustu ");
         }
@@ -110,9 +111,9 @@ class ReservationController extends Controller
         return back();
     }
 
-    public function iptal(Reservation $reservation)
+    public function cancel(Reservation $reservation)
     {
-        Reservation::iptal($reservation);
+        Reservation::cancel($reservation);
         Session::flash('success', 'iptal isleminiz gerceklestirildi');
 
         return back();
@@ -182,9 +183,9 @@ class ReservationController extends Controller
             }
         }
         $av_hour = [];
-        foreach ($av_hours as $av_hour) {
-            if ($av_hour != 0) {
-                $av_hour[] = $av_hour;
+        foreach ($av_hours as $ahour) {
+            if ($ahour != 0) {
+                $av_hour[] = $ahour;
             }
         }
         $av_hour = ($date < Today()) ? "" : $av_hour;
